@@ -2,7 +2,7 @@
   "name": "@ecomplus/utils",
   "version": "0.0.2",
   "description": "JS utility functions to E-Com Plus (not only) related apps",
-  "main": "dist/ecomplus-utils.js",
+  "main": "dist/ecom-utils.js",
   "scripts": {
     "serve": "webpack-dev-server",
     "build": "NODE_ENV=production & webpack",
