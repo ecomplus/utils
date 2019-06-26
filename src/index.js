@@ -5,7 +5,9 @@
  */
 
 import i18n from 'Methods/i18n'
+import currency from 'Methods/currency'
 
 export {
-  i18n
+  i18n,
+  currency
 }
