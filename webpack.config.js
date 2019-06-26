@@ -12,7 +12,7 @@ module.exports = {
     filename: 'ecom-utils.js'
   },
   devServer: {
-    contentBase: path.join(__dirname, 'tests'),
+    contentBase: path.join(__dirname, 'test'),
     compress: true,
     port: 9314,
     open: true
