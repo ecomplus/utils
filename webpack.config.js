@@ -1,18 +1,19 @@
 'use strict'
 
+const devMode = process.env.NODE_ENV === 'production'
 const path = require('path')
 
 module.exports = {
-  mode: 'development',
+  mode: devMode ? 'development' : 'production',
   entry: './src/index.js',
   output: {
     library: 'EcomUtils',
     libraryTarget: 'umd',
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'ecom-utils.js'
   },
   devServer: {
-    contentBase: path.join(__dirname, 'test'),
+    contentBase: path.resolve(__dirname, 'test'),
     compress: true,
     port: 9314,
     open: true
@@ -29,5 +30,11 @@ module.exports = {
   stats: {
     colors: true
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  resolve: {
+    alias: {
+      Lib: path.resolve(__dirname, 'src/lib/'),
+      Methods: path.resolve(__dirname, 'src/methods/')
+    }
+  }
 }
