@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["EcomplusUtils"] = factory();
+		exports["EcomUtils"] = factory();
 	else
-		root["EcomplusUtils"] = factory();
+		root["EcomUtils"] = factory();
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -100,13 +100,21 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * https://github.com/ecomclub/ecomplus-utils
+ * @author E-Com Club <ti@e-com.club>
+ * @license MIT
+ */
+var EcomUtils = {};
+/* harmony default export */ __webpack_exports__["default"] = (EcomUtils);
 
 /***/ })
 
 /******/ });
 });
-//# sourceMappingURL=ecomplus-utils.js.map
+//# sourceMappingURL=ecom-utils.js.map

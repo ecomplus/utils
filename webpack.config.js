@@ -6,10 +6,10 @@ module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
-    library: 'EcomplusUtils',
+    library: 'EcomUtils',
     libraryTarget: 'umd',
     path: path.join(__dirname, 'dist'),
-    filename: 'ecomplus-utils.js'
+    filename: 'ecom-utils.js'
   },
   devServer: {
     contentBase: path.join(__dirname, 'tests'),
