@@ -4,4 +4,8 @@
  * @license MIT
  */
 
-export default {}
+import i18n from 'Methods/i18n'
+
+export {
+  i18n
+}
