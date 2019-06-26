@@ -30,11 +30,5 @@ module.exports = {
   stats: {
     colors: true
   },
-  devtool: 'source-map',
-  resolve: {
-    alias: {
-      Lib: path.resolve(__dirname, 'src/lib/'),
-      Methods: path.resolve(__dirname, 'src/methods/')
-    }
-  }
+  devtool: 'source-map'
 }
