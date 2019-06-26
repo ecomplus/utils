@@ -4,8 +4,8 @@
  * @license MIT
  */
 
-import i18n from 'Methods/i18n'
-import currency from 'Methods/currency'
+import i18n from './methods/i18n'
+import currency from './methods/currency'
 
 export {
   i18n,

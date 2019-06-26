@@ -1,4 +1,4 @@
-import { DEFAULT_LANG } from 'Lib/constants'
+import { DEFAULT_LANG } from './../lib/constants'
 
 const i18n = (label, lang) => {
   if (!lang) {
