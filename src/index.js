@@ -4,6 +4,4 @@
  * @license MIT
  */
 
-const EcomUtils = {}
-
-export default EcomUtils
+export default {}
