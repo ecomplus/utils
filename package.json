@@ -2,10 +2,10 @@
   "name": "@ecomplus/utils",
   "version": "0.0.2",
   "description": "JS utility functions to E-Com Plus (not only) related apps",
-  "main": "dist/ecom-utils.js",
+  "main": "dist/ecom-utils.min.js",
   "scripts": {
     "serve": "webpack-dev-server",
-    "build": "NODE_ENV=production & webpack",
+    "build": "node ./build/bin.js",
     "doc": "jsdoc src -r README.md -d docs"
   },
   "repository": {
@@ -38,6 +38,8 @@
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.3",
     "husky": "^2.6.0",
     "jsdoc": "^3.6.2",
     "standard": "^12.0.1",
