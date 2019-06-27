@@ -7,7 +7,7 @@ module.exports = {
   mode: devMode ? 'development' : 'production',
   entry: './src/index.js',
   output: {
-    library: 'EcomUtils',
+    library: 'ecomUtils',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, 'dist'),
     filename: 'ecom-utils.js'
