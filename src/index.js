@@ -12,9 +12,9 @@ import currency from './methods/currency'
 const _self = name + '@' + version
 
 /**
- * Exports {@link ecomUtils} object.
+ * JS utility functions for E-Com Plus (not only) related apps.
  * @module @ecomplus/utils
- * @returns {Object} {@link ecomUtils}
+ * @exports {@link ecomUtils}
  * @example import '@ecomplus/utils'
  * @example require('@ecomplus/utils')
  * @example <script src="https://cdn.jsdelivr.net/npm/@ecomplus/utils"></script>
@@ -25,3 +25,7 @@ export {
   i18n,
   currency
 }
+
+/**
+ * @namespace ecomUtils
+ */

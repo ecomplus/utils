@@ -1,5 +1,12 @@
 import { DEFAULT_LANG } from './../lib/constants'
 
+/**
+ * Get translated string from object by snake case lang code.
+ * @memberof ecomUtils
+ * @returns {string|object}
+ * @example ecomUtils.i18n(label, lang)
+ */
+
 const i18n = (label, lang) => {
   if (!lang) {
     // try to get language code globally on browser
