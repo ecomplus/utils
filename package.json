@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/utils",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "JS utility functions to E-Com Plus (not only) related apps",
   "main": "dist/ecom-utils.min.js",
   "jsdelivr": "dist/ecom-utils.min.js",
@@ -9,7 +9,7 @@
     "serve": "webpack-dev-server",
     "build": "node ./build/bin.js",
     "doc": "jsdoc src -r README.md -d docs",
-    "release": "node ./build/bin.js & semantic-release"
+    "release": "node ./build/bin.js & standard-version"
   },
   "repository": {
     "type": "git",
@@ -46,6 +46,7 @@
     "husky": "^2.6.0",
     "jsdoc": "^3.6.2",
     "standard": "^12.0.1",
+    "standard-version": "^6.0.1",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2"
