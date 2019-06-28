@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>methods/price.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,36 +32,39 @@
 
 <div id="main">
     
+    <h1 class="page-title">methods/price.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import onPromotion from './on-promotion'
 
+/**
+ * Returns object current price.
+ * @memberOf Ecom.methods
+ * @param {object} body - Object (product or variation) body
+ * @returns {number}
+ */
 
-    <section class="package">
-        <h3> </h3>		
+const price = body => {
+  // prefer promotional price
+  if (!body.hasOwnProperty('base_price') || onPromotion(body)) {
+    // sale price
+    return body.price || 0
+  } else {
+    return body.base_price || 0
+  }
+}
+
+export default price
+</code></pre>
+        </article>
     </section>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme">
-        <article><h1>ecomplus-utils</h1>
-<p>JS utility functions to E-Com Plus (not only) related apps</p></article>
-    </section>
-
-
 
 
 
