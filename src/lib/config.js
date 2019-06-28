@@ -2,7 +2,8 @@ import global from './global'
 
 import {
   DEFAULT_LANG,
-  DEFAULT_CURRENCY
+  DEFAULT_CURRENCY,
+  DEFAULT_CURRENCY_SYMBOL
 } from './constants'
 
 // check for predefined config options
@@ -23,10 +24,14 @@ const getConfig = prop => {
 }
 
 // setup config object
-const config = {
-  lang: getConfig('lang'),
-  currency: getConfig('currency')
-}
+const config = {}
+;[
+  'lang',
+  'currency',
+  'currency_symbol'
+].forEach(prop => {
+  config[prop] = getConfig(prop)
+})
 
 // exports fuctions to get and set config props
 export default {
@@ -40,6 +45,7 @@ export default {
       switch (prop) {
         case 'lang': return DEFAULT_LANG
         case 'currency': return DEFAULT_CURRENCY
+        case 'currency_symbol': return DEFAULT_CURRENCY_SYMBOL
       }
     }
     return null
