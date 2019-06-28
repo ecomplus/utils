@@ -1,10 +1,11 @@
 import { DEFAULT_LANG } from './../lib/constants'
+import config from './../lib/config'
 
 /**
  * Get translated string by lang code from dictionary object.
  * @memberof ecomUtils
  * @param {object} dictionary - Dictionary object containing string in multiple langs
- * @param {string} [lang=window.lang] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string|object}
  *
  * @example
@@ -20,12 +21,7 @@ import { DEFAULT_LANG } from './../lib/constants'
  * import i18n from '@ecomplus/utils/dist/methods/i18n'
  */
 
-const i18n = (dictionary, lang) => {
-  if (!lang) {
-    // try to get language code globally on browser
-    lang = (typeof window === 'object' && window.lang) || DEFAULT_LANG
-  }
-
+const i18n = (dictionary, lang = config.get('lang')) => {
   if (typeof dictionary === 'object' && dictionary !== null) {
     let prop = Object.keys(dictionary)[0]
     if (typeof dictionary[prop] === 'string') {
