@@ -1,34 +1,47 @@
 import { DEFAULT_LANG } from './../lib/constants'
 
 /**
- * Get translated string from object by snake case lang code.
+ * Get translated string by lang code from dictionary object.
  * @memberof ecomUtils
+ * @param {object} dictionary - Dictionary object containing string in multiple langs
+ * @param {string} [lang=window.lang] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string|object}
- * @example ecomUtils.i18n(label, lang)
+ *
+ * @example
+ * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' })
+ * // 'Hello'
+ * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' }, 'pt_br')
+ * // 'Olá'
+ * ecomUtils.i18n({ hello: { en_us: 'Hello', pt_br: 'Olá' }})
+ * // { hello: 'Hello' }
+ *
+ * @example
+ * // Import this method standalone
+ * import i18n from '@ecomplus/utils/dist/methods/i18n'
  */
 
-const i18n = (label, lang) => {
+const i18n = (dictionary, lang) => {
   if (!lang) {
     // try to get language code globally on browser
     lang = (typeof window === 'object' && window.lang) || DEFAULT_LANG
   }
 
-  if (typeof label === 'object' && label !== null) {
-    let prop = Object.keys(label)[0]
-    if (typeof label[prop] === 'string') {
+  if (typeof dictionary === 'object' && dictionary !== null) {
+    let prop = Object.keys(dictionary)[0]
+    if (typeof dictionary[prop] === 'string') {
       // object with strings
       // supposed to be object of languages options
-      return label[lang] || label[DEFAULT_LANG] || label[prop]
+      return dictionary[lang] || dictionary[DEFAULT_LANG] || dictionary[prop]
     } else {
       // recursive
-      for (let prop in label) {
-        if (label.hasOwnProperty(prop)) {
-          label[prop] = i18n(label[prop], lang)
+      for (let prop in dictionary) {
+        if (dictionary.hasOwnProperty(prop)) {
+          dictionary[prop] = i18n(dictionary[prop], lang)
         }
       }
     }
   }
-  return label
+  return dictionary
 }
 
 export default i18n

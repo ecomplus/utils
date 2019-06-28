@@ -15,9 +15,18 @@ const _self = name + '@' + version
  * JS utility functions for E-Com Plus (not only) related apps.
  * @module @ecomplus/utils
  * @exports {@link ecomUtils}
- * @example import '@ecomplus/utils'
- * @example require('@ecomplus/utils')
- * @example <script src="https://cdn.jsdelivr.net/npm/@ecomplus/utils"></script>
+ *
+ * @example
+ * // Import all utility methods with ES
+ * import ecomUtils from '@ecomplus/utils'
+ *
+ * @example
+ * // With CommonJS
+ * const ecomUtils = require('@ecomplus/utils')
+ *
+ * @example
+ * <!-- Global `ecomUtils` from CDN on browser -->
+ * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/utils"></script>
  */
 
 export {
