@@ -6,10 +6,14 @@
 
 import { name, version } from './../package.json'
 
-import i18n from './methods/i18n'
-import currency from './methods/currency'
+import config from './lib/config'
 
-const _self = name + '@' + version
+import i18n from './methods/i18n'
+import price from './methods/price'
+import onPromotion from './methods/on-promotion'
+import formatMoney from './methods/format-money'
+
+const self = name + '@' + version
 
 /**
  * JS utility functions for E-Com Plus (not only) related apps.
@@ -30,9 +34,12 @@ const _self = name + '@' + version
  */
 
 export {
-  _self,
+  self,
+  config,
   i18n,
-  currency
+  price,
+  onPromotion,
+  formatMoney
 }
 
 /**
