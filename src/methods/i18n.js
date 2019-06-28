@@ -1,26 +1,6 @@
 import { DEFAULT_LANG } from './../lib/constants'
 import config from './../lib/config'
 
-/**
- * Get translated string by lang code from dictionary object.
- * @memberof ecomUtils
- * @param {object} dictionary - Dictionary object containing string in multiple langs
- * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
- * @returns {string|object}
- *
- * @example
- * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' })
- * // 'Hello'
- * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' }, 'pt_br')
- * // 'Olá'
- * ecomUtils.i18n({ hello: { en_us: 'Hello', pt_br: 'Olá' }})
- * // { hello: 'Hello' }
- *
- * @example
- * // Import this method standalone
- * import i18n from '@ecomplus/utils/dist/methods/i18n'
- */
-
 const i18n = (dictionary, lang = config.get('lang')) => {
   if (typeof dictionary === 'object' && dictionary !== null) {
     let prop = Object.keys(dictionary)[0]
@@ -39,5 +19,40 @@ const i18n = (dictionary, lang = config.get('lang')) => {
   }
   return dictionary
 }
+
+/**
+ * @method
+ * @memberof ecomUtils
+ * @name i18n
+ * @description Get translated string by lang code from dictionary object.
+ * @param {object} dictionary - Dictionary object containing string in multiple langs
+ * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @returns {string|object}
+ *
+ * @example
+ * // With simple dictionary objects
+ * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' })
+ * // => 'Hello'
+ * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' }, 'pt_br')
+ * // => 'Olá'
+ *
+ * @example
+ * // With nested objects
+ * ecomUtils.i18n({ hello: { en_us: 'Hello', pt_br: 'Olá' }})
+ * // => { hello: 'Hello' }
+ * ecomUtils.i18n({ hello: { en_us: 'Hello', pt_br: 'Olá' }, world: { en_us: 'World' }}, 'pt_br')
+ * // => { hello: 'Olá', world: 'World' }
+ *
+ * @example
+ * // You can also set the configured lang first
+ * ecomUtils.config.set('lang', 'pt_br')
+ * // Then call `i18n` without expliciting lang
+ * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' })
+ * // => Olá
+ *
+ * @example
+ * // Importing this method standalone
+ * import i18n from '@ecomplus/utils/dist/methods/i18n'
+ */
 
 export default i18n
