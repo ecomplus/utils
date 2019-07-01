@@ -3,7 +3,9 @@ import global from './global'
 import {
   DEFAULT_LANG,
   DEFAULT_CURRENCY,
-  DEFAULT_CURRENCY_SYMBOL
+  DEFAULT_CURRENCY_SYMBOL,
+  DEFAULT_STORE_ID,
+  DEFAULT_STORE_OBJECT_ID
 } from './constants'
 
 // check for predefined config options
@@ -26,11 +28,13 @@ const getConfig = prop => {
 // setup config object
 const config = {}
 ;[
+  'store_id',
+  'store_object_id',
   'lang',
   'currency',
   'currency_symbol'
 ].forEach(prop => {
-  config[prop] = getConfig(prop)
+  config[prop] = getConfig(`ecom_${prop}`)
 })
 
 // exports fuctions to get and set config props
@@ -46,6 +50,8 @@ export default {
         case 'lang': return DEFAULT_LANG
         case 'currency': return DEFAULT_CURRENCY
         case 'currency_symbol': return DEFAULT_CURRENCY_SYMBOL
+        case 'store_id': return DEFAULT_STORE_ID
+        case 'store_object_id': return DEFAULT_STORE_OBJECT_ID
       }
     }
     return null
