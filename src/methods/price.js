@@ -15,7 +15,7 @@ const price = itemBody => {
  * @memberof ecomUtils
  * @name price
  * @description Returns current price from item object.
- * @param {object} itemBody - Item (product or variation) body
+ * @param {object} itemBody - Item (product or variation) body object
  * @returns {number}
  *
  * @example

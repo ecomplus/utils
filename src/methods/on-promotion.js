@@ -1,5 +1,5 @@
-const onPromotion = body => {
-  let promoDates = body.price_effective_date
+const onPromotion = itemBody => {
+  let promoDates = itemBody.price_effective_date
   if (promoDates) {
     let now = new Date()
     if (promoDates.start) {
@@ -16,7 +16,7 @@ const onPromotion = body => {
     }
   }
   // default to no promotion
-  return !!(body.base_price > body.price)
+  return !!(itemBody.base_price > itemBody.price)
 }
 
 /**
@@ -24,7 +24,7 @@ const onPromotion = body => {
  * @memberof ecomUtils
  * @name onPromotion
  * @description Check if item has promotional price.
- * @param {object} body - Object (product or variation) body
+ * @param {object} itemBody - Item (product or variation) body object
  * @returns {boolean}
  *
  * @example
