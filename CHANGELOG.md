@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/ecomclub/ecomplus-utils/compare/v0.3.0...v0.4.0) (2019-07-01)
+
+
+### Bug Fixes
+
+* **filter:** throw error when 'categories' is not an array ([c57e425](https://github.com/ecomclub/ecomplus-utils/commit/c57e425))
+* **methods:** preventing some fatal errors ([b965b3b](https://github.com/ecomclub/ecomplus-utils/commit/b965b3b))
+
+
+### Features
+
+* **method:** add 'findByProperty' and 'findBySlug' methods ([e29a9b6](https://github.com/ecomclub/ecomplus-utils/commit/e29a9b6))
+* **method:** new 'findByParentSlug' method ([4a189f2](https://github.com/ecomclub/ecomplus-utils/commit/4a189f2))
+* **method:** new 'inStock' method ([6555cdd](https://github.com/ecomclub/ecomplus-utils/commit/6555cdd))
+* **method:** new 'minQuantity' method for product stock check ([15fd498](https://github.com/ecomclub/ecomplus-utils/commit/15fd498))
+* **method:** new 'name' method ([cfddd49](https://github.com/ecomclub/ecomplus-utils/commit/cfddd49))
+
+
+
 ## [0.3.0](https://github.com/ecomclub/ecomplus-utils/compare/v0.2.0...v0.3.0) (2019-07-01)
 
 
