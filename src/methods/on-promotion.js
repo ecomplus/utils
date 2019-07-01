@@ -1,4 +1,10 @@
 const onPromotion = product => {
+  if (typeof product !== 'object' || product === null) {
+    // prevent fatal error
+    console.error(new Error('`product` must be an object'))
+    return false
+  }
+
   let promoDates = product.price_effective_date
   if (promoDates) {
     let now = new Date()

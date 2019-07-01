@@ -1,8 +1,13 @@
 const filterByParentSlug = (categories, slug) => {
   // for categories
   // returns array of macthed category objects
-  // error when 'categories' is not an array
-  return categories.filter(category => category.parent && category.parent.slug === slug)
+  try {
+    return categories.filter(category => category.parent && category.parent.slug === slug)
+  } catch (err) {
+    // not an array ?
+    console.error(err)
+    return []
+  }
 }
 
 /**

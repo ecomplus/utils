@@ -4,7 +4,7 @@ const price = product => onPromotion(product)
   // promotional sale price
   ? product.price
   // use the maximum value between sale and base price
-  : Math.max(product.base_price || 0, product.price || 0)
+  : product ? Math.max(product.base_price || 0, product.price || 0) : 0
 
 /**
  * @method
