@@ -15,6 +15,7 @@ import formatMoney from './methods/format-money'
 import findByProperty from './methods/find-by-property'
 import findBySlug from './methods/find-by-slug'
 import filterByParentSlug from './methods/filter-by-parent-slug'
+import minQuantity from './methods/min-quantity'
 
 const self = name + '@' + version
 
@@ -45,7 +46,8 @@ export {
   formatMoney,
   findByProperty,
   findBySlug,
-  filterByParentSlug
+  filterByParentSlug,
+  minQuantity
 }
 
 /**
