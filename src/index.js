@@ -12,6 +12,8 @@ import i18n from './methods/i18n'
 import price from './methods/price'
 import onPromotion from './methods/on-promotion'
 import formatMoney from './methods/format-money'
+import findByProperty from './methods/find-by-property'
+import findBySlug from './methods/find-by-slug'
 import filterByParentSlug from './methods/filter-by-parent-slug'
 
 const self = name + '@' + version
@@ -41,6 +43,8 @@ export {
   price,
   onPromotion,
   formatMoney,
+  findByProperty,
+  findBySlug,
   filterByParentSlug
 }
 
