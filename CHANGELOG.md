@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/ecomclub/ecomplus-utils/compare/v0.2.0...v0.3.0) (2019-07-01)
+
+
+### Bug Fixes
+
+* **config:** get config trying from object, then fallback to constants ([b448c1a](https://github.com/ecomclub/ecomplus-utils/commit/b448c1a))
+* **config:** getting config from global and meta with  prefox ([649f584](https://github.com/ecomclub/ecomplus-utils/commit/649f584))
+* **constants:** default currency constants, code and symbol ([5dca250](https://github.com/ecomclub/ecomplus-utils/commit/5dca250))
+* **i18n:** fix i18n method using config.get to default lang param value ([2e3e036](https://github.com/ecomclub/ecomplus-utils/commit/2e3e036))
+* **price:** getting price correctly, update examples ([2d134dd](https://github.com/ecomclub/ecomplus-utils/commit/2d134dd))
+
+
+### Features
+
+* **config:** add currency_symbol prop ([4aaf5cd](https://github.com/ecomclub/ecomplus-utils/commit/4aaf5cd))
+* **defaults:** adding some default constants (store ids, country code) ([aa923f5](https://github.com/ecomclub/ecomplus-utils/commit/aa923f5))
+* **lib:** api with global object, constants and config (get, set) ([d58119e](https://github.com/ecomclub/ecomplus-utils/commit/d58119e))
+* **method:** add  method ([1f1cbde](https://github.com/ecomclub/ecomplus-utils/commit/1f1cbde))
+* **method:** new 'price' method ([2943176](https://github.com/ecomclub/ecomplus-utils/commit/2943176))
+* **method:** new method ([2f4f692](https://github.com/ecomclub/ecomplus-utils/commit/2f4f692))
+* **module:** add 'self' and 'config' to ecomUtils ([2fabc8f](https://github.com/ecomclub/ecomplus-utils/commit/2fabc8f))
+
+
+
 ## 0.2.0 (2019-06-27)
 
 
