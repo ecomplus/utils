@@ -1,14 +1,10 @@
 import onPromotion from './on-promotion'
 
-const price = itemBody => {
-  // prefer promotional price
-  if (!itemBody.hasOwnProperty('base_price') || onPromotion(itemBody)) {
-    // sale price
-    return itemBody.price || 0
-  } else {
-    return itemBody.base_price || 0
-  }
-}
+const price = itemBody => onPromotion(itemBody)
+  // promotional sale price
+  ? itemBody.price
+  // use the maximum value between sale and base price
+  : Math.max(itemBody.base_price || 0, itemBody.price || 0)
 
 /**
  * @method
@@ -27,20 +23,19 @@ const price = itemBody => {
  * // => 100
  * ecomUtils.price({ price: 190, base_price: 170 })
  * // => 190
+ * ecomUtils.price({})
+ * // => 0
  *
  * @example
  * // With promotion date range
  * const product = { sku: 'abc', price: 20.9, base_price: 30.9, price_effective_date: {} }
+ * product.price_effective_date.start = '2021-01-01T00:00:00.000Z'
+ * ecomUtils.price(product)
+ * // => 30.9
  * product.price_effective_date.start = '2019-06-01T16:03:45.035Z'
  * ecomUtils.price(product)
  * // => 20.9
  * product.price_effective_date.end = '2019-06-10T16:03:45.035Z'
- * ecomUtils.price(product)
- * // => 30.9
- * product.price_effective_date.end = '2021-08-12T00:00:00.000Z'
- * ecomUtils.price(product)
- * // => 20.9
- * product.price_effective_date.start = '2021-01-01T00:00:00.000Z'
  * ecomUtils.price(product)
  * // => 30.9
  *
