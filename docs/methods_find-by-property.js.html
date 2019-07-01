@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/format-money.js - Documentation</title>
+    <title>methods/find-by-property.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/format-money.js</h1>
+    <h1 class="page-title">methods/find-by-property.js</h1>
     
 
     
@@ -42,75 +42,45 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import config from './../lib/config'
-import price from './price'
-
-const formatMoney = (value, currency = config.get('currency'), lang = config.get('lang')) => {
-  // price to number
-  if (typeof value === 'object') {
-    if (value !== null) {
-      // suppose to be product object
-      value = price(value)
-    }
-  } else if (typeof value === 'string') {
-    value = parseFloat(value)
-  }
-
-  // format pt-BR, en-US
-  lang = lang.replace('_', '-')
-  if (currency) {
-    try {
-      // format price string
-      return value.toLocaleString(lang, { style: 'currency', currency })
-    } catch (err) {
-      console.error(err)
+            <pre class="prettyprint source linenums"><code>const findByProperty = (list, prop, value) => {
+  // must be an array
+  if (Array.isArray(list)) {
+    for (let i = 0; i &lt; list.length; i++) {
+      let obj = list[i]
+      if (obj &amp;&amp; obj[prop] === value) {
+        // object found
+        return obj
+      }
     }
   }
-  // fallback using configured currency symbol
-  const moneyPrefix = (currency || config.get('currency_symbol')) + ' '
-  return typeof value === 'number' ? moneyPrefix + value : ''
+  return undefined
 }
 
 /**
  * @method
  * @memberof ecomUtils
- * @name formatMoney
- * @description Parse price number to formatted currency string.
- * @param {number|object} value - Price number or body object (product or variation)
- * @param {string|null} [currency=config.get('currency')] - Currency code such as 'BRL'
- * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
- * @returns {string}
+ * @name findByProperty
+ * @description Find object from list by some property value.
+ * @param {array} list - List of nested objects
+ * @param {string} prop - Property name
+ * @param {mixed} value - Property value to be matched
+ * @returns {object|undefined}
  *
  * @example
- * // With number as value
- * ecomUtils.formatMoney(10.6)
- * // => $10.60
- * ecomUtils.formatMoney(10.6, 'BRL')
- * // => R$10.60
- * ecomUtils.formatMoney(10.6, 'BRL', 'pt_br')
- * // => R$ 10,60
- *
- * @example
- * // With product, variation or cart item object as value
- * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
- * ecomUtils.formatMoney({ sku: 'TEST', name: 'Test', price: 140.56 })
- * // => $140.56
- *
- * @example
- * // You can also set the configured lang and currency first
- * ecomUtils.config.set('lang', 'pt_br')
- * ecomUtils.config.set('currency', 'BRL')
- * ecomUtils.config.set('currency_symbol', 'R$')
- * // Then call `formatMoney` without expliciting currency and lang
- * ecomUtils.formatMoney(10.6)
- * // => R$ 10,60
+ * // Find on list of generic objects
+ * ecomUtils.findByProperty([ { a: 1, b: 1 }, { a: 2 } ], 'a', 1)
+ * // => { a: 1, b: 1 }
+ * ecomUtils.findByProperty([ { a: 1 }, { a: 1, b: 1 }, { a: 0 } ], 'a', 1)
+ * // => { a: 1 }
+ * ecomUtils.findByProperty([ { a: 0, b: 0 }, { a: 1 } ], 'a', 3)
+ * // => undefined
  *
  * @example
  * // Importing this method standalone
- * import formatMoney from '@ecomplus/utils/dist/methods/formatMoney'
+ * import findByProperty from '@ecomplus/utils/dist/methods/findByProperty'
  */
 
-export default formatMoney
+export default findByProperty
 </code></pre>
         </article>
     </section>

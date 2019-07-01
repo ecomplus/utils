@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/format-money.js - Documentation</title>
+    <title>methods/filter-by-parent-slug.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/format-money.js</h1>
+    <h1 class="page-title">methods/filter-by-parent-slug.js</h1>
     
 
     
@@ -42,75 +42,42 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import config from './../lib/config'
-import price from './price'
-
-const formatMoney = (value, currency = config.get('currency'), lang = config.get('lang')) => {
-  // price to number
-  if (typeof value === 'object') {
-    if (value !== null) {
-      // suppose to be product object
-      value = price(value)
-    }
-  } else if (typeof value === 'string') {
-    value = parseFloat(value)
+            <pre class="prettyprint source linenums"><code>const filterByParentSlug = (categories, slug) => {
+  // for categories
+  // returns array of macthed category objects
+  try {
+    return categories.filter(category => category.parent &amp;&amp; category.parent.slug === slug)
+  } catch (err) {
+    // not an array ?
+    console.error(err)
+    return []
   }
-
-  // format pt-BR, en-US
-  lang = lang.replace('_', '-')
-  if (currency) {
-    try {
-      // format price string
-      return value.toLocaleString(lang, { style: 'currency', currency })
-    } catch (err) {
-      console.error(err)
-    }
-  }
-  // fallback using configured currency symbol
-  const moneyPrefix = (currency || config.get('currency_symbol')) + ' '
-  return typeof value === 'number' ? moneyPrefix + value : ''
 }
 
 /**
  * @method
  * @memberof ecomUtils
- * @name formatMoney
- * @description Parse price number to formatted currency string.
- * @param {number|object} value - Price number or body object (product or variation)
- * @param {string|null} [currency=config.get('currency')] - Currency code such as 'BRL'
- * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
- * @returns {string}
+ * @name filterByParentSlug
+ * @description Filter categories list by parent category slug.
+ * @param {array} categories - List of category objects
+ * @param {string} slug - Parent category slug value
+ * @returns {array}
  *
  * @example
- * // With number as value
- * ecomUtils.formatMoney(10.6)
- * // => $10.60
- * ecomUtils.formatMoney(10.6, 'BRL')
- * // => R$10.60
- * ecomUtils.formatMoney(10.6, 'BRL', 'pt_br')
- * // => R$ 10,60
- *
- * @example
- * // With product, variation or cart item object as value
- * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
- * ecomUtils.formatMoney({ sku: 'TEST', name: 'Test', price: 140.56 })
- * // => $140.56
- *
- * @example
- * // You can also set the configured lang and currency first
- * ecomUtils.config.set('lang', 'pt_br')
- * ecomUtils.config.set('currency', 'BRL')
- * ecomUtils.config.set('currency_symbol', 'R$')
- * // Then call `formatMoney` without expliciting currency and lang
- * ecomUtils.formatMoney(10.6)
- * // => R$ 10,60
+ * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/categories/
+ * const categories = []
+ * categories.push({ name: 'PCs', slug: 'pcs', parent: { name: 'Info', slug: 'info' } })
+ * categories.push({ name: 'Shirts', slug: 'shirts', parent: { name: 'Clothes', slug: 'clothes' } })
+ * categories.push({ name: 'Info', slug: 'info' })
+ * ecomUtils.filterByParentSlug(categories, 'info')
+ * // => [ { name: 'PCs', slug: 'pcs', parent: { name: 'Info', slug: 'info' } } ]
  *
  * @example
  * // Importing this method standalone
- * import formatMoney from '@ecomplus/utils/dist/methods/formatMoney'
+ * import filterByParentSlug from '@ecomplus/utils/dist/methods/filterByParentSlug'
  */
 
-export default formatMoney
+export default filterByParentSlug
 </code></pre>
         </article>
     </section>
