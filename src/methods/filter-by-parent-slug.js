@@ -1,16 +1,11 @@
 const filterByParentSlug = (categories, slug) => {
   // for categories
   // filter by parent category slug
-  let matchedCategories = []
   if (Array.isArray(categories)) {
-    categories.forEach(category => {
-      if (category.parent && category.parent.slug === slug) {
-        matchedCategories.push(category)
-      }
-    })
+    return categories.filter(category => category.parent && category.parent.slug === slug)
   }
   // returns array of macthed category objects
-  return matchedCategories
+  return []
 }
 
 /**
