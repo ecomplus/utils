@@ -16,6 +16,7 @@ import findByProperty from './methods/find-by-property'
 import findBySlug from './methods/find-by-slug'
 import filterByParentSlug from './methods/filter-by-parent-slug'
 import minQuantity from './methods/min-quantity'
+import inStock from './methods/in-stock'
 
 const self = name + '@' + version
 
@@ -47,7 +48,8 @@ export {
   findByProperty,
   findBySlug,
   filterByParentSlug,
-  minQuantity
+  minQuantity,
+  inStock
 }
 
 /**
