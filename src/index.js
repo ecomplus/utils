@@ -4,11 +4,11 @@
  * @license MIT
  */
 
-import { name, version } from './../package.json'
-
+import self from './lib/self'
 import config from './lib/config'
 
 import i18n from './methods/i18n'
+import name from './methods/name'
 import price from './methods/price'
 import onPromotion from './methods/on-promotion'
 import formatMoney from './methods/format-money'
@@ -17,8 +17,6 @@ import findBySlug from './methods/find-by-slug'
 import filterByParentSlug from './methods/filter-by-parent-slug'
 import minQuantity from './methods/min-quantity'
 import inStock from './methods/in-stock'
-
-const self = name + '@' + version
 
 /**
  * JS utility functions for E-Com Plus (not only) related apps.
@@ -42,6 +40,7 @@ export {
   self,
   config,
   i18n,
+  name,
   price,
   onPromotion,
   formatMoney,
