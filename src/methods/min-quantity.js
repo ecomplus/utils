@@ -24,6 +24,10 @@ const minQuantity = product => (product && product.min_quantity) || 1
  * // => 1
  * ecomUtils.minQuantity({})
  * // => 1
+ *
+ * @example
+ * // Importing this method standalone
+ * import minQuantity from '@ecomplus/utils/dist/methods/minQuantity'
  */
 
 export default minQuantity
