@@ -1,17 +1,17 @@
 import onPromotion from './on-promotion'
 
-const price = itemBody => onPromotion(itemBody)
+const price = product => onPromotion(product)
   // promotional sale price
-  ? itemBody.price
+  ? product.price
   // use the maximum value between sale and base price
-  : Math.max(itemBody.base_price || 0, itemBody.price || 0)
+  : Math.max(product.base_price || 0, product.price || 0)
 
 /**
  * @method
  * @memberof ecomUtils
  * @name price
  * @description Returns current price from item object.
- * @param {object} itemBody - Item (product or variation) body object
+ * @param {object} product - Item (product or variation) body object
  * @returns {number}
  *
  * @example
