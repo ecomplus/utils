@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-@ecomplus_utils.html">@ecomplus/utils</a></li></ul><h3>Namespaces</h3><ul><li><a href="ecomUtils.html">ecomUtils</a><ul class='methods'><li data-type='method'><a href="ecomUtils.html#.formatMoney">formatMoney</a></li><li data-type='method'><a href="ecomUtils.html#.i18n">i18n</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-@ecomplus_utils.html">@ecomplus/utils</a></li></ul><h3>Namespaces</h3><ul><li><a href="ecomUtils.html">ecomUtils</a><ul class='methods'><li data-type='method'><a href="ecomUtils.html#.formatMoney">formatMoney</a></li><li data-type='method'><a href="ecomUtils.html#.i18n">i18n</a></li><li data-type='method'><a href="ecomUtils.html#.onPromotion">onPromotion</a></li><li data-type='method'><a href="ecomUtils.html#.price">price</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -642,6 +642,373 @@ import i18n from '@ecomplus/utils/dist/methods/i18n'</code></pre>
 
 
         
+            
+
+    
+
+    <h4 class="name" id=".onPromotion"><span class="type-signature">(static) </span>onPromotion<span class="signature">(itemBody)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="methods_on-promotion.js.html">methods/on-promotion.js</a>, <a href="methods_on-promotion.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Check if item has promotional price.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Simple test with no promotion date range
+// Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
+ecomUtils.onPromotion({ sku: 'TEST', name: 'Test', price: 140.56 })
+// => false
+ecomUtils.onPromotion({ price: 100, base_price: 110 })
+// => true
+ecomUtils.onPromotion({ price: 190, base_price: 170 })
+// => false</code></pre>
+
+    <pre class="prettyprint"><code>// With date range
+const product = { sku: 'abc', price: 20.9, base_price: 30.9, price_effective_date: {} }
+product.price_effective_date.start = '2019-06-01T16:03:45.035Z'
+ecomUtils.onPromotion(product)
+// => true
+product.price_effective_date.end = '2019-06-10T16:03:45.035Z'
+ecomUtils.onPromotion(product)
+// => false
+product.price_effective_date.end = '2021-08-12T00:00:00.000Z'
+ecomUtils.onPromotion(product)
+// => true
+product.price_effective_date.start = '2021-01-01T00:00:00.000Z'
+ecomUtils.onPromotion(product)
+// => false</code></pre>
+
+    <pre class="prettyprint"><code>// Importing this method standalone
+import onPromotion from '@ecomplus/utils/dist/methods/onPromotion'</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>itemBody</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Item (product or variation) body object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".price"><span class="type-signature">(static) </span>price<span class="signature">(itemBody)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="methods_price.js.html">methods/price.js</a>, <a href="methods_price.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Returns current price from item object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Prices with no promotion date range
+// Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
+ecomUtils.price({ sku: 'TEST', name: 'Test', price: 140.56 })
+// => 140.56
+ecomUtils.price({ price: 100, base_price: 110 })
+// => 100
+ecomUtils.price({ price: 190, base_price: 170 })
+// => 190
+ecomUtils.price({})
+// => 0</code></pre>
+
+    <pre class="prettyprint"><code>// With promotion date range
+const product = { sku: 'abc', price: 20.9, base_price: 30.9, price_effective_date: {} }
+product.price_effective_date.start = '2021-01-01T00:00:00.000Z'
+ecomUtils.price(product)
+// => 30.9
+product.price_effective_date.start = '2019-06-01T16:03:45.035Z'
+ecomUtils.price(product)
+// => 20.9
+product.price_effective_date.end = '2019-06-10T16:03:45.035Z'
+ecomUtils.price(product)
+// => 30.9</code></pre>
+
+    <pre class="prettyprint"><code>// Importing this method standalone
+import price from '@ecomplus/utils/dist/methods/price'</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>itemBody</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Item (product or variation) body object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
     
 
     
@@ -661,7 +1028,7 @@ import i18n from '@ecomplus/utils/dist/methods/i18n'</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Fri Jun 28 2019 20:01:49 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Mon Jul 01 2019 14:23:24 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

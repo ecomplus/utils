@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/format-money.js - Documentation</title>
+    <title>methods/on-promotion.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/format-money.js</h1>
+    <h1 class="page-title">methods/on-promotion.js</h1>
     
 
     
@@ -42,75 +42,67 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import config from './../lib/config'
-import price from './price'
-
-const formatMoney = (value, currency = config.get('currency'), lang = config.get('lang')) => {
-  // price to number
-  if (typeof value === 'object') {
-    if (value !== null) {
-      // suppose to be product object
-      value = price(value)
+            <pre class="prettyprint source linenums"><code>const onPromotion = itemBody => {
+  let promoDates = itemBody.price_effective_date
+  if (promoDates) {
+    let now = new Date()
+    if (promoDates.start) {
+      // start date and time in ISO 8601
+      if (new Date(promoDates.start) > now) {
+        return false
+      }
     }
-  } else if (typeof value === 'string') {
-    value = parseFloat(value)
-  }
-
-  // format pt-BR, en-US
-  lang = lang.replace('_', '-')
-  if (currency) {
-    try {
-      // format price string
-      return value.toLocaleString(lang, { style: 'currency', currency })
-    } catch (err) {
-      console.error(err)
+    if (promoDates.end) {
+      // promotion end date and time in ISO 8601
+      if (new Date(promoDates.end) &lt; now) {
+        return false
+      }
     }
   }
-  // fallback using configured currency symbol
-  const moneyPrefix = (currency || config.get('currency_symbol')) + ' '
-  return typeof value === 'number' ? moneyPrefix + value : ''
+  // default to no promotion
+  return !!(itemBody.base_price > itemBody.price)
 }
 
 /**
  * @method
  * @memberof ecomUtils
- * @name formatMoney
- * @description Parse price number to formatted currency string.
- * @param {number|object} value - Price number or body object (product or variation)
- * @param {string|null} [currency=config.get('currency')] - Currency code such as 'BRL'
- * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
- * @returns {string}
+ * @name onPromotion
+ * @description Check if item has promotional price.
+ * @param {object} itemBody - Item (product or variation) body object
+ * @returns {boolean}
  *
  * @example
- * // With number as value
- * ecomUtils.formatMoney(10.6)
- * // => $10.60
- * ecomUtils.formatMoney(10.6, 'BRL')
- * // => R$10.60
- * ecomUtils.formatMoney(10.6, 'BRL', 'pt_br')
- * // => R$ 10,60
- *
- * @example
- * // With product, variation or cart item object as value
+ * // Simple test with no promotion date range
  * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
- * ecomUtils.formatMoney({ sku: 'TEST', name: 'Test', price: 140.56 })
- * // => $140.56
+ * ecomUtils.onPromotion({ sku: 'TEST', name: 'Test', price: 140.56 })
+ * // => false
+ * ecomUtils.onPromotion({ price: 100, base_price: 110 })
+ * // => true
+ * ecomUtils.onPromotion({ price: 190, base_price: 170 })
+ * // => false
  *
  * @example
- * // You can also set the configured lang and currency first
- * ecomUtils.config.set('lang', 'pt_br')
- * ecomUtils.config.set('currency', 'BRL')
- * ecomUtils.config.set('currency_symbol', 'R$')
- * // Then call `formatMoney` without expliciting currency and lang
- * ecomUtils.formatMoney(10.6)
- * // => R$ 10,60
+ * // With date range
+ * const product = { sku: 'abc', price: 20.9, base_price: 30.9, price_effective_date: {} }
+ * product.price_effective_date.start = '2019-06-01T16:03:45.035Z'
+ * ecomUtils.onPromotion(product)
+ * // => true
+ * product.price_effective_date.end = '2019-06-10T16:03:45.035Z'
+ * ecomUtils.onPromotion(product)
+ * // => false
+ * product.price_effective_date.end = '2021-08-12T00:00:00.000Z'
+ * ecomUtils.onPromotion(product)
+ * // => true
+ * product.price_effective_date.start = '2021-01-01T00:00:00.000Z'
+ * ecomUtils.onPromotion(product)
+ * // => false
  *
  * @example
  * // Importing this method standalone
- * import formatMoney from '@ecomplus/utils/dist/methods/formatMoney'
+ * import onPromotion from '@ecomplus/utils/dist/methods/onPromotion'
  */
 
-export default formatMoney
+export default onPromotion
 </code></pre>
         </article>
     </section>
