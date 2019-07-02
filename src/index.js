@@ -18,6 +18,7 @@ import filterByParentSlug from './methods/filter-by-parent-slug'
 import minQuantity from './methods/min-quantity'
 import inStock from './methods/in-stock'
 import searchedItems from './methods/searched-items'
+import splitCategoryTree from './methods/split-category-tree'
 
 /**
  * JS utility functions for E-Com Plus (not only) related apps.
@@ -50,7 +51,8 @@ export {
   filterByParentSlug,
   minQuantity,
   inStock,
-  searchedItems
+  searchedItems,
+  splitCategoryTree
 }
 
 /**
