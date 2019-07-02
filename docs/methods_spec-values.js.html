@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/in-stock.js - Documentation</title>
+    <title>methods/spec-values.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/in-stock.js</h1>
+    <h1 class="page-title">methods/spec-values.js</h1>
     
 
     
@@ -42,46 +42,86 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import minQuantity from './min-quantity'
+            <pre class="prettyprint source linenums"><code>const specValues = (product, gridId, grids) => {
+  if (typeof product !== 'object' || product === null) {
+    // nothing to do
+    // returns empty array by default
+    return []
+  }
 
-// check inventory
-// true if no stock control or available in stock
-const inStock = product => !product.hasOwnProperty('quantity') || product.quantity >= minQuantity(product)
+  let values = []
+  if (typeof product === 'object' &amp;&amp; product !== null) {
+    if (Array.isArray(product)) {
+      if (product.length) {
+        if (product[0].specifications) {
+          // variations array sent as product param
+          product.forEach(variation => values.concat(specValues(variation, gridId)))
+        } else if (product[0].text) {
+          // spec values list sent as product param
+          values = product
+        }
+      }
+    } else {
+      // probably the product object from instance data
+      // work for product or specific variation product
+      let { specifications } = product
+      if (specifications) {
+        for (let id in specifications) {
+          if (specifications.hasOwnProperty(id) &amp;&amp; id === gridId) {
+            // specification found
+            values = specifications[gridId]
+          }
+        }
+      }
+
+      if (values &amp;&amp; !values.length &amp;&amp; Array.isArray(grids) &amp;&amp; grids.length) {
+        // try with grids list from preloaded data
+        let specs, grid
+        // match the grid by ID
+        if (grids &amp;&amp; (grid = grids.find(grid => grid.grid_id === gridId)) &amp;&amp; grid.options) {
+          // mounts specs array from grid options list
+          specs = grid.options.map(option => {
+            // try color RGB value or use default option ID
+            let value
+            if (option.colors &amp;&amp; option.colors.length) {
+              value = option.colors[0]
+            } else {
+              value = option.option_id
+            }
+
+            // spec options with text and value
+            return {
+              text: option.text,
+              value
+            }
+          })
+        }
+        return specValues(specs, gridId)
+      }
+    }
+  }
+  return values
+}
 
 /**
  * @method
  * @memberof ecomUtils
- * @name inStock
- * @description Check if item has stock equal or greater than minimum quantity.
- * @param {object} product - Body object (product or variation)
- * @returns {boolean}
+ * @name specValues
+ * @description Returns array of spec objects for specified grid.
+ * @param {object|array} product - Product body or array of variation objects
+ * @param {string} gridId - Grid ID string such as 'color'
+ * @param {array} [grids] - List of grid objects
+ * @returns {array}
  *
  * @example
- * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
- * const product = { sku: 'TEST', name: 'Test', price: 10 }
- * ecomUtils.inStock(product)
- * // => true
- * product.quantity = 5
- * ecomUtils.inStock(product)
- * // => true
- * product.min_quantity = 10
- * ecomUtils.inStock(product)
- * // => false
- * ecomUtils.inStock({ quantity: 1, min_quantity: 2 })
- * // => false
- * ecomUtils.inStock({ quantity: 0 })
- * // => false
- * ecomUtils.inStock({ quantity: 1, min_quantity: 1 })
- * // => true
- * ecomUtils.inStock({ quantity: 1 })
- * // => true
+ * // TODO
  *
  * @example
  * // Importing this method standalone
- * import inStock from '@ecomplus/utils/dist/methods/in-stock'
+ * import specValues from '@ecomplus/utils/dist/methods/spec-values'
  */
 
-export default inStock
+export default specValues
 </code></pre>
         </article>
     </section>

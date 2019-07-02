@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-@ecomplus_utils.html">@ecomplus/utils</a></li></ul><h3>Namespaces</h3><ul><li><a href="ecomUtils.html">ecomUtils</a><ul class='methods'><li data-type='method'><a href="ecomUtils.html#.filterByParentSlug">filterByParentSlug</a></li><li data-type='method'><a href="ecomUtils.html#.findByProperty">findByProperty</a></li><li data-type='method'><a href="ecomUtils.html#.findBySlug">findBySlug</a></li><li data-type='method'><a href="ecomUtils.html#.formatMoney">formatMoney</a></li><li data-type='method'><a href="ecomUtils.html#.i18n">i18n</a></li><li data-type='method'><a href="ecomUtils.html#.inStock">inStock</a></li><li data-type='method'><a href="ecomUtils.html#.minQuantity">minQuantity</a></li><li data-type='method'><a href="ecomUtils.html#.name">name</a></li><li data-type='method'><a href="ecomUtils.html#.onPromotion">onPromotion</a></li><li data-type='method'><a href="ecomUtils.html#.price">price</a></li><li data-type='method'><a href="ecomUtils.html#.searchedItems">searchedItems</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-@ecomplus_utils.html">@ecomplus/utils</a></li></ul><h3>Namespaces</h3><ul><li><a href="ecomUtils.html">ecomUtils</a><ul class='methods'><li data-type='method'><a href="ecomUtils.html#.alphabeticalSort">alphabeticalSort</a></li><li data-type='method'><a href="ecomUtils.html#.filterByParentSlug">filterByParentSlug</a></li><li data-type='method'><a href="ecomUtils.html#.findByProperty">findByProperty</a></li><li data-type='method'><a href="ecomUtils.html#.findBySlug">findBySlug</a></li><li data-type='method'><a href="ecomUtils.html#.formatMoney">formatMoney</a></li><li data-type='method'><a href="ecomUtils.html#.i18n">i18n</a></li><li data-type='method'><a href="ecomUtils.html#.inStock">inStock</a></li><li data-type='method'><a href="ecomUtils.html#.minQuantity">minQuantity</a></li><li data-type='method'><a href="ecomUtils.html#.name">name</a></li><li data-type='method'><a href="ecomUtils.html#.onPromotion">onPromotion</a></li><li data-type='method'><a href="ecomUtils.html#.price">price</a></li><li data-type='method'><a href="ecomUtils.html#.searchedItems">searchedItems</a></li><li data-type='method'><a href="ecomUtils.html#.specValues">specValues</a></li><li data-type='method'><a href="ecomUtils.html#.splitCategoryTree">splitCategoryTree</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -62,7 +62,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line56">line 56</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
@@ -123,6 +123,171 @@
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".alphabeticalSort"><span class="type-signature">(static) </span>alphabeticalSort<span class="signature">(list)</span><span class="type-signature"> &rarr; {array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="methods_alphabetical-sort.js.html">methods/alphabetical-sort.js</a>, <a href="methods_alphabetical-sort.js.html#line28">line 28</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Sort list of objects alphabetically by name ot title property.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// TODO</code></pre>
+
+    <pre class="prettyprint"><code>// Importing this method standalone
+import alphabeticalSort from '@ecomplus/utils/dist/methods/alphabetical-sort'</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>list</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+|
+
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of objects (products, brands...) or list body with 'results'</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
 
         
             
@@ -203,7 +368,7 @@ ecomUtils.filterByParentSlug(categories, 'info')
 // => [ { name: 'PCs', slug: 'pcs', parent: { name: 'Info', slug: 'info' } } ]</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
-import filterByParentSlug from '@ecomplus/utils/dist/methods/filterByParentSlug'</code></pre>
+import filterByParentSlug from '@ecomplus/utils/dist/methods/filter-by-parent-slug'</code></pre>
 
 
 
@@ -394,7 +559,7 @@ ecomUtils.findByProperty([ { a: 0, b: 0 }, { a: 1 } ], 'a', 3)
 // => undefined</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
-import findByProperty from '@ecomplus/utils/dist/methods/findByProperty'</code></pre>
+import findByProperty from '@ecomplus/utils/dist/methods/find-by-property'</code></pre>
 
 
 
@@ -611,7 +776,7 @@ ecomUtils.findBySlug([ { slug: 'a' }, { slug: 'b' } ], 'c')
 // => undefined</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
-import findBySlug from '@ecomplus/utils/dist/methods/findBySlug'</code></pre>
+import findBySlug from '@ecomplus/utils/dist/methods/find-by-slug'</code></pre>
 
 
 
@@ -818,7 +983,7 @@ ecomUtils.formatMoney(10.6)
 // => R$ 10,60</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
-import formatMoney from '@ecomplus/utils/dist/methods/formatMoney'</code></pre>
+import formatMoney from '@ecomplus/utils/dist/methods/format-money'</code></pre>
 
 
 
@@ -1260,7 +1425,7 @@ import i18n from '@ecomplus/utils/dist/methods/i18n'</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="methods_in-stock.js.html">methods/in-stock.js</a>, <a href="methods_in-stock.js.html#line18">line 18</a>
+        <a href="methods_in-stock.js.html">methods/in-stock.js</a>, <a href="methods_in-stock.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -1333,7 +1498,7 @@ ecomUtils.inStock({ quantity: 1 })
 // => true</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
-import inStock from '@ecomplus/utils/dist/methods/inStock'</code></pre>
+import inStock from '@ecomplus/utils/dist/methods/in-stock'</code></pre>
 
 
 
@@ -1508,7 +1673,7 @@ ecomUtils.minQuantity({})
 // => 1</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
-import minQuantity from '@ecomplus/utils/dist/methods/minQuantity'</code></pre>
+import minQuantity from '@ecomplus/utils/dist/methods/min-quantity'</code></pre>
 
 
 
@@ -1928,7 +2093,7 @@ ecomUtils.onPromotion(product)
 // => false</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
-import onPromotion from '@ecomplus/utils/dist/methods/onPromotion'</code></pre>
+import onPromotion from '@ecomplus/utils/dist/methods/on-promotion'</code></pre>
 
 
 
@@ -2282,7 +2447,7 @@ ecomUtils.searchedItems(result.hits.hits)
 // => [ { _id: '123', sku: 'TEST', name: 'Test' }, { _id: '456', sku: 'SMP', name: 'Smp' } ]</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
-import searchedItems from '@ecomplus/utils/dist/methods/searchedItems'</code></pre>
+import searchedItems from '@ecomplus/utils/dist/methods/searched-items'</code></pre>
 
 
 
@@ -2375,6 +2540,410 @@ import searchedItems from '@ecomplus/utils/dist/methods/searchedItems'</code></p
 
 
         
+            
+
+    
+
+    <h4 class="name" id=".specValues"><span class="type-signature">(static) </span>specValues<span class="signature">(product, gridId, grids<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="methods_spec-values.js.html">methods/spec-values.js</a>, <a href="methods_spec-values.js.html#line62">line 62</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Returns array of spec objects for specified grid.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// TODO</code></pre>
+
+    <pre class="prettyprint"><code>// Importing this method standalone
+import specValues from '@ecomplus/utils/dist/methods/spec-values'</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>product</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Product body or array of variation objects</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gridId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Grid ID string such as 'color'</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>grids</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">List of grid objects</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".splitCategoryTree"><span class="type-signature">(static) </span>splitCategoryTree<span class="signature">(product)</span><span class="type-signature"> &rarr; {array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="methods_split-category-tree.js.html">methods/split-category-tree.js</a>, <a href="methods_split-category-tree.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Parse category tree string to array.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// TODO</code></pre>
+
+    <pre class="prettyprint"><code>// Importing this method standalone
+import splitCategoryTree from '@ecomplus/utils/dist/methods/split-category-tree'</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>product</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Product object body or category tree string</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
     
 
     
@@ -2394,7 +2963,7 @@ import searchedItems from '@ecomplus/utils/dist/methods/searchedItems'</code></p
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Tue Jul 02 2019 13:24:57 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Tue Jul 02 2019 19:35:12 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

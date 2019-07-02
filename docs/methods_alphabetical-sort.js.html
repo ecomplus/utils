@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/in-stock.js - Documentation</title>
+    <title>methods/alphabetical-sort.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/in-stock.js</h1>
+    <h1 class="page-title">methods/alphabetical-sort.js</h1>
     
 
     
@@ -42,46 +42,50 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import minQuantity from './min-quantity'
+            <pre class="prettyprint source linenums"><code>const alphabeticalSort = list => {
+  if (Array.isArray(list)) {
+    // try to sort by name or title
+    return list.sort((a, b) => {
+      if (a &amp;&amp; b) {
+        if (a.name) {
+          // products, categories, brand...
+          return a.name &lt; b.name ? -1 : 1
+        } else if (a.title) {
+          // grids
+          return a.title &lt; b.title ? -1 : 1
+        }
+      }
+      // fallback
+      return a &lt; b ? -1 : 1
+    })
+  }
 
-// check inventory
-// true if no stock control or available in stock
-const inStock = product => !product.hasOwnProperty('quantity') || product.quantity >= minQuantity(product)
+  if (typeof list === 'object' &amp;&amp; list !== null) {
+    // suppose to be a 'list all' request body
+    return alphabeticalSort(list.results)
+  }
+  console.error(new Error('`list` should be an array'))
+  // always return an array
+  return []
+}
 
 /**
  * @method
  * @memberof ecomUtils
- * @name inStock
- * @description Check if item has stock equal or greater than minimum quantity.
- * @param {object} product - Body object (product or variation)
- * @returns {boolean}
+ * @name alphabeticalSort
+ * @description Sort list of objects alphabetically by name ot title property.
+ * @param {array|object} list - Array of objects (products, brands...) or list body with 'results'
+ * @returns {array}
  *
  * @example
- * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
- * const product = { sku: 'TEST', name: 'Test', price: 10 }
- * ecomUtils.inStock(product)
- * // => true
- * product.quantity = 5
- * ecomUtils.inStock(product)
- * // => true
- * product.min_quantity = 10
- * ecomUtils.inStock(product)
- * // => false
- * ecomUtils.inStock({ quantity: 1, min_quantity: 2 })
- * // => false
- * ecomUtils.inStock({ quantity: 0 })
- * // => false
- * ecomUtils.inStock({ quantity: 1, min_quantity: 1 })
- * // => true
- * ecomUtils.inStock({ quantity: 1 })
- * // => true
+ * // TODO
  *
  * @example
  * // Importing this method standalone
- * import inStock from '@ecomplus/utils/dist/methods/in-stock'
+ * import alphabeticalSort from '@ecomplus/utils/dist/methods/alphabetical-sort'
  */
 
-export default inStock
+export default alphabeticalSort
 </code></pre>
         </article>
     </section>

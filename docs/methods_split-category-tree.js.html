@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/in-stock.js - Documentation</title>
+    <title>methods/split-category-tree.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/in-stock.js</h1>
+    <h1 class="page-title">methods/split-category-tree.js</h1>
     
 
     
@@ -42,46 +42,41 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import minQuantity from './min-quantity'
-
-// check inventory
-// true if no stock control or available in stock
-const inStock = product => !product.hasOwnProperty('quantity') || product.quantity >= minQuantity(product)
+            <pre class="prettyprint source linenums"><code>const splitCategoryTree = product => {
+  if (product) {
+    // check if category tree string was already sent as body param
+    const categoryTree = typeof product === 'string' ? product : product.category_tree
+    if (categoryTree) {
+      const categories = categoryTree.split('>')
+      for (let i = 0; i &lt; categories.length; i++) {
+        // remove white spaces from names
+        categories[i] = categories[i].trim()
+      }
+      // list of category names
+      return categories
+    }
+  }
+  // fallback returning empty array
+  return []
+}
 
 /**
  * @method
  * @memberof ecomUtils
- * @name inStock
- * @description Check if item has stock equal or greater than minimum quantity.
- * @param {object} product - Body object (product or variation)
- * @returns {boolean}
+ * @name splitCategoryTree
+ * @description Parse category tree string to array.
+ * @param {object|string} product - Product object body or category tree string
+ * @returns {array}
  *
  * @example
- * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
- * const product = { sku: 'TEST', name: 'Test', price: 10 }
- * ecomUtils.inStock(product)
- * // => true
- * product.quantity = 5
- * ecomUtils.inStock(product)
- * // => true
- * product.min_quantity = 10
- * ecomUtils.inStock(product)
- * // => false
- * ecomUtils.inStock({ quantity: 1, min_quantity: 2 })
- * // => false
- * ecomUtils.inStock({ quantity: 0 })
- * // => false
- * ecomUtils.inStock({ quantity: 1, min_quantity: 1 })
- * // => true
- * ecomUtils.inStock({ quantity: 1 })
- * // => true
+ * // TODO
  *
  * @example
  * // Importing this method standalone
- * import inStock from '@ecomplus/utils/dist/methods/in-stock'
+ * import splitCategoryTree from '@ecomplus/utils/dist/methods/split-category-tree'
  */
 
-export default inStock
+export default splitCategoryTree
 </code></pre>
         </article>
     </section>
