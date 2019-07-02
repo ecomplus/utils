@@ -22,6 +22,7 @@ import searchedItems from './methods/searched-items'
 import splitCategoryTree from './methods/split-category-tree'
 import specValues from './methods/spec-values'
 import specTextValue from './methods/spec-text-value'
+import specValueByText from './methods/spec-value-by-text'
 
 /**
  * JS utility functions for E-Com Plus (not only) related apps.
@@ -58,7 +59,8 @@ export {
   searchedItems,
   splitCategoryTree,
   specValues,
-  specTextValue
+  specTextValue,
+  specValueByText
 }
 
 /**
