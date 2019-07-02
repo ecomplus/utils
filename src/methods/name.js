@@ -38,7 +38,7 @@ const name = (body, lang = config.get('lang')) => {
  *
  * @example
  * // You can also set the configured lang first
- * ecomUtils.config.set('lang', 'pt_br')
+ * ecomUtils._config.set('lang', 'pt_br')
  * // Then call `name` without expliciting lang
  * ecomUtils.name({ name: 'Test', i18n: { en_us: 'Test', pt_br: 'Teste' } })
  * // => 'Teste'

@@ -4,8 +4,8 @@
  * @license MIT
  */
 
-import self from './lib/self'
-import config from './lib/config'
+import _self from './lib/self'
+import _config from './lib/config'
 
 import i18n from './methods/i18n'
 import name from './methods/name'
@@ -38,8 +38,8 @@ import searchedItems from './methods/searched-items'
  */
 
 export {
-  self,
-  config,
+  _self,
+  _config,
   i18n,
   name,
   price,

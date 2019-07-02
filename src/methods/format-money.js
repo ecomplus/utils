@@ -54,9 +54,9 @@ const formatMoney = (value, currency = config.get('currency'), lang = config.get
  *
  * @example
  * // You can also set the configured lang and currency first
- * ecomUtils.config.set('lang', 'pt_br')
- * ecomUtils.config.set('currency', 'BRL')
- * ecomUtils.config.set('currency_symbol', 'R$')
+ * ecomUtils._config.set('lang', 'pt_br')
+ * ecomUtils._config.set('currency', 'BRL')
+ * ecomUtils._config.set('currency_symbol', 'R$')
  * // Then call `formatMoney` without expliciting currency and lang
  * ecomUtils.formatMoney(10.6)
  * // => R$ 10,60

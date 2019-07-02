@@ -45,7 +45,7 @@ const i18n = (dictionary, lang = config.get('lang')) => {
  *
  * @example
  * // You can also set the configured lang first
- * ecomUtils.config.set('lang', 'pt_br')
+ * ecomUtils._config.set('lang', 'pt_br')
  * // Then call `i18n` without expliciting lang
  * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' })
  * // => Olá
