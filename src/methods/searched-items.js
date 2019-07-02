@@ -43,7 +43,7 @@ const searchedItems = result => {
  *
  * @example
  * // Importing this method standalone
- * import searchedItems from '@ecomplus/utils/dist/methods/searchedItems'
+ * import searchedItems from '@ecomplus/utils/dist/methods/searched-items'
  */
 
 export default searchedItems

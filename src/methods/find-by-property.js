@@ -33,7 +33,7 @@ const findByProperty = (list, prop, value) => {
  *
  * @example
  * // Importing this method standalone
- * import findByProperty from '@ecomplus/utils/dist/methods/findByProperty'
+ * import findByProperty from '@ecomplus/utils/dist/methods/find-by-property'
  */
 
 export default findByProperty

@@ -30,7 +30,7 @@ const filterByParentSlug = (categories, slug) => {
  *
  * @example
  * // Importing this method standalone
- * import filterByParentSlug from '@ecomplus/utils/dist/methods/filterByParentSlug'
+ * import filterByParentSlug from '@ecomplus/utils/dist/methods/filter-by-parent-slug'
  */
 
 export default filterByParentSlug

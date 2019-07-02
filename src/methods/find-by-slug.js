@@ -23,7 +23,7 @@ const findBySlug = (list, slug) => findByProperty(list, 'slug', slug)
  *
  * @example
  * // Importing this method standalone
- * import findBySlug from '@ecomplus/utils/dist/methods/findBySlug'
+ * import findBySlug from '@ecomplus/utils/dist/methods/find-by-slug'
  */
 
 export default findBySlug

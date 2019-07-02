@@ -61,7 +61,7 @@ const onPromotion = product => {
  *
  * @example
  * // Importing this method standalone
- * import onPromotion from '@ecomplus/utils/dist/methods/onPromotion'
+ * import onPromotion from '@ecomplus/utils/dist/methods/on-promotion'
  */
 
 export default onPromotion

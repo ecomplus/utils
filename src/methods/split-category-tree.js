@@ -29,7 +29,7 @@ const splitCategoryTree = product => {
  *
  * @example
  * // Importing this method standalone
- * import splitCategoryTree from '@ecomplus/utils/dist/methods/splitCategoryTree'
+ * import splitCategoryTree from '@ecomplus/utils/dist/methods/split-category-tree'
  */
 
 export default splitCategoryTree

@@ -34,7 +34,7 @@ const inStock = product => !product.hasOwnProperty('quantity') || product.quanti
  *
  * @example
  * // Importing this method standalone
- * import inStock from '@ecomplus/utils/dist/methods/inStock'
+ * import inStock from '@ecomplus/utils/dist/methods/in-stock'
  */
 
 export default inStock

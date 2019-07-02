@@ -63,7 +63,7 @@ const formatMoney = (value, currency = config.get('currency'), lang = config.get
  *
  * @example
  * // Importing this method standalone
- * import formatMoney from '@ecomplus/utils/dist/methods/formatMoney'
+ * import formatMoney from '@ecomplus/utils/dist/methods/format-money'
  */
 
 export default formatMoney
