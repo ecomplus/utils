@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-@ecomplus_utils.html">@ecomplus/utils</a></li></ul><h3>Namespaces</h3><ul><li><a href="ecomUtils.html">ecomUtils</a><ul class='methods'><li data-type='method'><a href="ecomUtils.html#.filterByParentSlug">filterByParentSlug</a></li><li data-type='method'><a href="ecomUtils.html#.findByProperty">findByProperty</a></li><li data-type='method'><a href="ecomUtils.html#.findBySlug">findBySlug</a></li><li data-type='method'><a href="ecomUtils.html#.formatMoney">formatMoney</a></li><li data-type='method'><a href="ecomUtils.html#.i18n">i18n</a></li><li data-type='method'><a href="ecomUtils.html#.inStock">inStock</a></li><li data-type='method'><a href="ecomUtils.html#.minQuantity">minQuantity</a></li><li data-type='method'><a href="ecomUtils.html#.name">name</a></li><li data-type='method'><a href="ecomUtils.html#.onPromotion">onPromotion</a></li><li data-type='method'><a href="ecomUtils.html#.price">price</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-@ecomplus_utils.html">@ecomplus/utils</a></li></ul><h3>Namespaces</h3><ul><li><a href="ecomUtils.html">ecomUtils</a><ul class='methods'><li data-type='method'><a href="ecomUtils.html#.filterByParentSlug">filterByParentSlug</a></li><li data-type='method'><a href="ecomUtils.html#.findByProperty">findByProperty</a></li><li data-type='method'><a href="ecomUtils.html#.findBySlug">findBySlug</a></li><li data-type='method'><a href="ecomUtils.html#.formatMoney">formatMoney</a></li><li data-type='method'><a href="ecomUtils.html#.i18n">i18n</a></li><li data-type='method'><a href="ecomUtils.html#.inStock">inStock</a></li><li data-type='method'><a href="ecomUtils.html#.minQuantity">minQuantity</a></li><li data-type='method'><a href="ecomUtils.html#.name">name</a></li><li data-type='method'><a href="ecomUtils.html#.onPromotion">onPromotion</a></li><li data-type='method'><a href="ecomUtils.html#.price">price</a></li><li data-type='method'><a href="ecomUtils.html#.searchedItems">searchedItems</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -62,7 +62,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line54">line 54</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line56">line 56</a>
     </li></ul></dd>
     
 
@@ -810,9 +810,9 @@ ecomUtils.formatMoney({ sku: 'TEST', name: 'Test', price: 140.56 })
 // => $140.56</code></pre>
 
     <pre class="prettyprint"><code>// You can also set the configured lang and currency first
-ecomUtils.config.set('lang', 'pt_br')
-ecomUtils.config.set('currency', 'BRL')
-ecomUtils.config.set('currency_symbol', 'R$')
+ecomUtils._config.set('lang', 'pt_br')
+ecomUtils._config.set('currency', 'BRL')
+ecomUtils._config.set('currency_symbol', 'R$')
 // Then call `formatMoney` without expliciting currency and lang
 ecomUtils.formatMoney(10.6)
 // => R$ 10,60</code></pre>
@@ -1090,7 +1090,7 @@ ecomUtils.i18n({ hello: { en_us: 'Hello', pt_br: 'Olá' }, world: { en_us: 'Worl
 // => { hello: 'Olá', world: 'World' }</code></pre>
 
     <pre class="prettyprint"><code>// You can also set the configured lang first
-ecomUtils.config.set('lang', 'pt_br')
+ecomUtils._config.set('lang', 'pt_br')
 // Then call `i18n` without expliciting lang
 ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' })
 // => Olá</code></pre>
@@ -1683,7 +1683,7 @@ ecomUtils.name({ title: 'Mundo' }, 'en_us')
 // => 'Mundo'</code></pre>
 
     <pre class="prettyprint"><code>// You can also set the configured lang first
-ecomUtils.config.set('lang', 'pt_br')
+ecomUtils._config.set('lang', 'pt_br')
 // Then call `name` without expliciting lang
 ecomUtils.name({ name: 'Test', i18n: { en_us: 'Test', pt_br: 'Teste' } })
 // => 'Teste'</code></pre>
@@ -2201,6 +2201,180 @@ import price from '@ecomplus/utils/dist/methods/price'</code></pre>
 
 
         
+            
+
+    
+
+    <h4 class="name" id=".searchedItems"><span class="type-signature">(static) </span>searchedItems<span class="signature">(result)</span><span class="type-signature"> &rarr; {array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="methods_searched-items.js.html">methods/searched-items.js</a>, <a href="methods_searched-items.js.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Returns array of items (products) from Search API response.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Full Search API response samples:
+// https://developers.e-com.plus/docs/api/#/search/items/items
+const result = { took: 6, hits: { total: 2, hits: [] } }
+result.hits.hits.push({ _id: '123', _source: { sku: 'TEST', name: 'Test' } })
+result.hits.hits.push({ _id: '456', _source: { sku: 'SMP', name: 'Smp' } })
+ecomUtils.searchedItems(result)
+// => [ { _id: '123', sku: 'TEST', name: 'Test' }, { _id: '456', sku: 'SMP', name: 'Smp' } ]
+// Same passing the `hits` array as param
+ecomUtils.searchedItems(result.hits.hits)
+// => [ { _id: '123', sku: 'TEST', name: 'Test' }, { _id: '456', sku: 'SMP', name: 'Smp' } ]</code></pre>
+
+    <pre class="prettyprint"><code>// Importing this method standalone
+import searchedItems from '@ecomplus/utils/dist/methods/searchedItems'</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>result</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Search response body or ELS hits array</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
     
 
     
@@ -2220,7 +2394,7 @@ import price from '@ecomplus/utils/dist/methods/price'</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Mon Jul 01 2019 18:51:14 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Tue Jul 02 2019 13:24:57 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

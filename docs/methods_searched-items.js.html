@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>index.js - Documentation</title>
+    <title>methods/searched-items.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">index.js</h1>
+    <h1 class="page-title">methods/searched-items.js</h1>
     
 
     
@@ -42,64 +42,55 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * https://github.com/ecomclub/ecomplus-utils
- * @author E-Com Club &lt;ti@e-com.club>
- * @license MIT
- */
+            <pre class="prettyprint source linenums"><code>const searchedItems = result => {
+  let hits
+  if (typeof result === 'object' &amp;&amp; result !== null) {
+    if (Array.isArray(result)) {
+      hits = result
+    } else if (result.hits) {
+      // ELS response body
+      hits = result.hits.hits || result.hits
+    }
+  }
 
-import _self from './lib/self'
-import _config from './lib/config'
-
-import i18n from './methods/i18n'
-import name from './methods/name'
-import price from './methods/price'
-import onPromotion from './methods/on-promotion'
-import formatMoney from './methods/format-money'
-import findByProperty from './methods/find-by-property'
-import findBySlug from './methods/find-by-slug'
-import filterByParentSlug from './methods/filter-by-parent-slug'
-import minQuantity from './methods/min-quantity'
-import inStock from './methods/in-stock'
-import searchedItems from './methods/searched-items'
-
-/**
- * JS utility functions for E-Com Plus (not only) related apps.
- * @module @ecomplus/utils
- * @exports {@link ecomUtils}
- *
- * @example
- * // Import all utility methods with ES
- * import ecomUtils from '@ecomplus/utils'
- *
- * @example
- * // With CommonJS
- * const ecomUtils = require('@ecomplus/utils')
- *
- * @example
- * &lt;!-- Global `ecomUtils` from CDN on browser -->
- * &lt;script src="https://cdn.jsdelivr.net/npm/@ecomplus/utils">&lt;/script>
- */
-
-export {
-  _self,
-  _config,
-  i18n,
-  name,
-  price,
-  onPromotion,
-  formatMoney,
-  findByProperty,
-  findBySlug,
-  filterByParentSlug,
-  minQuantity,
-  inStock,
-  searchedItems
+  // setup items list
+  // array of nested objects
+  let items = []
+  if (Array.isArray(hits)) {
+    // map items array from ELS hits list
+    hits.forEach(({ _id, _source }) => {
+      items.push(Object.assign({}, _source, { _id }))
+    })
+  }
+  return items
 }
 
 /**
- * @namespace ecomUtils
+ * @method
+ * @memberof ecomUtils
+ * @name searchedItems
+ * @description Returns array of items (products) from Search API response.
+ * @param {object|array} result - Search response body or ELS hits array
+ * @returns {array}
+ *
+ * @example
+ * // Full Search API response samples:
+ * // https://developers.e-com.plus/docs/api/#/search/items/items
+ * const result = { took: 6, hits: { total: 2, hits: [] } }
+ * result.hits.hits.push({ _id: '123', _source: { sku: 'TEST', name: 'Test' } })
+ * result.hits.hits.push({ _id: '456', _source: { sku: 'SMP', name: 'Smp' } })
+ * ecomUtils.searchedItems(result)
+ * // => [ { _id: '123', sku: 'TEST', name: 'Test' }, { _id: '456', sku: 'SMP', name: 'Smp' } ]
+ * // Same passing the `hits` array as param
+ * ecomUtils.searchedItems(result.hits.hits)
+ * // => [ { _id: '123', sku: 'TEST', name: 'Test' }, { _id: '456', sku: 'SMP', name: 'Smp' } ]
+ *
+ * @example
+ * // Importing this method standalone
+ * import searchedItems from '@ecomplus/utils/dist/methods/searchedItems'
  */
+
+export default searchedItems
 </code></pre>
         </article>
     </section>
