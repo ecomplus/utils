@@ -1,19 +1,8 @@
 import minQuantity from './min-quantity'
 
-const inStock = product => {
-  // check inventory
-  if (product.hasOwnProperty('quantity')) {
-    if (product.quantity >= minQuantity(product)) {
-      // in stock
-      return true
-    }
-  } else {
-    // no stock control
-    return true
-  }
-  // out of stock
-  return false
-}
+// check inventory
+// true if no stock control or available in stock
+const inStock = product => !product.hasOwnProperty('quantity') || product.quantity >= minQuantity(product)
 
 /**
  * @method
