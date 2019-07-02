@@ -30,7 +30,7 @@ const alphabeticalSort = list => {
  * @memberof ecomUtils
  * @name alphabeticalSort
  * @description Sort list of objects alphabetically by name ot title property.
- * @param {array|object} list - List of objects (products, categories...) or object with `results`
+ * @param {array|object} list - Array of objects (products, brands...) or list body with `results`
  * @returns {array}
  *
  * @example
