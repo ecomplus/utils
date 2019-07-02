@@ -29,7 +29,7 @@ const alphabeticalSort = list => {
  * @method
  * @memberof ecomUtils
  * @name alphabeticalSort
- * @description Sort list of objects alphabetically by name property.
+ * @description Sort list of objects alphabetically by name ot title property.
  * @param {array|object} list - List of objects (products, categories...) or object with `results`
  * @returns {array}
  *
