@@ -9,6 +9,7 @@ import _config from './lib/config'
 
 import i18n from './methods/i18n'
 import name from './methods/name'
+import alphabeticalSort from './methods/alphabetical-sort'
 import price from './methods/price'
 import onPromotion from './methods/on-promotion'
 import formatMoney from './methods/format-money'
@@ -43,6 +44,7 @@ export {
   _config,
   i18n,
   name,
+  alphabeticalSort,
   price,
   onPromotion,
   formatMoney,
