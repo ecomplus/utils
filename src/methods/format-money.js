@@ -12,12 +12,11 @@ const formatMoney = (value, currency = config.get('currency'), lang = config.get
     value = parseFloat(value)
   }
 
-  // format pt-BR, en-US
-  lang = lang.replace('_', '-')
   if (currency) {
     try {
       // format price string
-      return value.toLocaleString(lang, { style: 'currency', currency })
+      // lang code format: pt-br, en-us...
+      return value.toLocaleString(lang.replace('_', '-'), { style: 'currency', currency })
     } catch (err) {
       console.error(err)
     }
