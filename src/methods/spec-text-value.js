@@ -1,4 +1,4 @@
-import specValues from './specValues'
+import specValues from './spec-values'
 
 const specTextValue = (product, gridId, grids, delimiter = ', ') => {
   // using text property of each spec object

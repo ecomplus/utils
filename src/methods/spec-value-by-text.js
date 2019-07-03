@@ -1,4 +1,4 @@
-import specValues from './specValues'
+import specValues from './spec-values'
 
 const specValueByText = (product, specText, gridId, grids) => {
   let values = specValues(product, gridId, grids)
