@@ -25,6 +25,7 @@ import specTextValue from './methods/spec-text-value'
 import specValueByText from './methods/spec-value-by-text'
 import variationsGrids from './methods/variations-grids'
 import gridTitle from './methods/grid-title'
+import splitImgSize from './methods/split-img-size'
 
 /**
  * JS utility functions for E-Com Plus (not only) related apps.
@@ -64,7 +65,8 @@ export {
   specTextValue,
   specValueByText,
   variationsGrids,
-  gridTitle
+  gridTitle,
+  splitImgSize
 }
 
 /**
