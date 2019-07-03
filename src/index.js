@@ -13,6 +13,7 @@ import alphabeticalSort from './methods/alphabetical-sort'
 import price from './methods/price'
 import onPromotion from './methods/on-promotion'
 import formatMoney from './methods/format-money'
+import formatDate from './methods/format-date'
 import findByProperty from './methods/find-by-property'
 import findBySlug from './methods/find-by-slug'
 import filterByParentSlug from './methods/filter-by-parent-slug'
@@ -54,6 +55,7 @@ export {
   price,
   onPromotion,
   formatMoney,
+  formatDate,
   findByProperty,
   findBySlug,
   filterByParentSlug,
