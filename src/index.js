@@ -31,6 +31,7 @@ import img from './methods/img'
 import imgSizes from './methods/img-sizes'
 import nickname from './methods/nickname'
 import phone from './methods/phone'
+import birthDate from './methods/birth-date'
 import lineAddress from './methods/line-address'
 import objectIdPad from './methods/object-id-pad'
 import randomObjectId from './methods/random-object-id'
@@ -80,6 +81,7 @@ export {
   imgSizes,
   nickname,
   phone,
+  birthDate,
   lineAddress,
   objectIdPad,
   randomObjectId
