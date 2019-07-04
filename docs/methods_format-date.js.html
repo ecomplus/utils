@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/spec-values.js - Documentation</title>
+    <title>methods/format-date.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/spec-values.js</h1>
+    <h1 class="page-title">methods/format-date.js</h1>
     
 
     
@@ -42,86 +42,51 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const specValues = (product, gridId, grids) => {
-  if (typeof product !== 'object' || product === null) {
-    // nothing to do
-    // returns empty array by default
-    return []
+            <pre class="prettyprint source linenums"><code>import config from './../lib/config'
+
+const formatDate = (date, lang = config.get('lang'), options) => {
+  if (typeof date === 'object' &amp;&amp; date !== null) {
+    if (typeof date.getTime !== 'function') {
+      // expected to be a body (product, category, brand...) object
+      date = new Date(date.datetime || date.updated_at || date.created_at)
+    }
+  } else {
+    // parse to Date object
+    date = new Date(date)
   }
 
-  let values = []
-  if (typeof product === 'object' &amp;&amp; product !== null) {
-    if (Array.isArray(product)) {
-      if (product.length) {
-        if (product[0].specifications) {
-          // variations array sent as product param
-          product.forEach(variation => values.concat(specValues(variation, gridId)))
-        } else if (product[0].text) {
-          // spec values list sent as product param
-          values = product
-        }
-      }
-    } else {
-      // probably the product object from instance data
-      // work for product or specific variation product
-      let { specifications } = product
-      if (specifications) {
-        for (let id in specifications) {
-          if (specifications.hasOwnProperty(id) &amp;&amp; id === gridId) {
-            // specification found
-            values = specifications[gridId]
-          }
-        }
-      }
-
-      if (values &amp;&amp; !values.length &amp;&amp; Array.isArray(grids) &amp;&amp; grids.length) {
-        // try with grids list from preloaded data
-        let specs, grid
-        // match the grid by ID
-        if (grids &amp;&amp; (grid = grids.find(grid => grid.grid_id === gridId)) &amp;&amp; grid.options) {
-          // mounts specs array from grid options list
-          specs = grid.options.map(option => {
-            // try color RGB value or use default option ID
-            let value
-            if (option.colors &amp;&amp; option.colors.length) {
-              value = option.colors[0]
-            } else {
-              value = option.option_id
-            }
-
-            // spec options with text and value
-            return {
-              text: option.text,
-              value
-            }
-          })
-        }
-        return specValues(specs, gridId)
-      }
+  if (!isNaN(date.getTime())) {
+    try {
+      // return locale date string
+      // lang code format: pt-br, en-us...
+      return date.toLocaleDateString(lang.replace('_', '-'), options)
+    } catch (err) {
+      console.error(err)
     }
   }
-  return values
+  // fallback returning empty string by default
+  return ''
 }
 
 /**
  * @method
  * @memberof ecomUtils
- * @name specValues
- * @description Returns array of spec objects for specified grid.
- * @param {object|array} product - Product body or array of variation objects
- * @param {string} gridId - Grid ID string such as 'color'
- * @param {array} [grids] - List of grid objects
- * @returns {array}
+ * @name formatDate
+ * @description Parse date to locale formatted string.
+ * @param {string|object} date - Date object or ISO string, or body object (order, product...)
+ * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {object} [options] - Options object for `toLocaleDateString` function
+ * @returns {string}
  *
  * @example
  * // TODO
  *
  * @example
  * // Importing this method standalone
- * import specValues from '@ecomplus/utils/dist/methods/spec-values'
+ * import formatDate from '@ecomplus/utils/dist/methods/format-date'
  */
 
-export default specValues
+export default formatDate
 </code></pre>
         </article>
     </section>

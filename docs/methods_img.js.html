@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/spec-values.js - Documentation</title>
+    <title>methods/img.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/spec-values.js</h1>
+    <h1 class="page-title">methods/img.js</h1>
     
 
     
@@ -42,86 +42,62 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const specValues = (product, gridId, grids) => {
-  if (typeof product !== 'object' || product === null) {
-    // nothing to do
-    // returns empty array by default
-    return []
+            <pre class="prettyprint source linenums"><code>const img = (product, pictureId, size = 'normal') => {
+  let pictures
+  if (Array.isArray(product)) {
+    // received list of pictures ?
+    pictures = product
+  } else if (product) {
+    pictures = product.pictures
   }
+  let picture = Array.isArray(pictures)
+    // select one img object from product pictures
+    ? (pictureId &amp;&amp; pictures.filter(pic => pic._id === pictureId)[0]) || pictures[0]
+    // received picture as param ?
+    : product
 
-  let values = []
-  if (typeof product === 'object' &amp;&amp; product !== null) {
-    if (Array.isArray(product)) {
-      if (product.length) {
-        if (product[0].specifications) {
-          // variations array sent as product param
-          product.forEach(variation => values.concat(specValues(variation, gridId)))
-        } else if (product[0].text) {
-          // spec values list sent as product param
-          values = product
+  let img
+  if (typeof picture === 'object' &amp;&amp; picture !== null) {
+    img = picture[size]
+    if (!img) {
+      // try with any size
+      let sizes = [ 'big', 'normal', 'zoom', 'small' ]
+      for (let i = 0; i &lt; sizes.length; i++) {
+        let size = sizes[i]
+        if (picture[size]) {
+          return picture[size]
         }
       }
-    } else {
-      // probably the product object from instance data
-      // work for product or specific variation product
-      let { specifications } = product
-      if (specifications) {
-        for (let id in specifications) {
-          if (specifications.hasOwnProperty(id) &amp;&amp; id === gridId) {
-            // specification found
-            values = specifications[gridId]
-          }
+      // last try with custom sizes
+      for (let size in picture) {
+        if (picture[size] &amp;&amp; picture[size].url) {
+          return picture[size]
         }
-      }
-
-      if (values &amp;&amp; !values.length &amp;&amp; Array.isArray(grids) &amp;&amp; grids.length) {
-        // try with grids list from preloaded data
-        let specs, grid
-        // match the grid by ID
-        if (grids &amp;&amp; (grid = grids.find(grid => grid.grid_id === gridId)) &amp;&amp; grid.options) {
-          // mounts specs array from grid options list
-          specs = grid.options.map(option => {
-            // try color RGB value or use default option ID
-            let value
-            if (option.colors &amp;&amp; option.colors.length) {
-              value = option.colors[0]
-            } else {
-              value = option.option_id
-            }
-
-            // spec options with text and value
-            return {
-              text: option.text,
-              value
-            }
-          })
-        }
-        return specValues(specs, gridId)
       }
     }
   }
-  return values
+  return img
 }
 
 /**
  * @method
  * @memberof ecomUtils
- * @name specValues
- * @description Returns array of spec objects for specified grid.
- * @param {object|array} product - Product body or array of variation objects
- * @param {string} gridId - Grid ID string such as 'color'
- * @param {array} [grids] - List of grid objects
- * @returns {array}
+ * @name img
+ * @description Returns img object (with url and alt) from product body or pictures list.
+ * @param {object|array} product - Product body object or list of picture objects
+ * @param {string} [pictureId] - ObjectID of preferred picture to find in the list
+ * @param {string} [size='normal'] - Preferred image size to find on picture object
+ * @returns {object|undefined}
  *
  * @example
  * // TODO
  *
  * @example
  * // Importing this method standalone
- * import specValues from '@ecomplus/utils/dist/methods/spec-values'
+ * import img from '@ecomplus/utils/dist/methods/img'
  */
 
-export default specValues
+export default img
 </code></pre>
         </article>
     </section>

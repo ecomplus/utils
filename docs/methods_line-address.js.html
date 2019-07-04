@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/spec-values.js - Documentation</title>
+    <title>methods/line-address.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/spec-values.js</h1>
+    <h1 class="page-title">methods/line-address.js</h1>
     
 
     
@@ -42,86 +42,73 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const specValues = (product, gridId, grids) => {
-  if (typeof product !== 'object' || product === null) {
-    // nothing to do
-    // returns empty array by default
-    return []
-  }
+            <pre class="prettyprint source linenums"><code>import config from './../lib/config'
 
-  let values = []
-  if (typeof product === 'object' &amp;&amp; product !== null) {
-    if (Array.isArray(product)) {
-      if (product.length) {
-        if (product[0].specifications) {
-          // variations array sent as product param
-          product.forEach(variation => values.concat(specValues(variation, gridId)))
-        } else if (product[0].text) {
-          // spec values list sent as product param
-          values = product
-        }
-      }
-    } else {
-      // probably the product object from instance data
-      // work for product or specific variation product
-      let { specifications } = product
-      if (specifications) {
-        for (let id in specifications) {
-          if (specifications.hasOwnProperty(id) &amp;&amp; id === gridId) {
-            // specification found
-            values = specifications[gridId]
-          }
-        }
+const lineAddress = (address, noNumberString, lang = config.get('lang')) => {
+  // parse to full address string
+  if (address) {
+    let addresses = address.addresses
+    if (Array.isArray(addresses)) {
+      // customer body object received as param
+      address = addresses.filter(addr => addr.default)[0] || addresses[0]
+    }
+
+    if (typeof address === 'object' &amp;&amp; address !== null) {
+      if (address.line_address) {
+        return address.line_address
       }
 
-      if (values &amp;&amp; !values.length &amp;&amp; Array.isArray(grids) &amp;&amp; grids.length) {
-        // try with grids list from preloaded data
-        let specs, grid
-        // match the grid by ID
-        if (grids &amp;&amp; (grid = grids.find(grid => grid.grid_id === gridId)) &amp;&amp; grid.options) {
-          // mounts specs array from grid options list
-          specs = grid.options.map(option => {
-            // try color RGB value or use default option ID
-            let value
-            if (option.colors &amp;&amp; option.colors.length) {
-              value = option.colors[0]
-            } else {
-              value = option.option_id
-            }
-
-            // spec options with text and value
-            return {
-              text: option.text,
-              value
-            }
-          })
+      // concat address object properties
+      let { street, number, complement, borough, city } = address
+      let province = address.province_code || address.province
+      let lineAddress
+      if (street) {
+        lineAddress = street + ', ' + number ||
+          // address without number
+          noNumberString || (lang === 'pt_br' ? 'S/N' : '-')
+        if (complement) {
+          lineAddress += ' - ' + complement
         }
-        return specValues(specs, gridId)
+        if (borough) {
+          lineAddress += ', ' + borough
+        }
+      } else if (borough) {
+        lineAddress = borough
       }
+
+      // add city and state
+      if (city) {
+        lineAddress += ' | ' + city
+      }
+      if (province) {
+        lineAddress += ' | ' + province
+      }
+      return lineAddress
     }
   }
-  return values
+  // fallback returning empty string
+  return ''
 }
 
 /**
  * @method
  * @memberof ecomUtils
- * @name specValues
- * @description Returns array of spec objects for specified grid.
- * @param {object|array} product - Product body or array of variation objects
- * @param {string} gridId - Grid ID string such as 'color'
- * @param {array} [grids] - List of grid objects
- * @returns {array}
+ * @name lineAddress
+ * @description Returns full address string from customer object.
+ * @param {object} address - Address object or customer body object
+ * @param {string} [noNumberString] - String to show when address has no number
+ * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @returns {string}
  *
  * @example
  * // TODO
  *
  * @example
  * // Importing this method standalone
- * import specValues from '@ecomplus/utils/dist/methods/spec-values'
+ * import lineAddress from '@ecomplus/utils/dist/methods/line-address'
  */
 
-export default specValues
+export default lineAddress
 </code></pre>
         </article>
     </section>

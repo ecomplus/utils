@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/spec-values.js - Documentation</title>
+    <title>methods/categories-list.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/spec-values.js</h1>
+    <h1 class="page-title">methods/categories-list.js</h1>
     
 
     
@@ -42,75 +42,40 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const specValues = (product, gridId, grids) => {
-  if (typeof product !== 'object' || product === null) {
-    // nothing to do
-    // returns empty array by default
-    return []
-  }
-
-  let values = []
+            <pre class="prettyprint source linenums"><code>const categoriesList = product => {
+  let categoryTree
   if (typeof product === 'object' &amp;&amp; product !== null) {
-    if (Array.isArray(product)) {
-      if (product.length) {
-        if (product[0].specifications) {
-          // variations array sent as product param
-          product.forEach(variation => values.concat(specValues(variation, gridId)))
-        } else if (product[0].text) {
-          // spec values list sent as product param
-          values = product
-        }
-      }
-    } else {
-      // probably the product object from instance data
-      // work for product or specific variation product
-      let { specifications } = product
-      if (specifications) {
-        for (let id in specifications) {
-          if (specifications.hasOwnProperty(id) &amp;&amp; id === gridId) {
-            // specification found
-            values = specifications[gridId]
-          }
-        }
-      }
-
-      if (values &amp;&amp; !values.length &amp;&amp; Array.isArray(grids) &amp;&amp; grids.length) {
-        // try with grids list from preloaded data
-        let specs, grid
-        // match the grid by ID
-        if (grids &amp;&amp; (grid = grids.find(grid => grid.grid_id === gridId)) &amp;&amp; grid.options) {
-          // mounts specs array from grid options list
-          specs = grid.options.map(option => {
-            // try color RGB value or use default option ID
-            let value
-            if (option.colors &amp;&amp; option.colors.length) {
-              value = option.colors[0]
-            } else {
-              value = option.option_id
-            }
-
-            // spec options with text and value
-            return {
-              text: option.text,
-              value
-            }
-          })
-        }
-        return specValues(specs, gridId)
-      }
+    // try to get categories from product body object
+    if (product.category_tree) {
+      categoryTree = product.category_tree
+    } else if (Array.isArray(product.categories) &amp;&amp; product.categories[0]) {
+      // use the first category from list
+      return [ product.categories[0].name ]
     }
+  } else {
+    // category tree string received as param ?
+    categoryTree = product
   }
-  return values
+
+  if (typeof categoryTree === 'string') {
+    const categories = categoryTree.split('>')
+    for (let i = 0; i &lt; categories.length; i++) {
+      // remove white spaces from names
+      categories[i] = categories[i].trim()
+    }
+    // list of category names
+    return categories
+  }
+  // fallback returning empty array
+  return []
 }
 
 /**
  * @method
  * @memberof ecomUtils
- * @name specValues
- * @description Returns array of spec objects for specified grid.
- * @param {object|array} product - Product body or array of variation objects
- * @param {string} gridId - Grid ID string such as 'color'
- * @param {array} [grids] - List of grid objects
+ * @name categoriesList
+ * @description Parse category tree string to list of categories names.
+ * @param {object|string} product - Product object body or category tree string
  * @returns {array}
  *
  * @example
@@ -118,10 +83,10 @@
  *
  * @example
  * // Importing this method standalone
- * import specValues from '@ecomplus/utils/dist/methods/spec-values'
+ * import categoriesList from '@ecomplus/utils/dist/methods/categories-list'
  */
 
-export default specValues
+export default categoriesList
 </code></pre>
         </article>
     </section>

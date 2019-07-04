@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/spec-values.js - Documentation</title>
+    <title>methods/variations-grids.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/spec-values.js</h1>
+    <h1 class="page-title">methods/variations-grids.js</h1>
     
 
     
@@ -42,86 +42,74 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const specValues = (product, gridId, grids) => {
-  if (typeof product !== 'object' || product === null) {
-    // nothing to do
-    // returns empty array by default
-    return []
-  }
+            <pre class="prettyprint source linenums"><code>import specTextValue from './spec-text-value'
 
-  let values = []
-  if (typeof product === 'object' &amp;&amp; product !== null) {
-    if (Array.isArray(product)) {
-      if (product.length) {
-        if (product[0].specifications) {
-          // variations array sent as product param
-          product.forEach(variation => values.concat(specValues(variation, gridId)))
-        } else if (product[0].text) {
-          // spec values list sent as product param
-          values = product
-        }
+const variationsGrids = (product, filterGrids, inStockOnly, delimiter) => {
+  let grids = {}
+  if (product &amp;&amp; Array.isArray(product.variations)) {
+    product.variations.forEach(variation => {
+      if (inStockOnly &amp;&amp; variation.quantity &lt;= 0) {
+        // out of stock
+        return
       }
-    } else {
-      // probably the product object from instance data
-      // work for product or specific variation product
-      let { specifications } = product
+      let specifications = variation.specifications
+      // abstraction to get spec text value
+      let specValue = grid => specTextValue(variation, grid, delimiter)
+
       if (specifications) {
-        for (let id in specifications) {
-          if (specifications.hasOwnProperty(id) &amp;&amp; id === gridId) {
-            // specification found
-            values = specifications[gridId]
+        // check if current variation specs match with filters
+        if (filterGrids) {
+          for (let filter in filterGrids) {
+            if (filterGrids.hasOwnProperty(filter)) {
+              if (!specifications[filter] || specValue(filter) !== filterGrids[filter]) {
+                // does not match filtered grid
+                // skip current variation
+                return
+              }
+            }
+          }
+        }
+
+        // get values from each variation spec
+        for (let grid in specifications) {
+          if (specifications.hasOwnProperty(grid)) {
+            let text = specValue(grid)
+            if (!grids.hasOwnProperty(grid)) {
+              grids[grid] = []
+            } else if (grids[grid].indexOf(text) !== -1) {
+              // current spec value has already been added
+              continue
+            }
+            grids[grid].push(text)
           }
         }
       }
-
-      if (values &amp;&amp; !values.length &amp;&amp; Array.isArray(grids) &amp;&amp; grids.length) {
-        // try with grids list from preloaded data
-        let specs, grid
-        // match the grid by ID
-        if (grids &amp;&amp; (grid = grids.find(grid => grid.grid_id === gridId)) &amp;&amp; grid.options) {
-          // mounts specs array from grid options list
-          specs = grid.options.map(option => {
-            // try color RGB value or use default option ID
-            let value
-            if (option.colors &amp;&amp; option.colors.length) {
-              value = option.colors[0]
-            } else {
-              value = option.option_id
-            }
-
-            // spec options with text and value
-            return {
-              text: option.text,
-              value
-            }
-          })
-        }
-        return specValues(specs, gridId)
-      }
-    }
+    })
   }
-  return values
+  // returns parsed grid object
+  return grids
 }
 
 /**
  * @method
  * @memberof ecomUtils
- * @name specValues
- * @description Returns array of spec objects for specified grid.
- * @param {object|array} product - Product body or array of variation objects
- * @param {string} gridId - Grid ID string such as 'color'
- * @param {array} [grids] - List of grid objects
- * @returns {array}
+ * @name variationsGrids
+ * @description Parse variations specifications to one object only.
+ * @param {object} product - Product body object
+ * @param {object} [filterGrids] - Filter object with grids and searched values
+ * @param {boolean} [inStockOnly] - True to consider only variations with positive stock quantity
+ * @param {string} [delimiter=', '] - Delimiter between each specification
+ * @returns {object}
  *
  * @example
  * // TODO
  *
  * @example
  * // Importing this method standalone
- * import specValues from '@ecomplus/utils/dist/methods/spec-values'
+ * import variationsGrids from '@ecomplus/utils/dist/methods/variations-grids'
  */
 
-export default specValues
+export default variationsGrids
 </code></pre>
         </article>
     </section>
