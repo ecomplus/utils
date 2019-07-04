@@ -29,6 +29,7 @@ import variationsGrids from './methods/variations-grids'
 import gridTitle from './methods/grid-title'
 import imgSizes from './methods/img-sizes'
 import nickname from './methods/nickname'
+import lineAddress from './methods/line-address'
 import objectIdPad from './methods/object-id-pad'
 import randomObjectId from './methods/random-object-id'
 
@@ -75,6 +76,7 @@ export {
   gridTitle,
   imgSizes,
   nickname,
+  lineAddress,
   objectIdPad,
   randomObjectId
 }
