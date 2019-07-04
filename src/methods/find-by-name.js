@@ -1,29 +1,35 @@
+import name from './name'
 import findByProperty from './find-by-property'
 
-// just filter a list of documents by 'slug' property
-const findBySlug = (list, slug) => findByProperty(list, 'slug', slug)
+const findByName = (list, title) => {
+  // try to find by name property first
+  const objByName = findByProperty(list, 'name', title)
+  if (objByName) {
+    // found
+    return objByName
+  }
+  // try to find by transalated name or title prop
+  const newList = list.map(obj => {
+    return (obj && { name: name(obj) })
+  })
+  return findByProperty(newList, 'name', title)
+}
 
 /**
  * @method
  * @memberof ecomUtils
- * @name findBySlug
- * @description Find object from list by slug value.
+ * @name findByName
+ * @description Find object from list by name or title value.
  * @param {array} list - List of nested objects
- * @param {string} slug - Object (category, brand, product...) slug value
+ * @param {string} title - Object (category, brand, product...) name or title value
  * @returns {object|undefined}
  *
  * @example
- * // Find on list of brands, categories, products, any...
- * ecomUtils.findBySlug([ { name: 'Nike', slug: 'nike' }, { name: 'Puma', slug: 'puma' } ], 'nike')
- * // => { name: 'Nike', slug: 'nike' }
- * ecomUtils.findBySlug([ { slug: 'a' }, { slug: 'b' } ], 'b')
- * // => { slug: 'b' }
- * ecomUtils.findBySlug([ { slug: 'a' }, { slug: 'b' } ], 'c')
- * // => undefined
+ * // TODO
  *
  * @example
  * // Importing this method standalone
- * import findBySlug from '@ecomplus/utils/dist/methods/find-by-slug'
+ * import findByName from '@ecomplus/utils/dist/methods/find-by-name'
  */
 
-export default findBySlug
+export default findByName
