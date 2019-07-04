@@ -1,19 +1,27 @@
 const splitImgSize = img => {
   // defaul sizes object with zeros
   let sizes = { width: 0, height: 0 }
+  let sizeString
   if (typeof img === 'object' && img !== null) {
     if (typeof img.size === 'string') {
-      img.size.split('x').forEach((value, index) => {
-        // parse width and height to numbers
-        value = parseFloat(value)
-        if (!isNaN(value)) {
-          sizes[index === 0 ? 'width' : 'height'] = value
-        }
-      })
+      sizeString = img.size
     } else {
       // try with 'logo' body property
       return splitImgSize(img.logo)
     }
+  } else {
+    // expect to receive img as size string
+    sizeString = img
+  }
+
+  if (typeof sizeString === 'string') {
+    sizeString.split('x').forEach((value, index) => {
+      // parse width and height to numbers
+      value = parseFloat(value)
+      if (!isNaN(value)) {
+        sizes[index === 0 ? 'width' : 'height'] = value
+      }
+    })
   }
   // returns object with width and height
   return sizes
@@ -24,7 +32,7 @@ const splitImgSize = img => {
  * @memberof ecomUtils
  * @name splitImgSize
  * @description Splits image size string and returns object with 'width' and 'height'.
- * @param {object} img - Image object body
+ * @param {object|string} img - Image object body or size string
  * @returns {object}
  *
  * @example
