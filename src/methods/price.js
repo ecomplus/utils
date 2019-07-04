@@ -3,8 +3,12 @@ import onPromotion from './on-promotion'
 const price = product => onPromotion(product)
   // promotional sale price
   ? product.price
-  // use the maximum value between sale and base price
-  : product ? Math.max(product.base_price || 0, product.price || 0) : 0
+  : product
+    // test final price for cart item object
+    // use the maximum value between sale and base price
+    ? product.final_price || Math.max(product.base_price || 0, product.price || 0)
+    // default to zero
+    : 0
 
 /**
  * @method
