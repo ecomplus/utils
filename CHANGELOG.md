@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/ecomclub/ecomplus-utils/compare/v0.4.0...v0.5.0) (2019-07-04)
+
+
+### Bug Fixes
+
+* **import:** fix import on 'specTextValue' and 'specValueByText' methods ([0853013](https://github.com/ecomclub/ecomplus-utils/commit/0853013))
+* **price:** testing final price (is number) first for cart item objects ([d60477b](https://github.com/ecomclub/ecomplus-utils/commit/d60477b))
+* **price:** testing final price first for cart item objects ([23fde47](https://github.com/ecomclub/ecomplus-utils/commit/23fde47))
+* **split-img-size:** also accepting img param as size string ([8df9146](https://github.com/ecomclub/ecomplus-utils/commit/8df9146))
+* **split-img-size:** stop testing 'logo' prop on img object ([aacb5f3](https://github.com/ecomclub/ecomplus-utils/commit/aacb5f3))
+
+
+### Features
+
+* **method:** add 'objectIdPad' and 'randomObjectId' methods ([c0d7be7](https://github.com/ecomclub/ecomplus-utils/commit/c0d7be7))
+* **method:** add 'variationsGrids' and 'gridTitle' methods ([e5281c8](https://github.com/ecomclub/ecomplus-utils/commit/e5281c8))
+* **method:** new 'alphabeticalSort' method ([7eee3a9](https://github.com/ecomclub/ecomplus-utils/commit/7eee3a9))
+* **method:** new 'birthDate' method ([b17f76b](https://github.com/ecomclub/ecomplus-utils/commit/b17f76b))
+* **method:** new 'findByName' method ([7bdf0fb](https://github.com/ecomclub/ecomplus-utils/commit/7bdf0fb))
+* **method:** new 'formatData' method ([e199477](https://github.com/ecomclub/ecomplus-utils/commit/e199477))
+* **method:** new 'img' method ([fe946e1](https://github.com/ecomclub/ecomplus-utils/commit/fe946e1))
+* **method:** new 'lineAdress' method ([e902e0d](https://github.com/ecomclub/ecomplus-utils/commit/e902e0d))
+* **method:** new 'nickname' method ([33d690e](https://github.com/ecomclub/ecomplus-utils/commit/33d690e))
+* **method:** new 'phone' method ([75fc5b0](https://github.com/ecomclub/ecomplus-utils/commit/75fc5b0))
+* **method:** new 'searchItems' method ([fa435c2](https://github.com/ecomclub/ecomplus-utils/commit/fa435c2))
+* **method:** new 'specTextValue' method ([095de7b](https://github.com/ecomclub/ecomplus-utils/commit/095de7b))
+* **method:** new 'specValueByText' method ([c438c36](https://github.com/ecomclub/ecomplus-utils/commit/c438c36))
+* **method:** new 'specValues' method ([83ed5c9](https://github.com/ecomclub/ecomplus-utils/commit/83ed5c9))
+* **method:** new 'splitCategoryTree' method ([ff5209a](https://github.com/ecomclub/ecomplus-utils/commit/ff5209a))
+* **method:** new 'splitImgSize' method ([a26b3d8](https://github.com/ecomclub/ecomplus-utils/commit/a26b3d8))
+
+
+### refactor
+
+* **methods:** renaming methods 'categoriesList' and 'imgSizes' ([f18ef25](https://github.com/ecomclub/ecomplus-utils/commit/f18ef25))
+
+
+### BREAKING CHANGES
+
+* **methods:** removed 'splitCategoryTree' and 'splitImgSize'
+
+
+
 ## [0.4.0](https://github.com/ecomclub/ecomplus-utils/compare/v0.3.0...v0.4.0) (2019-07-01)
 
 
