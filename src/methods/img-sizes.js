@@ -35,7 +35,7 @@ const imgSizes = img => {
  *
  * @example
  * // Importing this method standalone
- * import imgSizes from '@ecomplus/utils/dist/methods/split-img-size'
+ * import imgSizes from '@ecomplus/utils/dist/methods/img-sizes'
  */
 
 export default imgSizes
