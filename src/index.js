@@ -16,6 +16,7 @@ import formatMoney from './methods/format-money'
 import formatDate from './methods/format-date'
 import findByProperty from './methods/find-by-property'
 import findBySlug from './methods/find-by-slug'
+import findByName from './methods/find-by-name'
 import filterByParentSlug from './methods/filter-by-parent-slug'
 import minQuantity from './methods/min-quantity'
 import inStock from './methods/in-stock'
@@ -27,6 +28,7 @@ import specValueByText from './methods/spec-value-by-text'
 import variationsGrids from './methods/variations-grids'
 import gridTitle from './methods/grid-title'
 import imgSizes from './methods/img-sizes'
+import nickname from './methods/nickname'
 import objectIdPad from './methods/object-id-pad'
 import randomObjectId from './methods/random-object-id'
 
@@ -60,6 +62,7 @@ export {
   formatDate,
   findByProperty,
   findBySlug,
+  findByName,
   filterByParentSlug,
   minQuantity,
   inStock,
@@ -71,6 +74,7 @@ export {
   variationsGrids,
   gridTitle,
   imgSizes,
+  nickname,
   objectIdPad,
   randomObjectId
 }
