@@ -3,12 +3,7 @@ const splitImgSize = img => {
   let sizes = { width: 0, height: 0 }
   let sizeString
   if (typeof img === 'object' && img !== null) {
-    if (typeof img.size === 'string') {
-      sizeString = img.size
-    } else {
-      // try with 'logo' body property
-      return splitImgSize(img.logo)
-    }
+    sizeString = img.size
   } else {
     // expect to receive img as size string
     sizeString = img
