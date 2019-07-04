@@ -20,13 +20,13 @@ import filterByParentSlug from './methods/filter-by-parent-slug'
 import minQuantity from './methods/min-quantity'
 import inStock from './methods/in-stock'
 import searchedItems from './methods/searched-items'
-import splitCategoryTree from './methods/split-category-tree'
+import categoriesList from './methods/categories-list'
 import specValues from './methods/spec-values'
 import specTextValue from './methods/spec-text-value'
 import specValueByText from './methods/spec-value-by-text'
 import variationsGrids from './methods/variations-grids'
 import gridTitle from './methods/grid-title'
-import splitImgSize from './methods/split-img-size'
+import imgSizes from './methods/img-sizes'
 import objectIdPad from './methods/object-id-pad'
 import randomObjectId from './methods/random-object-id'
 
@@ -64,13 +64,13 @@ export {
   minQuantity,
   inStock,
   searchedItems,
-  splitCategoryTree,
+  categoriesList,
   specValues,
   specTextValue,
   specValueByText,
   variationsGrids,
   gridTitle,
-  splitImgSize,
+  imgSizes,
   objectIdPad,
   randomObjectId
 }

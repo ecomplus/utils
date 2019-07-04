@@ -1,4 +1,4 @@
-const splitImgSize = img => {
+const imgSizes = img => {
   // defaul sizes object with zeros
   let sizes = { width: 0, height: 0 }
   let sizeString
@@ -25,7 +25,7 @@ const splitImgSize = img => {
 /**
  * @method
  * @memberof ecomUtils
- * @name splitImgSize
+ * @name imgSizes
  * @description Splits image size string and returns object with 'width' and 'height'.
  * @param {object|string} img - Image object body or size string
  * @returns {object}
@@ -35,7 +35,7 @@ const splitImgSize = img => {
  *
  * @example
  * // Importing this method standalone
- * import splitImgSize from '@ecomplus/utils/dist/methods/split-img-size'
+ * import imgSizes from '@ecomplus/utils/dist/methods/split-img-size'
  */
 
-export default splitImgSize
+export default imgSizes
