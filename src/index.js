@@ -27,6 +27,7 @@ import specTextValue from './methods/spec-text-value'
 import specValueByText from './methods/spec-value-by-text'
 import variationsGrids from './methods/variations-grids'
 import gridTitle from './methods/grid-title'
+import img from './methods/img'
 import imgSizes from './methods/img-sizes'
 import nickname from './methods/nickname'
 import lineAddress from './methods/line-address'
@@ -74,6 +75,7 @@ export {
   specValueByText,
   variationsGrids,
   gridTitle,
+  img,
   imgSizes,
   nickname,
   lineAddress,
