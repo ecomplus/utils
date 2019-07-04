@@ -5,8 +5,10 @@ const price = product => onPromotion(product)
   ? product.price
   : product
     // test final price for cart item object
-    // use the maximum value between sale and base price
-    ? product.final_price || Math.max(product.base_price || 0, product.price || 0)
+    ? typeof product.final_price === 'number'
+      ? product.final_price
+      // use the maximum value between sale and base price
+      : Math.max(product.base_price || 0, product.price || 0)
     // default to zero
     : 0
 
