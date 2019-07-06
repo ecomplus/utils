@@ -25,8 +25,9 @@ const findByName = (list, title) => {
  * @returns {object|undefined}
  *
  * @example
- * // TODO
- *
+ * const listOfNested = [{"name": "Ultimate Blaster", "sku": "MHP4824"}, {"name": "Xiaomi","sku": "smtp-xomi-9746"}]
+ * ecomUtils.findByName(listOfNested, 'Ultimate Blaster')
+ * => {name: "Ultimate Blaster", sku: "MHP4824"}
  * @example
  * // Importing this method standalone
  * import findByName from '@ecomplus/utils/dist/methods/find-by-name'
