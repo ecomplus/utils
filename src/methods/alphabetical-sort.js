@@ -34,8 +34,11 @@ const alphabeticalSort = list => {
  * @returns {array}
  *
  * @example
- * // TODO
- *
+ * // Sample array with name or title's property
+ * ecomUtils.alphabeticalSort(["product", "category"])
+ * => ["category", "product"]
+ * ecomUtils.alphabeticalSort(["Matheus", "Vitor", "Ana", "Clara", "Bruna"])
+ * => ["Ana", "Bruna", "Clara", "Matheus", "Vitor"]
  * @example
  * // Importing this method standalone
  * import alphabeticalSort from '@ecomplus/utils/dist/methods/alphabetical-sort'
