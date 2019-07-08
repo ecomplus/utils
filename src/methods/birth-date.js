@@ -25,12 +25,13 @@ const birthDate = customer => {
  * @returns {string}
  *
  * @example
- * costumer will be the parameter of this function and as result will return his birth date
- * var customer = object (body customer)
- * customer can be like:
- * const costumer = { "main_email": "joejonh@me.com","birth_date": {"year": 1990,"month": 10,"day": 1}}
+ * // costumer will be the parameter of this function and as result will return his birth date
+ * // const customer = object (body customer)
+ * // customer can be like:
+ * const costumer = { main_email: 'joejonh@me.com', birth_date: { year: 1990, month: 10, day: 1 } }
  * ecomUtils.birthDate(costumer)
- * => "10/1/1990"
+ * // => "10/1/1990"
+ *
  * @example
  * // Importing this method standalone
  * import birthDate from '@ecomplus/utils/dist/methods/birth-date'
