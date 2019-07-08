@@ -10,7 +10,8 @@ module.exports = {
     library: 'ecomUtils',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'ecom-utils.min.js'
+    filename: 'ecom-utils.min.js',
+    globalObject: 'this'
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'test'),
