@@ -35,15 +35,16 @@ const categoriesList = product => {
  * @returns {array}
  *
  * @example
- * Can be a category tree, like:
- * const categoryTree = "Quarto > Cama > Travesseiros"
- * So use categoryTree is parameter of function categoriesList, like:
+ * // Can be a category tree, like:
+ * const categoryTree = 'Quarto > Cama > Travesseiros'
+ * // So use categoryTree is parameter of function categoriesList, like:
  * ecomUtils.categoriesList(categoryTree)
- * => ["Quarto", "Cama", "Travesseiros"]
- * Or can be a product body object like:
- * const product = { "name": "Ultimate", "categories": [{"name": "Cadeira Gamer"},{"name": "Periféricos"}]}
+ * // => ["Quarto", "Cama", "Travesseiros"]
+ * // Or can be a product body object like:
+ * const product = { name: 'Ultimate', categories: [{name: 'Cadeira Gamer'},{name: 'Periféricos'}]}
  * ecomUtils.categoriesList(product)
  * => ["Cadeira Gamer"]
+ *
  * @example
  * // Importing this method standalone
  * import categoriesList from '@ecomplus/utils/dist/methods/categories-list'
