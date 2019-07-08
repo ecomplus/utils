@@ -34,7 +34,19 @@ const alphabeticalSort = list => {
  * @returns {array}
  *
  * @example
- * // TODO
+ * // Sample array with name or title's property
+ * ecomUtils.alphabeticalSort(['product', 'category'])
+ * // => ["category", "product"]
+ * ecomUtils.alphabeticalSort(['Matheus', 'Vitor', 'Ana', 'Clara', 'Bruna'])
+ * // => ["Ana", "Bruna", "Clara", "Matheus", "Vitor"]
+ * // Can be an array of objects like:
+ * const brand1 = {name: 'zara'}
+ * const brand2 = {name: 'Thermaltake'}
+ * const brand3 = {name: 'AeroCool'}
+ * const brand4 = {name: 'Fortrek'}
+ * const array = [brand1, brand2, brand3, brand4]
+ * ecomUtils.alphabeticalSort(array)
+ * // => [{name: "AeroCool"}, {name: "Fortrek"}, {name: "Thermaltake"}, {name: "Thermaltake"}, {name: "zara"}]
  *
  * @example
  * // Importing this method standalone
