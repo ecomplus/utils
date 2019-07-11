@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.4](https://github.com/ecomclub/ecomplus-utils/compare/v0.5.3...v0.5.4) (2019-07-11)
+
+
+### Build System
+
+* **bin:** setup config for multiple webpack outputs ([94a7122](https://github.com/ecomclub/ecomplus-utils/commit/94a7122))
+* **webpack:** edit default webpack output filename ([e9230ac](https://github.com/ecomclub/ecomplus-utils/commit/e9230ac))
+
+
+### Tests
+
+* **fix:** update script src to new webpack output filename ([d2323db](https://github.com/ecomclub/ecomplus-utils/commit/d2323db))
+
+
+
 ### [0.5.3](https://github.com/ecomclub/ecomplus-utils/compare/v0.5.2...v0.5.3) (2019-07-08)
 
 
