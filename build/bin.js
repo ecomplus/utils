@@ -13,22 +13,15 @@ const babel = require('@babel/core')
 // build bundle with Webpack
 const webpack = require('webpack')
 const webpackConfig = require(path.join(process.cwd(), 'webpack.config'))
+// handle Webpack output object and plugins
+const webpackOutput = { ...webpackConfig.output }
+const webpackPlugins = (webpackConfig.plugins && webpackConfig.plugins.concat()) || []
+// additional Webpack plugins
+const CopyPlugin = require('copy-webpack-plugin')
 
 // main directories
 const srcPath = path.resolve(process.cwd(), 'src')
-const outputPath = webpackConfig.output.path
-const outputFilename = webpackConfig.output.filename
-
-// additional Webpack plugins
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
-if (!webpackConfig.plugins) {
-  webpackConfig.plugins = []
-}
-webpackConfig.plugins.push(
-  new CleanWebpackPlugin(),
-  new CopyPlugin([{ from: srcPath, to: outputPath }])
-)
+const outputPath = webpackOutput.path
 
 const fatalError = err => {
   if (err) {
@@ -38,7 +31,36 @@ const fatalError = err => {
   process.exit(1)
 }
 
-webpack(webpackConfig, (err, stats) => {
+// setup config for multiple outputs
+const webpackConfigList = []
+
+;[
+  '.browser',
+  ''
+].forEach(outputType => {
+  let config = {
+    ...webpackConfig,
+    output: {
+      ...webpackOutput,
+      // custom filename by output type
+      filename: webpackOutput.filename.replace('.js', `${outputType}.min.js`)
+    }
+  }
+
+  // setup Webpack plugins by output type
+  if (outputType !== '.browser') {
+    // standalone lib output
+    config.plugins = webpackPlugins.concat([
+      // ignore package dependencies
+      new webpack.IgnorePlugin(/(@babel\/runtime|core-js)/),
+      // copy source to output
+      new CopyPlugin([{ from: srcPath, to: outputPath }])
+    ])
+  }
+  webpackConfigList.push(config)
+})
+
+webpack(webpackConfigList, (err, stats) => {
   // console.log(stats)
   if (err) {
     fatalError(err)
@@ -65,7 +87,7 @@ webpack(webpackConfig, (err, stats) => {
         const filepath = path.join(dir, file)
         if (fs.lstatSync(filepath).isDirectory()) {
           readDir(filepath)
-        } else if (file.endsWith('.js') && !file.startsWith(outputFilename)) {
+        } else if (file.endsWith('.js') && !file.endsWith('.min.js')) {
           // is JS file
           // isn't the Webpack output bundle
           // transform JS code
