@@ -3,8 +3,10 @@
   "version": "0.5.4",
   "description": "JS utility functions to E-Com Plus (not only) related apps",
   "main": "dist/ecom-utils.min.js",
-  "browser": "dist/ecom-utils.browser.min.js",
-  "unpkg": "dist/ecom-utils.browser.min.js",
+  "module": "src/index.js",
+  "browser": "dist/ecom-utils.min.js",
+  "jsdelivr": "dist/ecom-utils.polyfill.min.js",
+  "unpkg": "dist/ecom-utils.polyfill.min.js",
   "scripts": {
     "serve": "webpack-dev-server",
     "build": "node ./build/bin.js",
