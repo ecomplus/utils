@@ -35,7 +35,7 @@ const fatalError = err => {
 const webpackConfigList = []
 
 ;[
-  '.browser',
+  '.polyfill',
   ''
 ].forEach(outputType => {
   let config = {
@@ -48,7 +48,7 @@ const webpackConfigList = []
   }
 
   // setup Webpack plugins by output type
-  if (outputType !== '.browser') {
+  if (outputType === '') {
     // standalone lib output
     config.plugins = webpackPlugins.concat([
       // ignore package dependencies
