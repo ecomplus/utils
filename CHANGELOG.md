@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.5](https://github.com/ecomclub/ecomplus-utils/compare/v0.5.4...v0.5.5) (2019-07-16)
+
+
+### Build System
+
+* **bin:** fix output filenames ([36ced05](https://github.com/ecomclub/ecomplus-utils/commit/36ced05))
+
+
+
 ### [0.5.4](https://github.com/ecomclub/ecomplus-utils/compare/v0.5.3...v0.5.4) (2019-07-11)
 
 
