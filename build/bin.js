@@ -48,12 +48,12 @@ const webpackConfigList = []
   }
 
   // setup Webpack plugins by output type
-  if (outputType === '') {
+  if (outputType !== '.polyfill') {
     // standalone lib output
+    // ignore package dependencies
+    config.externals = /^(@babel\/runtime|core-js)/i
+    // copy source to output
     config.plugins = webpackPlugins.concat([
-      // ignore package dependencies
-      new webpack.IgnorePlugin(/(@babel\/runtime|core-js)/),
-      // copy source to output
       new CopyPlugin([{ from: srcPath, to: outputPath }])
     ])
   }
