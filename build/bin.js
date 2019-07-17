@@ -47,7 +47,7 @@ const webpackConfigList = []
     }
   }
 
-  // setup Webpack plugins by output type
+  // edit Webpack config by output type
   if (outputType !== '.polyfill') {
     // standalone lib output
     // ignore package dependencies
