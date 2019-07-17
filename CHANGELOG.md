@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.7](https://github.com/ecomclub/ecomplus-utils/compare/v0.5.6...v0.5.7) (2019-07-17)
+
+
+### Build System
+
+* **bin:** fix webpack config, using 'config.externals' ([d901155](https://github.com/ecomclub/ecomplus-utils/commit/d901155))
+
+
+
 ### [0.5.6](https://github.com/ecomclub/ecomplus-utils/compare/v0.5.5...v0.5.6) (2019-07-16)
 
 
