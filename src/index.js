@@ -21,6 +21,7 @@ import filterByParentSlug from './methods/filter-by-parent-slug'
 import minQuantity from './methods/min-quantity'
 import inStock from './methods/in-stock'
 import searchedItems from './methods/searched-items'
+import recommendedIds from './methods/recommended-ids'
 import categoriesList from './methods/categories-list'
 import specValues from './methods/spec-values'
 import specTextValue from './methods/spec-text-value'
@@ -71,6 +72,7 @@ export {
   minQuantity,
   inStock,
   searchedItems,
+  recommendedIds,
   categoriesList,
   specValues,
   specTextValue,
