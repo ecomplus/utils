@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/on-promotion.js - Documentation</title>
+    <title>methods/recommended-ids.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/on-promotion.js</h1>
+    <h1 class="page-title">methods/recommended-ids.js</h1>
     
 
     
@@ -42,73 +42,57 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const onPromotion = product => {
-  if (typeof product !== 'object' || product === null) {
-    // prevent fatal error
-    console.error(new Error('`product` must be an object'))
-    return false
+            <pre class="prettyprint source linenums"><code>const recommendedIds = result => {
+  let data
+  if (typeof result === 'object' &amp;&amp; result !== null) {
+    if (Array.isArray(result)) {
+      data = result
+    } else if (result.results &amp;&amp; result.results[0]) {
+      // Neo4j response body
+      data = result.results[0].data
+    }
   }
 
-  let promoDates = product.price_effective_date
-  if (promoDates) {
-    let now = new Date()
-    if (promoDates.start) {
-      // start date and time in ISO 8601
-      if (new Date(promoDates.start) > now) {
-        return false
-      }
-    }
-    if (promoDates.end) {
-      // promotion end date and time in ISO 8601
-      if (new Date(promoDates.end) &lt; now) {
-        return false
-      }
-    }
+  // setup ids list
+  let ids = []
+  if (Array.isArray(data)) {
+    // map ids array from Neo4j data list
+    data.forEach(({ row }) => {
+      ids.push(row[0])
+    })
   }
-  // default to no promotion
-  return !!(product.base_price > product.price)
+  return ids
 }
 
 /**
  * @method
  * @memberof ecomUtils
- * @name onPromotion
- * @description Check if item has promotional price.
- * @param {object} product - Item (product or variation) body object
- * @returns {boolean}
+ * @name recommendedIds
+ * @description Returns array of product IDs from Graphs API response.
+ * @param {object|array} result - Recommend/related products response body
+ * @returns {array}
  *
  * @example
- * // Simple test with no promotion date range
- * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
- * ecomUtils.onPromotion({ sku: 'TEST', name: 'Test', price: 140.56 })
- * // => false
- * ecomUtils.onPromotion({ price: 100, base_price: 110 })
- * // => true
- * ecomUtils.onPromotion({ price: 190, base_price: 170 })
- * // => false
- *
+
+// Full Graphs API response samples:
+// https://developers.e-com.plus/docs/api/#/graphs/products/recommended
+const result = { results: [ { columns: [], data: [] } ] }
+result.results[0].data.push(
+  { row: [ 'a00000000000000000000001' ], meta: [ null ] },
+  { row: [ 'a00000000000000000000002' ], meta: [ null ] },
+  { row: [ 'a00000000000000000000006' ], meta: [ null ] }
+)
+ecomUtils.recommendedIds(result)
+// => [ 'a00000000000000000000001', 'a00000000000000000000002', 'a00000000000000000000006' ]
+
  * @example
- * // With date range
- * const product = { sku: 'abc', price: 20.9, base_price: 30.9, price_effective_date: {} }
- * product.price_effective_date.start = '2019-06-01T16:03:45.035Z'
- * ecomUtils.onPromotion(product)
- * // => true
- * product.price_effective_date.end = '2019-06-10T16:03:45.035Z'
- * ecomUtils.onPromotion(product)
- * // => false
- * product.price_effective_date.end = '2021-08-12T00:00:00.000Z'
- * ecomUtils.onPromotion(product)
- * // => true
- * product.price_effective_date.start = '2021-01-01T00:00:00.000Z'
- * ecomUtils.onPromotion(product)
- * // => false
- *
- * @example
- * // Importing this method standalone
- * import onPromotion from '@ecomplus/utils/dist/methods/on-promotion'
+
+// Importing this method standalone
+import recommendedIds from '@ecomplus/utils/dist/methods/recommended-ids'
+
  */
 
-export default onPromotion
+export default recommendedIds
 </code></pre>
         </article>
     </section>
