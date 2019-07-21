@@ -55,6 +55,7 @@ export default {
         case 'country_code': return DEFAULT_COUNTRY_CODE
         case 'store_id': return DEFAULT_STORE_ID
         case 'store_object_id': return DEFAULT_STORE_OBJECT_ID
+        // 'channel_id', 'page_resource', 'page_object_id'
       }
     }
     return null
