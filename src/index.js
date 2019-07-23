@@ -40,7 +40,7 @@ import randomObjectId from './methods/random-object-id'
 /**
  * JS utility functions for E-Com Plus (not only) related apps.
  * @module @ecomplus/utils
- * @exports {@link ecomUtils}
+ * @see ecomUtils
  *
  * @example
  * // Import all utility methods with ES
