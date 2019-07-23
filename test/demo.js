@@ -1,3 +1,4 @@
 'use strict'
 
-console.log(1)
+/* global ecomUtils */
+console.log(ecomUtils)
