@@ -18,13 +18,51 @@ const getConfig = prop => {
     for (let i = 0; i < metas.length; i++) {
       // parse prop name to kebab case and check meta tag name
       if (metas[i].getAttribute('name') === prop.replace(/_/g, '-')) {
-        return metas[i].getAttribute('content')
+        let val = metas[i].getAttribute('content')
+        // returns int for Store ID or string for others
+        return prop === 'ecom_store_id' ? parseInt(val, 10) : val
       }
     }
   }
   // try to get config prop from global object
   return global[prop.toUpperCase()]
 }
+
+/**
+ * @namespace _config
+ * @description
+ * General config values for E-Com Plus apps.
+ * It tries to get values from metatags or `window` on browser,
+ * or `proccess.env` on Node.js environments,
+ * when undefineds it uses
+ * [predefined constants]{@link https://github.com/ecomclub/ecomplus-utils/blob/master/src/lib/constants.js}.
+ * <br><br>
+ * Check all common config properties on
+ * [`src/lib/config.js`]{@link https://github.com/ecomclub/ecomplus-utils/blob/master/src/lib/config.js}
+ * file.
+ *
+ * @example
+
+// Preset config on browser with HTML meta tags
+<meta name="ecom-store-id" content="1011">
+<meta name="ecom-store-object-id" content="5b1abe30a4d4531b8fe40725">
+<meta name="ecom-lang" content="pt_br">
+
+* @example
+
+// Preset config on browser with JS window
+window.ECOM_STORE_ID = 1011
+window.ECOM_STORE_OBJECT_ID = '5b1abe30a4d4531b8fe40725'
+window.ECOM_LANG = 'pt_br'
+
+ * @example
+
+ // Preset config on Node.js env
+ process.env.ECOM_STORE_ID = 1011
+ process.env.ECOM_STORE_OBJECT_ID = '5b1abe30a4d4531b8fe40725'
+ process.env.ECOM_LANG = 'pt_br'
+
+ */
 
 // setup config object
 const config = {}
@@ -41,6 +79,20 @@ const config = {}
 
 // exports fuctions to get and set config props
 export default {
+
+  /**
+   * @memberof _config
+   * @description Get the stored value for specified config property.
+   * @param {string} prop - Configuration property
+   * @example
+   * ecomUtils._config.get('store_id')
+   * // => 1011
+   * ecomUtils._config.get('currency')
+   * // => 'USD'
+   * ecomUtils._config.get('currency_symbol')
+   * // => '$'
+   */
+
   get (prop) {
     // try to get stored value from config object first
     let value = config[prop]
@@ -60,6 +112,15 @@ export default {
     }
     return null
   },
+
+  /**
+   * @memberof _config
+   * @description Save the value for specified config property.
+   * @param {string} prop - Configuration property
+   * @param {string} value - New prop value
+   * @example
+   * ecomUtils._config.set('store_id', 1012)
+   */
 
   set (prop, value) {
     // save prop value on config object
