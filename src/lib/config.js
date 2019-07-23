@@ -23,7 +23,7 @@ const getConfig = prop => {
     }
   }
   // try to get config prop from global object
-  return global[prop]
+  return global[prop.toUpperCase()]
 }
 
 // setup config object
