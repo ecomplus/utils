@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>_config - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-@ecomplus_utils.html">@ecomplus/utils</a></li></ul><h3>Namespaces</h3><ul><li><a href="-_config.html">_config</a><ul class='methods'><li data-type='method'><a href="-_config.html#.get">get</a></li><li data-type='method'><a href="-_config.html#.set">set</a></li></ul></li><li><a href="ecomUtils.html">ecomUtils</a><ul class='methods'><li data-type='method'><a href="ecomUtils.html#.alphabeticalSort">alphabeticalSort</a></li><li data-type='method'><a href="ecomUtils.html#.birthDate">birthDate</a></li><li data-type='method'><a href="ecomUtils.html#.categoriesList">categoriesList</a></li><li data-type='method'><a href="ecomUtils.html#.filterByParentSlug">filterByParentSlug</a></li><li data-type='method'><a href="ecomUtils.html#.findByName">findByName</a></li><li data-type='method'><a href="ecomUtils.html#.findByProperty">findByProperty</a></li><li data-type='method'><a href="ecomUtils.html#.findBySlug">findBySlug</a></li><li data-type='method'><a href="ecomUtils.html#.formatDate">formatDate</a></li><li data-type='method'><a href="ecomUtils.html#.formatMoney">formatMoney</a></li><li data-type='method'><a href="ecomUtils.html#.gridTitle">gridTitle</a></li><li data-type='method'><a href="ecomUtils.html#.i18n">i18n</a></li><li data-type='method'><a href="ecomUtils.html#.img">img</a></li><li data-type='method'><a href="ecomUtils.html#.imgSizes">imgSizes</a></li><li data-type='method'><a href="ecomUtils.html#.inStock">inStock</a></li><li data-type='method'><a href="ecomUtils.html#.lineAddress">lineAddress</a></li><li data-type='method'><a href="ecomUtils.html#.minQuantity">minQuantity</a></li><li data-type='method'><a href="ecomUtils.html#.name">name</a></li><li data-type='method'><a href="ecomUtils.html#.nickname">nickname</a></li><li data-type='method'><a href="ecomUtils.html#.objectIdPad">objectIdPad</a></li><li data-type='method'><a href="ecomUtils.html#.onPromotion">onPromotion</a></li><li data-type='method'><a href="ecomUtils.html#.phone">phone</a></li><li data-type='method'><a href="ecomUtils.html#.price">price</a></li><li data-type='method'><a href="ecomUtils.html#.randomObjectId">randomObjectId</a></li><li data-type='method'><a href="ecomUtils.html#.recommendedIds">recommendedIds</a></li><li data-type='method'><a href="ecomUtils.html#.searchedItems">searchedItems</a></li><li data-type='method'><a href="ecomUtils.html#.specTextValue">specTextValue</a></li><li data-type='method'><a href="ecomUtils.html#.specValueByText">specValueByText</a></li><li data-type='method'><a href="ecomUtils.html#.specValues">specValues</a></li><li data-type='method'><a href="ecomUtils.html#.variationsGrids">variationsGrids</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">_config</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        _config
+        </h2>
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_config.js.html">lib/config.js</a>, <a href="lib_config.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+            
+                <div class="description">General config values for E-Com Plus apps.
+It tries to get values from metatags or `window` on browser,
+or `proccess.env` on Node.js environments,
+when undefineds it uses
+<a href="https://github.com/ecomclub/ecomplus-utils/blob/master/src/lib/constants.js">predefined constants</a>.
+<br><br>
+Check all common config properties on
+<a href="https://github.com/ecomclub/ecomplus-utils/blob/master/src/lib/config.js">`src/lib/config.js`</a>
+file.</div>
+            
+
+            
+                <h3>Examples</h3>
+                
+    <pre class="prettyprint"><code>// Preset config on browser with HTML meta tags
+&lt;meta name="ecom-store-id" content="1011">
+&lt;meta name="ecom-store-object-id" content="5b1abe30a4d4531b8fe40725">
+&lt;meta name="ecom-lang" content="pt_br"></code></pre>
+
+    <pre class="prettyprint"><code>// Preset config on browser with JS window
+window.ECOM_STORE_ID = 1011
+window.ECOM_STORE_OBJECT_ID = '5b1abe30a4d4531b8fe40725'
+window.ECOM_LANG = 'pt_br'</code></pre>
+
+    <pre class="prettyprint"><code>// Preset config on Node.js env
+ process.env.ECOM_STORE_ID = 1011
+ process.env.ECOM_STORE_OBJECT_ID = '5b1abe30a4d4531b8fe40725'
+ process.env.ECOM_LANG = 'pt_br'</code></pre>
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".get"><span class="type-signature">(static) </span>get<span class="signature">(prop)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_config.js.html">lib/config.js</a>, <a href="lib_config.js.html#line96">line 96</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Get the stored value for specified config property.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>ecomUtils._config.get('store_id')
+// => 1011
+ecomUtils._config.get('currency')
+// => 'USD'
+ecomUtils._config.get('currency_symbol')
+// => '$'</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Configuration property</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".set"><span class="type-signature">(static) </span>set<span class="signature">(prop, value)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_config.js.html">lib/config.js</a>, <a href="lib_config.js.html#line125">line 125</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Save the value for specified config property.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>ecomUtils._config.set('store_id', 1012)</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Configuration property</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">New prop value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Jul 23 2019 19:16:14 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
