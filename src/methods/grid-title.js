@@ -1,7 +1,7 @@
-import config from './../lib/config'
+import _config from './../lib/config'
 import name from './name'
 
-const gridTitle = (gridId, grids, lang = config.get('lang')) => {
+const gridTitle = (gridId, grids, lang = _config.get('lang')) => {
   let grid
   if (Array.isArray(grids)) {
     // match the grid by ID
@@ -20,7 +20,7 @@ const gridTitle = (gridId, grids, lang = config.get('lang')) => {
  * @description Returns grid title by grid ID and lang.
  * @param {string} gridId - The unique ID of the grid ('colors', 'size'...)
  * @param {array} grids - List of grid objects
- * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string}
  *
  * @example

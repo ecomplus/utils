@@ -1,7 +1,7 @@
-import config from './../lib/config'
+import _config from './../lib/config'
 import i18n from './i18n'
 
-const name = (body, lang = config.get('lang')) => {
+const name = (body, lang = _config.get('lang')) => {
   // prefer translated item name
   if (lang && body.i18n && body.i18n[lang]) {
     return body.i18n[lang]
@@ -16,7 +16,7 @@ const name = (body, lang = config.get('lang')) => {
  * @name name
  * @description Returns object name by lang.
  * @param {object} body - Object (product, category, brand, grid...) body
- * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string}
  *
  * @example

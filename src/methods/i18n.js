@@ -1,7 +1,7 @@
 import { DEFAULT_LANG } from './../lib/constants'
-import config from './../lib/config'
+import _config from './../lib/config'
 
-const i18n = (dictionary, lang = config.get('lang')) => {
+const i18n = (dictionary, lang = _config.get('lang')) => {
   if (typeof dictionary === 'object' && dictionary !== null) {
     let prop = Object.keys(dictionary)[0]
     if (typeof dictionary[prop] === 'string') {
@@ -26,7 +26,7 @@ const i18n = (dictionary, lang = config.get('lang')) => {
  * @name i18n
  * @description Get translated string by lang code from dictionary object.
  * @param {object} dictionary - Dictionary object containing string in multiple langs
- * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string|object}
  *
  * @example

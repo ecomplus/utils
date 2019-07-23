@@ -1,6 +1,6 @@
-import config from './../lib/config'
+import _config from './../lib/config'
 
-const lineAddress = (address, noNumberString, lang = config.get('lang')) => {
+const lineAddress = (address, noNumberString, lang = _config.get('lang')) => {
   // parse to full address string
   if (address) {
     let addresses = address.addresses
@@ -53,7 +53,7 @@ const lineAddress = (address, noNumberString, lang = config.get('lang')) => {
  * @description Returns full address string from customer object.
  * @param {object} address - Address object or customer body object
  * @param {string} [noNumberString] - String to show when address has no number
- * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string}
  *
  * @example

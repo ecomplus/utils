@@ -1,6 +1,6 @@
-import config from './../lib/config'
+import _config from './../lib/config'
 
-const formatDate = (date, lang = config.get('lang'), options) => {
+const formatDate = (date, lang = _config.get('lang'), options) => {
   if (typeof date === 'object' && date !== null) {
     if (typeof date.getTime !== 'function') {
       // expected to be a body (product, category, brand...) object
@@ -30,7 +30,7 @@ const formatDate = (date, lang = config.get('lang'), options) => {
  * @name formatDate
  * @description Parse date to locale formatted string.
  * @param {string|object} date - Date object or ISO string, or body object (order, product...)
- * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @param {object} [options] - Options object for `toLocaleDateString` function
  * @returns {string}
  *

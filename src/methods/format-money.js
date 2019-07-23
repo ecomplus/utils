@@ -1,7 +1,7 @@
-import config from './../lib/config'
+import _config from './../lib/config'
 import price from './price'
 
-const formatMoney = (value, currency = config.get('currency'), lang = config.get('lang')) => {
+const formatMoney = (value, currency = _config.get('currency'), lang = _config.get('lang')) => {
   // price to number
   if (typeof value === 'object') {
     if (value !== null) {
@@ -22,7 +22,7 @@ const formatMoney = (value, currency = config.get('currency'), lang = config.get
     }
   }
   // fallback using configured currency symbol
-  const moneyPrefix = (currency || config.get('currency_symbol')) + ' '
+  const moneyPrefix = (currency || _config.get('currency_symbol')) + ' '
   return typeof value === 'number' ? moneyPrefix + value : ''
 }
 
@@ -32,8 +32,8 @@ const formatMoney = (value, currency = config.get('currency'), lang = config.get
  * @name formatMoney
  * @description Parse price number to formatted currency string.
  * @param {number|object} value - Price number or body object (product or variation)
- * @param {string|null} [currency=config.get('currency')] - Currency code such as 'BRL'
- * @param {string} [lang=config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string|null} [currency=_config.get('currency')] - Currency code such as 'BRL'
+ * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string}
  *
  * @example
