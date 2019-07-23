@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.1](https://github.com/ecomclub/ecomplus-utils/compare/v0.6.0...v0.6.1) (2019-07-23)
+
+
+### Bug Fixes
+
+* **config:** geting config props from global/env correctly ([35e3040](https://github.com/ecomclub/ecomplus-utils/commit/35e3040))
+
+
+### Tests
+
+* **log:** debug global 'ecomUtils' object ([7f9a627](https://github.com/ecomclub/ecomplus-utils/commit/7f9a627))
+
+
+
 ## [0.6.0](https://github.com/ecomclub/ecomplus-utils/compare/v0.5.7...v0.6.0) (2019-07-21)
 
 
