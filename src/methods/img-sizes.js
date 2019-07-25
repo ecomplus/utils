@@ -31,8 +31,16 @@ const imgSizes = img => {
  * @returns {object}
  *
  * @example
- * // TODO
- *
+ * // Can be a string as parameter
+ * const imgString = '200x50'
+ * ecomUtils.imgSizes(imgString)
+ * // return an object with width and height
+ * // => {width: 200, height: 50}
+ * // Can be an object as a parameter as well
+ * const imgObj = {size: '1000x1000'}
+ * ecomUtils.imgSizes(imgObj)
+ * // return an object with width and height
+ * // => {width: 1000, height: 1000}
  * @example
  * // Importing this method standalone
  * import imgSizes from '@ecomplus/utils/dist/methods/img-sizes'
