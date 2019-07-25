@@ -38,7 +38,7 @@ const formatDate = (date, lang = config.get('lang'), options) => {
  * // Receive as a parameter date, type of language and object toLocaleDateString
  * const notifications = {datetime: '2019-06-19T03:35:52.811Z', content: {api_event: {resource: 'orders'}}}
  * ecomUtils.formatDate(notifications, 'pt-br')
- * // As a result is a date string
+ * // As a result is a date string like
  * // => "19/06/2019"
  *
  * @example
