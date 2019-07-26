@@ -32,12 +32,12 @@ const imgSizes = img => {
  *
  * @example
  * // Using a img sizes string as parameter
- * const imgString = '200x50'
- * ecomUtils.imgSizes(imgString)
+ * const size = '200x50'
+ * ecomUtils.imgSizes(size)
  * // => {width: 200, height: 50}
  * // Using a img sizes object as parameter
- * const imgObj = {size: '1000x1000'}
- * ecomUtils.imgSizes(imgObj)
+ * const sizeObj = {size: '1000x1000'}
+ * ecomUtils.imgSizes(sizeObj)
  * // => {width: 1000, height: 1000}
  *
  * @example
