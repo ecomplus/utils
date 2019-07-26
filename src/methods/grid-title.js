@@ -24,13 +24,13 @@ const gridTitle = (gridId, grids, lang = config.get('lang')) => {
  * @returns {string}
  *
  * @example
- * const gridid = 'canais'
+ * const gridId = 'canais'
  * const grid1 = {title: 'Canais', grid_id: 'canais'}
  * const grid2 = {title: 'Cores', grid_id: 'colors'}
  * const grid3 = {title: 'Tamanho', grid_id: 'size'}
- * const array = [grid1, grid2, grid3]
+ * const grids = [ grid1, grid2, grid3 ]
  * const lang = 'pt_br'
- * ecomUtils.gridTitle(gridid, array, lang)
+ * ecomUtils.gridTitle(gridId, grids, lang)
  * // => "Canais"
  *
  * @example
