@@ -21,9 +21,9 @@ const nickname = customer => {
  * @returns {string}
  *
  * @example
- * const custumer = { 'name': { 'given_name': 'Jonh', 'family_name': 'Lock' }, 'display_name': 'Lock' }
- * ecomUtils.nickname(costumer)
- * // => 'Lock'
+ * const customer = { 'name': { 'given_name': 'Jonh', 'family_name': 'Lock' }, 'display_name': 'Locky' }
+ * ecomUtils.nickname(customer)
+ * // => 'Locky'
  *
  * @example
  * // Importing this method standalone
