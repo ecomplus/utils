@@ -24,10 +24,6 @@ const gridTitle = (gridId, grids, lang = config.get('lang')) => {
  * @returns {string}
  *
  * @example
- * // The method have 3 parameters (string, array, string)
- * // The firstone is grid id. It's a unique ID of the grid, such as 'colors', 'canais'
- * // The second is an array with a list of grid objects
- * // The third and lastone is a string that define the language, such as 'en_us' or 'pt_br'
  * const gridid = 'canais'
  * const grid1 = {title: 'Canais', grid_id: 'canais'}
  * const grid2 = {title: 'Cores', grid_id: 'colors'}
@@ -35,7 +31,6 @@ const gridTitle = (gridId, grids, lang = config.get('lang')) => {
  * const array = [grid1, grid2, grid3]
  * const lang = 'pt_br'
  * ecomUtils.gridTitle(gridid, array, lang)
- * // As a result, match grid id in array with the language code explict
  * // => "Canais"
  *
  * @example
