@@ -25,7 +25,9 @@ const phone = customer => {
  * @returns {string}
  *
  * @example
- * // TODO
+ * const customer = { 'number': '31992980000'}
+ * ecomUtils.phone(customer)
+ * // => '31992980000'
  *
  * @example
  * // Importing this method standalone
