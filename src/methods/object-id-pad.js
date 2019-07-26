@@ -11,7 +11,10 @@ const objectIdPad = (id, index) => id.substring(0, 24 - index.length) + index
  * @returns {string}
  *
  * @example
- * // TODO
+ * const id = '5ce59fbf887ef430f1f6ed29'
+ * const index = '5'
+ * ecomUtils.objectIdPad(id, index)
+ * // => '5ce59fbf887ef430f1f6ed25'
  *
  * @example
  * // Importing this method standalone
