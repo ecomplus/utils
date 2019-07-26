@@ -24,7 +24,14 @@ const gridTitle = (gridId, grids, lang = _config.get('lang')) => {
  * @returns {string}
  *
  * @example
- * // TODO
+ * const gridId = 'canais'
+ * const grid1 = {title: 'Canais', grid_id: 'canais'}
+ * const grid2 = {title: 'Cores', grid_id: 'colors'}
+ * const grid3 = {title: 'Tamanho', grid_id: 'size'}
+ * const grids = [ grid1, grid2, grid3 ]
+ * const lang = 'pt_br'
+ * ecomUtils.gridTitle(gridId, grids, lang)
+ * // => "Canais"
  *
  * @example
  * // Importing this method standalone
