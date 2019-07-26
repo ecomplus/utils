@@ -57,7 +57,10 @@ const lineAddress = (address, noNumberString, lang = config.get('lang')) => {
  * @returns {string}
  *
  * @example
- * // TODO
+ * const address = { 'zip': '35800-999', 'name': 'Jonh Lock', 'street': 'Rua Europa', 'number': 900, 'borough': 'Santa Lucia', 'city': 'Bom Despacho', 'province_code': 'MG'}
+ * const lang = 'pt_br'
+ * ecomUtils.lineAddress(address, lang)
+ * // => 'Rua Europa, 900, Santa Lucia | Bom Despacho | MG'
  *
  * @example
  * // Importing this method standalone
