@@ -35,8 +35,8 @@ const formatDate = (date, lang = config.get('lang'), options) => {
  * @returns {string}
  *
  * @example
- * const notifications = { datetime: '2019-06-19T03:35:52.811Z', content: {api_event: {resource: 'orders'}}}
- * ecomUtils.formatDate(notifications, 'pt-br')
+ * const notification = { datetime: '2019-06-19T03:35:52.811Z', content: {api_event: {resource: 'orders'}}}
+ * ecomUtils.formatDate(notification, 'pt-br')
  * // => "19/06/2019"
  *
  * @example
