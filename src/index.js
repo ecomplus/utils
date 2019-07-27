@@ -52,7 +52,7 @@ import randomObjectId from './methods/random-object-id'
  *
  * @example
  * <!-- Global `ecomUtils` from CDN on browser -->
- * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/utils"></script>
+ * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/utils/dist/ecom-utils.polyfill.min.js"></script>
  */
 
 export {
