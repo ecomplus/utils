@@ -4635,7 +4635,7 @@ import price from '@ecomplus/utils/dist/methods/price'</code></pre>
 
     
 
-    <h4 class="name" id=".randomObjectId"><span class="type-signature">(static) </span>randomObjectId<span class="signature">(id, index)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id=".randomObjectId"><span class="type-signature">(static) </span>randomObjectId<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 
@@ -4687,7 +4687,7 @@ import price from '@ecomplus/utils/dist/methods/price'</code></pre>
 
 
 <div class="description">
-    Merge received ObjectID string with new index.
+    Generate a random object id with 24 chars hexadecimal string.
 </div>
 
 
@@ -4700,84 +4700,13 @@ import price from '@ecomplus/utils/dist/methods/price'</code></pre>
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>// TODO</code></pre>
+    <pre class="prettyprint"><code>ecomUtils.randomObjectId()
+// => '561025156443695764000000'</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
 import randomObjectId from '@ecomplus/utils/dist/methods/random-object-id'</code></pre>
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Base ID string, 24 digits hexadecimal</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>index</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The index to be inserted on the end of base ID, creating new ObjectID</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -5168,7 +5097,7 @@ import searchedItems from '@ecomplus/utils/dist/methods/searched-items'</code></
 
     
 
-    <h4 class="name" id=".specTextValue"><span class="type-signature">(static) </span>specTextValue<span class="signature">(product, gridId, grids<span class="signature-attributes">opt</span>, delimiter<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {string|null}</span></h4>
+    <h4 class="name" id=".specTextValue"><span class="type-signature">(static) </span>specTextValue<span class="signature">(product, gridId, grids<span class="signature-attributes">opt</span>, delimiter<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {array|null}</span></h4>
 
     
 
@@ -5233,7 +5162,15 @@ import searchedItems from '@ecomplus/utils/dist/methods/searched-items'</code></
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>// TODO</code></pre>
+    <pre class="prettyprint"><code>const product = { 'name': 'Cruzeiro 2019', 'variations': [ { 'name': 'Cruzeiro 2019 / P / azul', 'specifications': { 'colors': [ { 'text': 'azul', 'value': '#3300ff' }, { 'text': 'vermelho', 'value': '#ff0000' } ] } } ] }
+const gridId = 'colors'
+const delimiter = ','
+const grid1 = { 'grid_id': 'size', 'title': 'Tamanho', 'options': [ { 'text': 'P', 'option_id': 'pp' } ] }
+const grid2 = { 'title': 'Cores', 'grid_id': 'colors', 'options': [ { 'text': 'vermelho', 'option_id': 'vermelho', 'colors': [ '#ff0000' ] }, { 'text': 'azul', 'option_id': 'azul', 'colors': [ '#3300ff' ] } ] }
+const grid3 = { 'title': 'Conector', 'grid_id': 'conector', 'options': [ { 'text': 'USB', 'option_id': 'usb' } ] }
+const grids = [ grid1, grid2, grid3 ]
+ecomUtils.specValues(product, gridId, grids, delimiter)
+// => [{text: 'vermelho', value: '#ff0000'}, {text: 'azul', value: '#3300ff'}]</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
 import specTextValue from '@ecomplus/utils/dist/methods/spec-text-value'</code></pre>
@@ -5445,7 +5382,7 @@ import specTextValue from '@ecomplus/utils/dist/methods/spec-text-value'</code><
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type">array</span>
 |
 
 <span class="param-type">null</span>
@@ -5528,7 +5465,15 @@ import specTextValue from '@ecomplus/utils/dist/methods/spec-text-value'</code><
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>// TODO</code></pre>
+    <pre class="prettyprint"><code>const product = { 'name': 'Cruzeiro 2018', 'variations': [ { 'name': 'Cruzeiro 2018 / P / azul', 'specifications': { 'colors': [ { 'text': 'azul', 'value': '#3300ff' }, { 'text': 'vermelho', 'value': '#ff0000' } ] } } ] }
+const gridId = 'colors'
+const specText = 'vermelho'
+const grid1 = { 'grid_id': 'size', 'title': 'Tamanho', 'options': [ { 'text': 'P', 'option_id': 'pp' } ] }
+const grid2 = { 'title': 'Cores', 'grid_id': 'colors', 'options': [ { 'text': 'vermelho', 'option_id': 'vermelho', 'colors': [ '#ff0000' ] }, { 'text': 'azul', 'option_id': 'azul', 'colors': [ '#3300ff' ] } ] }
+const grid3 = { 'title': 'Conector', 'grid_id': 'conector', 'options': [ { 'text': 'USB', 'option_id': 'usb' } ] }
+const grids = [ grid1, grid2, grid3 ]
+ecomUtils.specValueByText(product, specText, gridId , grids)
+// => '#ff0000'</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
 import specValueByText from '@ecomplus/utils/dist/methods/spec-value-by-text'</code></pre>
@@ -5801,7 +5746,14 @@ import specValueByText from '@ecomplus/utils/dist/methods/spec-value-by-text'</c
 
     <h5>Examples</h5>
     
-    <pre class="prettyprint"><code>// TODO</code></pre>
+    <pre class="prettyprint"><code>const product = { 'name': 'Cruzeiro 2019', 'variations': [ { 'name': 'Cruzeiro 2019 / P / azul', 'specifications': { 'colors': [ { 'text': 'azul', 'value': '#3300ff' } ] } } ] }
+const gridId = 'colors'
+const grid1 = { 'grid_id': 'size', 'title': 'Tamanho', 'options': [ { 'text': 'P', 'option_id': 'pp' } ] }
+const grid2 = { 'title': 'Cores', 'grid_id': 'colors', 'options': [ { 'text': 'vermelho', 'option_id': 'vermelho', 'colors': [ '#ff0000' ] }, { 'text': 'azul', 'option_id': 'azul', 'colors': [ '#3300ff' ] } ] }
+const grid3 = { 'title': 'Conector', 'grid_id': 'conector', 'options': [ { 'text': 'USB', 'option_id': 'usb' } ] }
+const grids = [ grid1, grid2, grid3 ]
+ecomUtils.specValues(product, gridId, grids)
+// => [{text: "vermelho", value: "#ff0000"}, {text: "azul", value: "#3300ff"}]</code></pre>
 
     <pre class="prettyprint"><code>// Importing this method standalone
 import specValues from '@ecomplus/utils/dist/methods/spec-values'</code></pre>
@@ -6281,7 +6233,7 @@ import variationsGrids from '@ecomplus/utils/dist/methods/variations-grids'</cod
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Jul 27 2019 01:21:15 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Jul 30 2019 15:57:56 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
