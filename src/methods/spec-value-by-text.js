@@ -23,7 +23,15 @@ const specValueByText = (product, specText, gridId, grids) => {
  * @returns {string|undefined}
  *
  * @example
- * // TODO
+ * const product = { 'name': 'Cruzeiro 2019', 'variations': [ { 'name': 'Cruzeiro 2019 / P / azul', 'specifications': { 'colors': [ { 'text': 'azul', 'value': '#3300ff' }, { 'text': 'vermelho', 'value': '#ff0000' } ] } } ] }
+ * const gridId = 'colors'
+ * const specText = 'vermelho'
+ * const grid1 = { 'grid_id': 'size', 'title': 'Tamanho', 'options': [ { 'text': 'P', 'option_id': 'pp' } ] }
+ * const grid2 = { 'title': 'Cores', 'grid_id': 'colors', 'options': [ { 'text': 'vermelho', 'option_id': 'vermelho', 'colors': [ '#ff0000' ] }, { 'text': 'azul', 'option_id': 'azul', 'colors': [ '#3300ff' ] } ] }
+ * const grid3 = { 'title': 'Conector', 'grid_id': 'conector', 'options': [ { 'text': 'USB', 'option_id': 'usb' } ] }
+ * const grids = [ grid1, grid2, grid3 ]
+ * ecomUtils.specValueByText(product, specText, gridId , grids)
+ * // => '#ff0000'
  *
  * @example
  * // Importing this method standalone
