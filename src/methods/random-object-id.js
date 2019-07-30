@@ -13,13 +13,12 @@ const randomObjectId = () => {
  * @method
  * @memberof ecomUtils
  * @name randomObjectId
- * @description Merge received ObjectID string with new index.
- * @param {string} id - Base ID string, 24 digits hexadecimal
- * @param {string} index - The index to be inserted on the end of base ID, creating new ObjectID
+ * @description Generate a random object id with 24 chars hexadecimal string.
  * @returns {string}
  *
  * @example
- * // TODO
+ * ecomUtils.randomObjectId()
+ * // => '561025156443695764000000'
  *
  * @example
  * // Importing this method standalone
