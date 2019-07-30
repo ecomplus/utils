@@ -23,7 +23,7 @@ const specValueByText = (product, specText, gridId, grids) => {
  * @returns {string|undefined}
  *
  * @example
- * const product = { 'name': 'Cruzeiro 2019', 'variations': [ { 'name': 'Cruzeiro 2019 / P / azul', 'specifications': { 'colors': [ { 'text': 'azul', 'value': '#3300ff' }, { 'text': 'vermelho', 'value': '#ff0000' } ] } } ] }
+ * const product = { 'name': 'Cruzeiro 2018', 'variations': [ { 'name': 'Cruzeiro 2018 / P / azul', 'specifications': { 'colors': [ { 'text': 'azul', 'value': '#3300ff' }, { 'text': 'vermelho', 'value': '#ff0000' } ] } } ] }
  * const gridId = 'colors'
  * const specText = 'vermelho'
  * const grid1 = { 'grid_id': 'size', 'title': 'Tamanho', 'options': [ { 'text': 'P', 'option_id': 'pp' } ] }
