@@ -55,7 +55,11 @@ const img = (product, pictureId, size = 'normal') => {
  * @returns {object|undefined}
  *
  * @example
- * // TODO
+ * const product = { 'pictures': [ { 'small': { 'url': 'https://ecom.com/imgs/100px/64gb.jpg'}, 'big': { 'url': 'https://ecom.com/imgs/700px/64gb.jpg' }, '_id': '694890155127368133600000' }, { 'small': { 'url': 'https://ecom.com/imgs/100px/e-5-64gb.jpg' }, 'big': { 'url': 'https://ecom.com/imgs/700px/e-5-64gb.jpg' }, '_id': '694890155127368133600001' }, { 'small': { 'url': 'https://ecom.com/imgs/100px/5-64gb.jpg' }, 'big': { 'url': 'https://ecom.com/imgs/700px/5-64gb.jpg' }, '_id': '694890155127368133600002' } ], 'name': 'Smartphone Xiaomi' }
+ * const id = '694890155127368133600001'
+ * const size = 'big'
+ * ecomUtils.img(product, id, size)
+ * // =>{url: 'https://ecom.com/imgs/700px/e-5-64gb.jpg'}
  *
  * @example
  * // Importing this method standalone
