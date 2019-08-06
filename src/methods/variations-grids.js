@@ -3,12 +3,18 @@ import specTextValue from './spec-text-value'
 const variationsGrids = (product, filterGrids, inStockOnly, delimiter) => {
   let grids = {}
   if (product && Array.isArray(product.variations)) {
+    console.log('deu bom')
     product.variations.forEach(variation => {
+      console.log(variation)
+      console.log(inStockOnly)
+      console.log(variation.quantity)
       if (inStockOnly && variation.quantity <= 0) {
+        console.log('sem estoque')
         // out of stock
         return
       }
       let specifications = variation.specifications
+      console.log(specifications)
       // abstraction to get spec text value
       let specValue = grid => specTextValue(variation, grid, delimiter)
 
@@ -28,8 +34,12 @@ const variationsGrids = (product, filterGrids, inStockOnly, delimiter) => {
 
         // get values from each variation spec
         for (let grid in specifications) {
+          console.log(grid)
           if (specifications.hasOwnProperty(grid)) {
+            console.log('deu bom 1')
             let text = specValue(grid)
+            console.log(text)
+            console.log(grids[grid])
             if (!grids.hasOwnProperty(grid)) {
               grids[grid] = []
             } else if (grids[grid].indexOf(text) !== -1) {
@@ -37,6 +47,7 @@ const variationsGrids = (product, filterGrids, inStockOnly, delimiter) => {
               continue
             }
             grids[grid].push(text)
+            console.log(grids[grid])
           }
         }
       }
@@ -58,7 +69,19 @@ const variationsGrids = (product, filterGrids, inStockOnly, delimiter) => {
  * @returns {object}
  *
  * @example
- * // TODO
+ * // only param product
+ * const product = { 'name': 'Cruzeiro 2019', 'variations': [
+ * { 'name': 'Cruzeiro 2019 / P', 'quantity': 10, 'specifications': { 'size': [ { 'text': 'P', 'value': 's' } ] } },
+ * { 'name': 'Cruzeiro 2019 / M', 'quantity': 10, 'specifications': { 'size': [ { 'text': 'M', 'value': 'm' } ] } },
+ * { 'name': 'Cruzeiro 2019 / G', 'specifications': { 'size': [ { 'text': 'G', 'value': 'l' } ] }, 'quantity': 0 }
+ * ] }
+ * ecomUtils.variationsGrids(product)
+ * // => {size: [ 'P', 'M', 'G' ]}
+ * // product and stock as param
+ * // same product above
+ * const inStockOnly = true
+ * ecomUtils.variationsGrids(product, '', inStockOnly)
+ * // => {size: [ 'P', 'M' ]}
  *
  * @example
  * // Importing this method standalone
