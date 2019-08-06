@@ -58,7 +58,19 @@ const variationsGrids = (product, filterGrids, inStockOnly, delimiter) => {
  * @returns {object}
  *
  * @example
- * // TODO
+ * // Only param product
+ * const product = { 'name': 'Cruzeiro 2019', 'variations': [
+ * { 'name': 'Cruzeiro 2019 / P', 'quantity': 10, 'specifications': { 'size': [ { 'text': 'P', 'value': 's' } ] } },
+ * { 'name': 'Cruzeiro 2019 / M', 'quantity': 10, 'specifications': { 'size': [ { 'text': 'M', 'value': 'm' } ] } },
+ * { 'name': 'Cruzeiro 2019 / G', 'specifications': { 'size': [ { 'text': 'G', 'value': 'l' } ] }, 'quantity': 0 }
+ * ] }
+ * ecomUtils.variationsGrids(product)
+ * // => {size: [ 'P', 'M', 'G' ]}
+ * // You can also check for product stock to get only variations with available quantity
+ * // Same product above
+ * const inStockOnly = true
+ * ecomUtils.variationsGrids(product, {}, inStockOnly)
+ * // => {size: [ 'P', 'M' ]}
  *
  * @example
  * // Importing this method standalone
