@@ -28,7 +28,6 @@ const variationsGrids = (product, filterGrids, inStockOnly, delimiter) => {
 
         // get values from each variation spec
         for (let grid in specifications) {
-          console.log(grid)
           if (specifications.hasOwnProperty(grid)) {
             let text = specValue(grid)
             if (!grids.hasOwnProperty(grid)) {
