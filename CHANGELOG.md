@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/ecomclub/ecomplus-utils/compare/v0.6.2...v1.0.0) (2019-08-12)
+
+
+### Bug Fixes
+
+* **export:** exporting both named methods and default with all ([204f9a5](https://github.com/ecomclub/ecomplus-utils/commit/204f9a5))
+
+
+
 ### [0.6.2](https://github.com/ecomclub/ecomplus-utils/compare/v0.6.1...v0.6.2) (2019-08-06)
 
 
