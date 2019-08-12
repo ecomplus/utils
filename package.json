@@ -33,7 +33,7 @@
   "homepage": "https://github.com/ecomclub/ecomplus-utils#readme",
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "core-js": "^3.1.4"
+    "core-js": "^3.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -50,7 +50,7 @@
     "standard-version": "^6.0.1",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.8.0"
   },
   "husky": {
     "hooks": {
