@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ecomclub/ecomplus-utils/compare/v1.0.1...v1.1.0) (2019-09-30)
+
+
+### Build System
+
+* **deps:** [security] bump eslint-utils from 1.3.1 to 1.4.2 ([dd97e2b](https://github.com/ecomclub/ecomplus-utils/commit/dd97e2b))
+* **deps:** [security] bump lodash from 4.17.11 to 4.17.14 ([48fa04d](https://github.com/ecomclub/ecomplus-utils/commit/48fa04d))
+* **deps:** [security] bump lodash.template from 4.4.0 to 4.5.0 ([7b5900c](https://github.com/ecomclub/ecomplus-utils/commit/7b5900c))
+* **deps-dev:** bump husky from 2.7.0 to 3.0.7 ([646900b](https://github.com/ecomclub/ecomplus-utils/commit/646900b))
+* **deps-dev:** bump standard from 12.0.1 to 14.3.1 ([9d46b83](https://github.com/ecomclub/ecomplus-utils/commit/9d46b83))
+* **deps-dev:** bump standard-version from 6.0.1 to 7.0.0 ([47cb724](https://github.com/ecomclub/ecomplus-utils/commit/47cb724))
+
+
+### Features
+
+* **method:** add 'fullName' (customer) method ([745f341](https://github.com/ecomclub/ecomplus-utils/commit/745f341))
+
+
+
 ### [1.0.1](https://github.com/ecomclub/ecomplus-utils/compare/v1.0.0...v1.0.1) (2019-08-12)
 
 
