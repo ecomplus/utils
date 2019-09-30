@@ -16,6 +16,7 @@ import findByProperty from './methods/find-by-property'
 import findBySlug from './methods/find-by-slug'
 import findByName from './methods/find-by-name'
 import filterByParentSlug from './methods/filter-by-parent-slug'
+import fullName from './methods/full-name'
 import minQuantity from './methods/min-quantity'
 import inStock from './methods/in-stock'
 import searchedItems from './methods/searched-items'
@@ -49,6 +50,7 @@ export {
   findBySlug,
   findByName,
   filterByParentSlug,
+  fullName,
   minQuantity,
   inStock,
   searchedItems,
