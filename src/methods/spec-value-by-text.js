@@ -1,7 +1,7 @@
 import specValues from './spec-values'
 
 const specValueByText = (product, specText, gridId, grids) => {
-  let values = specValues(product, gridId, grids)
+  const values = specValues(product, gridId, grids)
   for (let i = 0; i < values.length; i++) {
     if (values[i].text === specText) {
       return values[i].value
