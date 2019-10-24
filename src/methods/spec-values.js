@@ -11,7 +11,9 @@ const specValues = (product, gridId, grids) => {
       if (product.length) {
         if (product[0].specifications) {
           // variations array sent as product param
-          product.forEach(variation => values.concat(specValues(variation, gridId)))
+          product.forEach(variation => {
+            values = values.concat(specValues(variation, gridId, grids))
+          })
         } else if (product[0].text) {
           // spec values list sent as product param
           values = product
@@ -20,10 +22,10 @@ const specValues = (product, gridId, grids) => {
     } else {
       // probably the product object from instance data
       // work for product or specific variation product
-      let { specifications } = product
+      const { specifications } = product
       if (specifications) {
-        for (let id in specifications) {
-          if (specifications.hasOwnProperty(id) && id === gridId) {
+        for (const id in specifications) {
+          if (specifications[id] && id === gridId) {
             // specification found
             values = specifications[gridId]
           }
