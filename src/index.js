@@ -7,10 +7,21 @@
  * JS utility functions for E-Com Plus (not only) related apps.
  * @module @ecomplus/utils
  * @see ecomUtils
+ * @see $ecomConfig
  *
  * @example
  * // Import all utility methods with ES
  * import ecomUtils from '@ecomplus/utils'
+ *
+ * @example
+ * // Named ES imports with some sample methods
+ * import {
+ *   i18n,
+ *   formatMoney,
+ *   minQuantity,
+ *   price,
+ *   // ...
+ * } from '@ecomplus/utils'
  *
  * @example
  * // Import only config object
@@ -19,6 +30,13 @@
  * @example
  * // With CommonJS
  * const ecomUtils = require('@ecomplus/utils')
+ *
+ * @example
+ * // CommonJS require standalone methods
+ * const i18n = require('@ecomplus/utils/dist/methods/i18n')
+ * const formatMoney = require('@ecomplus/utils/dist/methods/format-money')
+ * // ...
+ * // require(`@ecomplus/utils/dist/methods/${kebab-case-method-name}`)
  *
  * @example
  * <!-- Globals `ecomUtils` and `$ecomConfig` from CDN on browser -->
