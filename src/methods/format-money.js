@@ -32,8 +32,8 @@ const formatMoney = (value, currency = _config.get('currency'), lang = _config.g
  * @name formatMoney
  * @description Parse price number to formatted currency string.
  * @param {number|object} value - Price number or body object (product or variation)
- * @param {string|null} [currency=_config.get('currency')] - Currency code such as 'BRL'
- * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string|null} [currency=$ecomConfig.get('currency')] - Currency code such as 'BRL'
+ * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string}
  *
  * @example
@@ -53,9 +53,9 @@ const formatMoney = (value, currency = _config.get('currency'), lang = _config.g
  *
  * @example
  * // You can also set the configured lang and currency first
- * ecomUtils._config.set('lang', 'pt_br')
- * ecomUtils._config.set('currency', 'BRL')
- * ecomUtils._config.set('currency_symbol', 'R$')
+ * $ecomConfig.set('lang', 'pt_br')
+ * $ecomConfig.set('currency', 'BRL')
+ * $ecomConfig.set('currency_symbol', 'R$')
  * // Then call `formatMoney` without expliciting currency and lang
  * ecomUtils.formatMoney(10.6)
  * // => R$ 10,60

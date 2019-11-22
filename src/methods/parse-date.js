@@ -26,7 +26,7 @@ const parsePhone = (dateStr, countryCode = _config.get('country_code')) => {
  * @name parseDate
  * @description Returns customer birth date object from string.
  * @param {string} dateStr - Formatted date string
- * @param {string} [countryCode=_config.get('country_code')] - Country ISO 3166-1 alpha-2 code
+ * @param {string} [countryCode=$ecomConfig.get('country_code')] - Country ISO 3166-1 alpha-2 code
  * @returns {object}
  *
  * @example
@@ -38,7 +38,7 @@ const parsePhone = (dateStr, countryCode = _config.get('country_code')) => {
  *
  * @example
  * // You can also set the configured country code first
- * ecomUtils._config.set('country_code', 'BR')
+ * $ecomConfig.set('country_code', 'BR')
  * // Then call `parseDate` without expliciting country code again
  * ecomUtils.parseDate('10/02/1997')
  * // => { day: 10, month: 2, year: 1997 }

@@ -20,7 +20,7 @@ const gridTitle = (gridId, grids, lang = _config.get('lang')) => {
  * @description Returns grid title by grid ID and lang.
  * @param {string} gridId - The unique ID of the grid ('colors', 'size'...)
  * @param {array} grids - List of grid objects
- * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string}
  *
  * @example

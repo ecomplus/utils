@@ -18,7 +18,7 @@ const parsePhone = phoneStr => {
  * @method
  * @memberof ecomUtils
  * @name parsePhone
- * @description Returns phone customer phone object from string.
+ * @description Returns customer phone object from string.
  * @param {string} phoneStr - Phone string
  * @returns {object}
  *

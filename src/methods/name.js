@@ -16,7 +16,7 @@ const name = (body, lang = _config.get('lang')) => {
  * @name name
  * @description Returns object name by lang.
  * @param {object} body - Object (product, category, brand, grid...) body
- * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string}
  *
  * @example
@@ -38,7 +38,7 @@ const name = (body, lang = _config.get('lang')) => {
  *
  * @example
  * // You can also set the configured lang first
- * ecomUtils._config.set('lang', 'pt_br')
+ * $ecomConfig.set('lang', 'pt_br')
  * // Then call `name` without expliciting lang
  * ecomUtils.name({ name: 'Test', i18n: { en_us: 'Test', pt_br: 'Teste' } })
  * // => 'Teste'

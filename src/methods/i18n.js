@@ -26,7 +26,7 @@ const i18n = (dictionary, lang = _config.get('lang')) => {
  * @name i18n
  * @description Get translated string by lang code from dictionary object.
  * @param {object} dictionary - Dictionary object containing string in multiple langs
- * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string|object}
  *
  * @example
@@ -45,7 +45,7 @@ const i18n = (dictionary, lang = _config.get('lang')) => {
  *
  * @example
  * // You can also set the configured lang first
- * ecomUtils._config.set('lang', 'pt_br')
+ * $ecomConfig.set('lang', 'pt_br')
  * // Then call `i18n` without expliciting lang
  * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' })
  * // => Olá

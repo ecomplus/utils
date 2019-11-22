@@ -30,7 +30,7 @@ const formatDate = (date, lang = _config.get('lang'), options) => {
  * @name formatDate
  * @description Parse date to locale formatted string.
  * @param {string|object} date - Date object or ISO string, or body object (order, product...)
- * @param {string} [lang=_config.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @param {object} [options] - Options object for `toLocaleDateString` function
  * @returns {string}
  *
