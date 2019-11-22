@@ -1,4 +1,7 @@
 'use strict'
 
-/* global ecomUtils */
+/* global ecomUtils, $ecomConfig */
+
 console.log(ecomUtils)
+console.log(ecomUtils.$ecomConfig === $ecomConfig)
+console.log($ecomConfig)
