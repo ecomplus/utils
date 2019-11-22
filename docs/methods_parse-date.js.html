@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/min-quantity.js - Documentation</title>
+    <title>methods/parse-date.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/min-quantity.js</h1>
+    <h1 class="page-title">methods/parse-date.js</h1>
     
 
     
@@ -42,35 +42,53 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const minQuantity = product => (product &amp;&amp; product.min_quantity) || 1
+            <pre class="prettyprint source linenums"><code>import _config from './../lib/config'
+
+const parsePhone = (dateStr, countryCode = _config.get('country_code')) => {
+  // parse country formatted date string to { day, month, year }
+  let day, month, year
+  if (typeof dateStr === 'string') {
+    const dateNumber = (start, ln) => parseInt(dateStr.substr(start, ln), 10)
+    // fix date string to digits only first
+    dateStr = dateStr.replace(/[\D]/g, '')
+    if (countryCode === 'BR') {
+      day = dateNumber(0, 2)
+      month = dateNumber(2, 2)
+      year = dateNumber(4, 4)
+    } else {
+      day = dateNumber(6, 2)
+      month = dateNumber(4, 2)
+      year = dateNumber(0, 4)
+    }
+  }
+  return { day, month, year }
+}
 
 /**
  * @method
  * @memberof ecomUtils
- * @name minQuantity
- * @description Returns the minimum quantity to add to cart.
- * @param {object} product - Body object (product or variation)
- * @returns {number}
+ * @name parseDate
+ * @description Returns customer birth date object from string.
+ * @param {string} dateStr - Formatted date string
+ * @param {string} [countryCode=$ecomConfig.get('country_code')] - Country ISO 3166-1 alpha-2 code
+ * @returns {object}
  *
  * @example
- * // With min quantity specified
- * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
- * const product = { sku: 'TEST', name: 'Test', price: 10, min_quantity: 10 }
- * ecomUtils.minQuantity(product)
- * // => 10
- * product.min_quantity = 0
- * ecomUtils.minQuantity(product)
- * // => 0
+ * // Date string is fixed to digits only and parsed to E-Com Plus APIs date object
+ * ecomUtils.parseDate('1990-01-12')
+ * // => { day: 12, month: 1, year: 1990 }
+ * ecomUtils.parseDate('10/02/1997', 'BR')
+ * // => { day: 10, month: 2, year: 1997 }
  *
  * @example
- * // 1 by default when min quantity is undefined
- * ecomUtils.minQuantity({ sku: 'TEST', name: 'Test' })
- * // => 1
- * ecomUtils.minQuantity({})
- * // => 1
+ * // You can also set the configured country code first
+ * $ecomConfig.set('country_code', 'BR')
+ * // Then call `parseDate` without expliciting country code again
+ * ecomUtils.parseDate('10/02/1997')
+ * // => { day: 10, month: 2, year: 1997 }
  */
 
-export default minQuantity
+export default parsePhone
 </code></pre>
         </article>
     </section>

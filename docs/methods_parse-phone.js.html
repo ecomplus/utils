@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/min-quantity.js - Documentation</title>
+    <title>methods/parse-phone.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/min-quantity.js</h1>
+    <h1 class="page-title">methods/parse-phone.js</h1>
     
 
     
@@ -42,35 +42,44 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const minQuantity = product => (product &amp;&amp; product.min_quantity) || 1
+            <pre class="prettyprint source linenums"><code>const parsePhone = phoneStr => {
+  // parse phone string to { number, country_code }
+  const phoneObj = {}
+  if (typeof phoneStr === 'string') {
+    // fix string to only digits first
+    phoneStr = phoneStr.replace(/[^\d+]/g, '')
+    if (phoneStr.charAt(0) === '+') {
+      phoneObj.country_code = parseInt(phoneStr.substr(1, 2), 10)
+      phoneObj.number = phoneStr.substr(3)
+    } else {
+      phoneObj.number = phoneStr
+    }
+  }
+  return phoneObj
+}
 
 /**
  * @method
  * @memberof ecomUtils
- * @name minQuantity
- * @description Returns the minimum quantity to add to cart.
- * @param {object} product - Body object (product or variation)
- * @returns {number}
+ * @name parsePhone
+ * @description Returns customer phone object from string.
+ * @param {string} phoneStr - Phone string
+ * @returns {object}
  *
  * @example
- * // With min quantity specified
- * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/products/
- * const product = { sku: 'TEST', name: 'Test', price: 10, min_quantity: 10 }
- * ecomUtils.minQuantity(product)
- * // => 10
- * product.min_quantity = 0
- * ecomUtils.minQuantity(product)
- * // => 0
+ * // Phone string is fixed and parsed to object with `number`
+ * ecomUtils.parsePhone('31992980000')
+ * // => { number: '31992980000' }
+ * ecomUtils.parsePhone('31 99298-1000')
+ * // => { number: '31992981000' }
  *
  * @example
- * // 1 by default when min quantity is undefined
- * ecomUtils.minQuantity({ sku: 'TEST', name: 'Test' })
- * // => 1
- * ecomUtils.minQuantity({})
- * // => 1
+ * // Country code is optional and identified by + signal
+ * ecomUtils.parsePhone('+55 31992980000')
+ * // => { country_code: 55, number: '31992980000' }
  */
 
-export default minQuantity
+export default parsePhone
 </code></pre>
         </article>
     </section>
