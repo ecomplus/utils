@@ -21,6 +21,21 @@ imported entirely or partially with ES modules.
 - [Get started](https://developers.e-com.plus/ecomplus-utils/module-@ecomplus_utils.html)
 - [Methods](https://developers.e-com.plus/ecomplus-utils/ecomUtils.html)
 
+```js
+import {
+  i18n,
+  formatMoney,
+  minQuantity,
+  price,
+  // ...
+} from '@ecomplus/utils'
+
+i18n({ en_us: 'Hello', pt_br: 'Olá' })
+// => 'Hello'
+formatMoney(10)
+// => $10.00
+```
+
 ## Development
 
 We're using
