@@ -59,10 +59,6 @@ const formatMoney = (value, currency = _config.get('currency'), lang = _config.g
  * // Then call `formatMoney` without expliciting currency and lang
  * ecomUtils.formatMoney(10.6)
  * // => R$ 10,60
- *
- * @example
- * // Importing this method standalone
- * import formatMoney from '@ecomplus/utils/dist/methods/format-money'
  */
 
 export default formatMoney

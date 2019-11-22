@@ -32,10 +32,6 @@ const specValueByText = (product, specText, gridId, grids) => {
  * const grids = [ grid1, grid2, grid3 ]
  * ecomUtils.specValueByText(product, specText, gridId , grids)
  * // => '#ff0000'
- *
- * @example
- * // Importing this method standalone
- * import specValueByText from '@ecomplus/utils/dist/methods/spec-value-by-text'
  */
 
 export default specValueByText

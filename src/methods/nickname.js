@@ -24,10 +24,6 @@ const nickname = customer => {
  * const customer = { 'name': { 'given_name': 'Jonh', 'family_name': 'Lock' }, 'display_name': 'Locky' }
  * ecomUtils.nickname(customer)
  * // => 'Locky'
- *
- * @example
- * // Importing this method standalone
- * import nickname from '@ecomplus/utils/dist/methods/nickname'
  */
 
 export default nickname

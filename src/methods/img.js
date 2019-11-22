@@ -60,10 +60,6 @@ const img = (product, pictureId, size = 'normal') => {
  * const size = 'big'
  * ecomUtils.img(product, id, size)
  * // => {url: 'https://ecom.com/imgs/700px/e-5-64gb.jpg'}
- *
- * @example
- * // Importing this method standalone
- * import img from '@ecomplus/utils/dist/methods/img'
  */
 
 export default img

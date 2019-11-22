@@ -30,10 +30,6 @@ const findByProperty = (list, prop, value) => {
  * // => { a: 1 }
  * ecomUtils.findByProperty([ { a: 0, b: 0 }, { a: 1 } ], 'a', 3)
  * // => undefined
- *
- * @example
- * // Importing this method standalone
- * import findByProperty from '@ecomplus/utils/dist/methods/find-by-property'
  */
 
 export default findByProperty

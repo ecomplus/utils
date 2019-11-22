@@ -47,10 +47,6 @@ const alphabeticalSort = list => {
  * const array = [brand1, brand2, brand3, brand4]
  * ecomUtils.alphabeticalSort(array)
  * // => [{name: "AeroCool"}, {name: "Fortrek"}, {name: "Thermaltake"}, {name: "Thermaltake"}, {name: "zara"}]
- *
- * @example
- * // Importing this method standalone
- * import alphabeticalSort from '@ecomplus/utils/dist/methods/alphabetical-sort'
  */
 
 export default alphabeticalSort

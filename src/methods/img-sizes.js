@@ -39,10 +39,6 @@ const imgSizes = img => {
  * const sizeObj = {size: '1000x1000'}
  * ecomUtils.imgSizes(sizeObj)
  * // => {width: 1000, height: 1000}
- *
- * @example
- * // Importing this method standalone
- * import imgSizes from '@ecomplus/utils/dist/methods/img-sizes'
  */
 
 export default imgSizes

@@ -27,10 +27,6 @@ const filterByParentSlug = (categories, slug) => {
  * categories.push({ name: 'Info', slug: 'info' })
  * ecomUtils.filterByParentSlug(categories, 'info')
  * // => [ { name: 'PCs', slug: 'pcs', parent: { name: 'Info', slug: 'info' } } ]
- *
- * @example
- * // Importing this method standalone
- * import filterByParentSlug from '@ecomplus/utils/dist/methods/filter-by-parent-slug'
  */
 
 export default filterByParentSlug

@@ -71,10 +71,6 @@ const variationsGrids = (product, filterGrids, inStockOnly, delimiter) => {
  * const inStockOnly = true
  * ecomUtils.variationsGrids(product, {}, inStockOnly)
  * // => {size: [ 'P', 'M' ]}
- *
- * @example
- * // Importing this method standalone
- * import variationsGrids from '@ecomplus/utils/dist/methods/variations-grids'
  */
 
 export default variationsGrids

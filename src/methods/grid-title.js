@@ -32,10 +32,6 @@ const gridTitle = (gridId, grids, lang = _config.get('lang')) => {
  * const lang = 'pt_br'
  * ecomUtils.gridTitle(gridId, grids, lang)
  * // => "Canais"
- *
- * @example
- * // Importing this method standalone
- * import gridTitle from '@ecomplus/utils/dist/methods/grid-title'
  */
 
 export default gridTitle

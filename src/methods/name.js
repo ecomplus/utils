@@ -42,10 +42,6 @@ const name = (body, lang = _config.get('lang')) => {
  * // Then call `name` without expliciting lang
  * ecomUtils.name({ name: 'Test', i18n: { en_us: 'Test', pt_br: 'Teste' } })
  * // => 'Teste'
- *
- * @example
- * // Importing this method standalone
- * import name from '@ecomplus/utils/dist/methods/name'
  */
 
 export default name

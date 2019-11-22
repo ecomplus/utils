@@ -58,10 +58,6 @@ const onPromotion = product => {
  * product.price_effective_date.start = '2021-01-01T00:00:00.000Z'
  * ecomUtils.onPromotion(product)
  * // => false
- *
- * @example
- * // Importing this method standalone
- * import onPromotion from '@ecomplus/utils/dist/methods/on-promotion'
  */
 
 export default onPromotion

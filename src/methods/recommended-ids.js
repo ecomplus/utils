@@ -41,11 +41,6 @@ result.results[0].data.push(
 ecomUtils.recommendedIds(result)
 // => [ 'a00000000000000000000001', 'a00000000000000000000002', 'a00000000000000000000006' ]
 
- * @example
-
-// Importing this method standalone
-import recommendedIds from '@ecomplus/utils/dist/methods/recommended-ids'
-
  */
 
 export default recommendedIds

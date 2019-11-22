@@ -44,10 +44,6 @@ const categoriesList = product => {
  * const product = { name: 'Ultimate', categories: [{name: 'Cadeira Gamer'},{name: 'Periféricos'}]}
  * ecomUtils.categoriesList(product)
  * => ["Cadeira Gamer"]
- *
- * @example
- * // Importing this method standalone
- * import categoriesList from '@ecomplus/utils/dist/methods/categories-list'
  */
 
 export default categoriesList

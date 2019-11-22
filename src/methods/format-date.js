@@ -38,10 +38,6 @@ const formatDate = (date, lang = _config.get('lang'), options) => {
  * const notification = { datetime: '2019-06-19T03:35:52.811Z', content: {api_event: {resource: 'orders'}}}
  * ecomUtils.formatDate(notification, 'pt-br')
  * // => "19/06/2019"
- *
- * @example
- * // Importing this method standalone
- * import formatDate from '@ecomplus/utils/dist/methods/format-date'
  */
 
 export default formatDate

@@ -44,10 +44,6 @@ const price = product => onPromotion(product)
  * product.price_effective_date.end = '2019-06-10T16:03:45.035Z'
  * ecomUtils.price(product)
  * // => 30.9
- *
- * @example
- * // Importing this method standalone
- * import price from '@ecomplus/utils/dist/methods/price'
  */
 
 export default price

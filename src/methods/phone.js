@@ -28,10 +28,6 @@ const phone = customer => {
  * const customer = { 'number': '31992980000'}
  * ecomUtils.phone(customer)
  * // => '31992980000'
- *
- * @example
- * // Importing this method standalone
- * import phone from '@ecomplus/utils/dist/methods/phone'
  */
 
 export default phone

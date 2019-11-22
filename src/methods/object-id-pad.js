@@ -15,10 +15,6 @@ const objectIdPad = (id, index) => id.substring(0, 24 - index.length) + index
  * const index = '5'
  * ecomUtils.objectIdPad(id, index)
  * // => '5ce59fbf887ef430f1f6ed25'
- *
- * @example
- * // Importing this method standalone
- * import objectIdPad from '@ecomplus/utils/dist/methods/object-id-pad'
  */
 
 export default objectIdPad

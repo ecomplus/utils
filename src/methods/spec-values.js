@@ -80,10 +80,6 @@ const specValues = (product, gridId, grids) => {
  * const grids = [ grid1, grid2, grid3 ]
  * ecomUtils.specValues(product, gridId, grids)
  * // => [{text: "vermelho", value: "#ff0000"}, {text: "azul", value: "#3300ff"}]
- *
- * @example
- * // Importing this method standalone
- * import specValues from '@ecomplus/utils/dist/methods/spec-values'
  */
 
 export default specValues

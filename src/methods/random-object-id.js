@@ -19,10 +19,6 @@ const randomObjectId = () => {
  * @example
  * ecomUtils.randomObjectId()
  * // => '561025156443695764000000'
- *
- * @example
- * // Importing this method standalone
- * import randomObjectId from '@ecomplus/utils/dist/methods/random-object-id'
  */
 
 export default randomObjectId

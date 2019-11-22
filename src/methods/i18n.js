@@ -49,10 +49,6 @@ const i18n = (dictionary, lang = _config.get('lang')) => {
  * // Then call `i18n` without expliciting lang
  * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' })
  * // => Olá
- *
- * @example
- * // Importing this method standalone
- * import i18n from '@ecomplus/utils/dist/methods/i18n'
  */
 
 export default i18n

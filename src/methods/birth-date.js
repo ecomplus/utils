@@ -31,10 +31,6 @@ const birthDate = customer => {
  * const costumer = { main_email: 'joejonh@me.com', birth_date: { year: 1990, month: 10, day: 1 } }
  * ecomUtils.birthDate(costumer)
  * // => "10/1/1990"
- *
- * @example
- * // Importing this method standalone
- * import birthDate from '@ecomplus/utils/dist/methods/birth-date'
  */
 
 export default birthDate

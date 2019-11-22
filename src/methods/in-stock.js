@@ -31,10 +31,6 @@ const inStock = product => !product.hasOwnProperty('quantity') || product.quanti
  * // => true
  * ecomUtils.inStock({ quantity: 1 })
  * // => true
- *
- * @example
- * // Importing this method standalone
- * import inStock from '@ecomplus/utils/dist/methods/in-stock'
  */
 
 export default inStock

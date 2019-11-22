@@ -30,10 +30,6 @@ const fullName = customer => {
  * const customer = { 'name': { 'given_name': 'Jonh', 'family_name': 'Lock' }, 'display_name': 'Locky' }
  * ecomUtils.fullName(customer)
  * // => 'Jonh Lock'
- *
- * @example
- * // Importing this method standalone
- * import fullName from '@ecomplus/utils/dist/methods/full-name'
  */
 
 export default fullName

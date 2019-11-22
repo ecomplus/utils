@@ -20,10 +20,6 @@ const findBySlug = (list, slug) => findByProperty(list, 'slug', slug)
  * // => { slug: 'b' }
  * ecomUtils.findBySlug([ { slug: 'a' }, { slug: 'b' } ], 'c')
  * // => undefined
- *
- * @example
- * // Importing this method standalone
- * import findBySlug from '@ecomplus/utils/dist/methods/find-by-slug'
  */
 
 export default findBySlug

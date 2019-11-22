@@ -40,10 +40,6 @@ const searchedItems = result => {
  * // Same passing the `hits` array as param
  * ecomUtils.searchedItems(result.hits.hits)
  * // => [ { _id: '123', sku: 'TEST', name: 'Test' }, { _id: '456', sku: 'SMP', name: 'Smp' } ]
- *
- * @example
- * // Importing this method standalone
- * import searchedItems from '@ecomplus/utils/dist/methods/searched-items'
  */
 
 export default searchedItems

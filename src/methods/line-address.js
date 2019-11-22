@@ -61,10 +61,6 @@ const lineAddress = (address, noNumberString, lang = _config.get('lang')) => {
  * const lang = 'pt_br'
  * ecomUtils.lineAddress(address, lang)
  * // => 'Rua Europa, 900, Santa Lucia | Bom Despacho | MG'
- *
- * @example
- * // Importing this method standalone
- * import lineAddress from '@ecomplus/utils/dist/methods/line-address'
  */
 
 export default lineAddress
