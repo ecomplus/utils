@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/ecomclub/ecomplus-utils/compare/v1.1.1...v1.2.0) (2019-11-22)
+
+
+### Features
+
+* **global-config:** setup  (=_config) and add to window ([aa95b06](https://github.com/ecomclub/ecomplus-utils/commit/aa95b063eac45f5f6c099943d060503f67e1b0e5))
+* **parse-date:** add new 'parseDate' method ([de89548](https://github.com/ecomclub/ecomplus-utils/commit/de89548b62aec283dcbf9a4cb34c0c75b1903862))
+* **parse-phone:** add new 'parsePhone' method ([ac6b47e](https://github.com/ecomclub/ecomplus-utils/commit/ac6b47e33e3131ea2188bc81f7d05915176abbee))
+
 ### [1.1.1](https://github.com/ecomclub/ecomplus-utils/compare/v1.1.0...v1.1.1) (2019-10-24)
 
 
