@@ -36,9 +36,21 @@ import lineAddress from './methods/line-address'
 import objectIdPad from './methods/object-id-pad'
 import randomObjectId from './methods/random-object-id'
 
+/**
+ * Global config values for E-Com Plus apps.
+ * @name ecomUtils#$ecomConfig
+ * @see $ecomConfig
+ * @type {object}
+ * @example
+ * ecomUtils.$ecomConfig.get('store_id')
+ * // => 1011
+ */
+const $ecomConfig = _config
+
 export {
   _self,
   _config,
+  $ecomConfig,
   i18n,
   name,
   alphabeticalSort,

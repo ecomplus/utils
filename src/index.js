@@ -13,15 +13,23 @@
  * import ecomUtils from '@ecomplus/utils'
  *
  * @example
+ * // Import only config object
+ * import { $ecomConfig } from '@ecomplus/utils'
+ *
+ * @example
  * // With CommonJS
  * const ecomUtils = require('@ecomplus/utils')
  *
  * @example
- * <!-- Global `ecomUtils` from CDN on browser -->
+ * <!-- Globals `ecomUtils` and `$ecomConfig` from CDN on browser -->
  * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/utils/dist/ecom-utils.polyfill.min.js"></script>
  */
 
 import * as ecomUtils from './ecom-utils'
+
+if (typeof window === 'object' && window && window.$ecomConfig === undefined) {
+  window.$ecomConfig = ecomUtils.$ecomConfig
+}
 
 export default ecomUtils
 
