@@ -7,6 +7,7 @@
   "browser": "dist/ecom-utils.min.js",
   "jsdelivr": "dist/ecom-utils.polyfill.min.js",
   "unpkg": "dist/ecom-utils.polyfill.min.js",
+  "sideEffects": false,
   "scripts": {
     "serve": "webpack-dev-server",
     "build": "node ./build/bin.js",
