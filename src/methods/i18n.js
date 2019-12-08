@@ -3,18 +3,19 @@ import _config from './../lib/config'
 
 const i18n = (dictionary, lang = _config.get('lang')) => {
   if (typeof dictionary === 'object' && dictionary !== null) {
-    let prop = Object.keys(dictionary)[0]
-    if (typeof dictionary[prop] === 'string') {
-      // object with strings
+    const prop = Object.keys(dictionary)[0]
+    if (/^[a-z]{2}(_[a-z]{2})?$/.test(prop)) {
       // supposed to be object of languages options
       return dictionary[lang] || dictionary[DEFAULT_LANG] || dictionary[prop]
     } else {
       // recursive
-      for (let prop in dictionary) {
-        if (dictionary.hasOwnProperty(prop)) {
-          dictionary[prop] = i18n(dictionary[prop], lang)
+      const localDictionary = {}
+      for (const prop in dictionary) {
+        if (dictionary[prop] !== undefined) {
+          localDictionary[prop] = i18n(dictionary[prop], lang)
         }
       }
+      return localDictionary
     }
   }
   return dictionary
@@ -42,6 +43,8 @@ const i18n = (dictionary, lang = _config.get('lang')) => {
  * // => { hello: 'Hello' }
  * ecomUtils.i18n({ hello: { en_us: 'Hello', pt_br: 'Olá' }, world: { en_us: 'World' }}, 'pt_br')
  * // => { hello: 'Olá', world: 'World' }
+ * ecomUtils.i18n({ en_us: { hello: 'Hello', world: 'World' }, pt_br: { hello: 'Olá' }}, 'pt_br')
+ * // => { hello: 'Olá' }
  *
  * @example
  * // You can also set the configured lang first
