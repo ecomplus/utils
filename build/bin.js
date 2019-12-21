@@ -36,9 +36,10 @@ const webpackConfigList = []
 
 ;[
   '.polyfill',
+  '.runtime',
   ''
 ].forEach(outputType => {
-  let config = {
+  const config = {
     ...webpackConfig,
     output: {
       ...webpackOutput,
@@ -52,10 +53,16 @@ const webpackConfigList = []
     // standalone lib output
     // ignore package dependencies
     config.externals = /^(@babel\/runtime|core-js)/i
-    // copy source to output
-    config.plugins = webpackPlugins.concat([
-      new CopyPlugin([{ from: srcPath, to: outputPath }])
-    ])
+
+    if (outputType === '.runtime') {
+      // remove Babel module to skip transpilation
+      delete config.module
+    } else {
+      // copy source to output
+      config.plugins = webpackPlugins.concat([
+        new CopyPlugin([{ from: srcPath, to: outputPath }])
+      ])
+    }
   }
   webpackConfigList.push(config)
 })
@@ -69,8 +76,7 @@ webpack(webpackConfigList, (err, stats) => {
   // check and handle webpack errors and warnings
   const info = stats.toJson()
   if (stats.hasErrors()) {
-    let err = info.errors
-    fatalError(err)
+    fatalError(info.errors)
   }
   if (stats.hasWarnings()) {
     console.warn(info.warnings)
