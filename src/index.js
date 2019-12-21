@@ -1,11 +1,10 @@
 /**
- * https://github.com/ecomclub/ecomplus-utils
- * @author E-Com Club <ti@e-com.club>
- * @license MIT
- *
- * @description
  * JS utility functions for E-Com Plus (not only) related apps.
+ * {@link https://github.com/ecomclub/ecomplus-utils GitHub}
+ *
  * @module @ecomplus/utils
+ * @author E-Com Club <ti@e-com.club>
+ * @return {@link ecomUtils}
  * @see ecomUtils
  * @see $ecomConfig
  *
