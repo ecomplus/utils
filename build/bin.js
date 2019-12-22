@@ -36,6 +36,7 @@ const webpackConfigList = []
 
 ;[
   '.polyfill',
+  '.node',
   ''
 ].forEach(outputType => {
   const config = {
@@ -48,7 +49,7 @@ const webpackConfigList = []
   }
 
   // edit Webpack config by output type
-  if (outputType !== '.polyfill') {
+  if (outputType === '') {
     // standalone lib output
     // ignore package dependencies
     config.externals = /^(@babel\/runtime|core-js)/i
@@ -56,6 +57,8 @@ const webpackConfigList = []
     config.plugins = webpackPlugins.concat([
       new CopyPlugin([{ from: srcPath, to: outputPath }])
     ])
+  } else if (outputType === '.node') {
+    config.target = 'node'
   }
   webpackConfigList.push(config)
 })
