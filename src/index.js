@@ -1,3 +1,9 @@
+/*!
+ * @ecomplus/utils
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
 /**
  * JS utility functions for E-Com Plus (not only) related apps.
  * {@link https://github.com/ecomclub/ecomplus-utils GitHub}
