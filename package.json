@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/utils",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "JS utility functions to E-Com Plus (not only) related apps",
   "main": "dist/ecom-utils.node.min.js",
   "module": "src/index.js",
