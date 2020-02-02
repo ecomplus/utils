@@ -1,4 +1,4 @@
-import env from './env'
+import { env } from './globals'
 
 import {
   DEFAULT_LANG,

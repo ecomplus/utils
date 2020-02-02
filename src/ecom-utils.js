@@ -2,6 +2,7 @@
  * @namespace ecomUtils
  */
 
+import { root } from './lib/globals'
 import _self from './lib/self'
 import _config from './lib/config'
 
@@ -47,7 +48,7 @@ import randomObjectId from './methods/random-object-id'
  * ecomUtils.$ecomConfig.get('store_id')
  * // => 1011
  */
-const $ecomConfig = _config
+const $ecomConfig = root.$ecomConfig || _config
 
 export {
   _self,

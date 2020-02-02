@@ -48,10 +48,11 @@
  * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/utils/dist/ecom-utils.polyfill.min.js"></script>
  */
 
+import { root } from './lib/globals'
 import * as ecomUtils from './ecom-utils'
 
-if (typeof window === 'object' && window && window.$ecomConfig === undefined) {
-  window.$ecomConfig = ecomUtils.$ecomConfig
+if (root.$ecomConfig === undefined) {
+  root.$ecomConfig = ecomUtils.$ecomConfig
 }
 
 export default ecomUtils
