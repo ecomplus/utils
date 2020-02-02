@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/ecomclub/ecomplus-utils/compare/v1.2.8...v1.3.0) (2020-02-02)
+
+
+### Features
+
+* **globals:** ensure loading already declared  on root scope ([047e4f4](https://github.com/ecomclub/ecomplus-utils/commit/047e4f4263a5379d30e1ea97ed2ac3ee1d894aa7))
+
 ### [1.2.8](https://github.com/ecomclub/ecomplus-utils/compare/v1.2.7...v1.2.8) (2020-01-04)
 
 ### [1.2.7](https://github.com/ecomclub/ecomplus-utils/compare/v1.2.6...v1.2.7) (2020-01-02)
