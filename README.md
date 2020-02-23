@@ -1,25 +1,25 @@
 # ecomplus-utils
 
-[![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/ecomplus-utils/badge)](https://www.codefactor.io/repository/github/ecomclub/ecomplus-utils)
+[![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/utils/badge)](https://www.codefactor.io/repository/github/ecomplus/utils)
 [![npm version](https://img.shields.io/npm/v/@ecomplus/utils.svg)](https://www.npmjs.org/@ecomplus/utils)
 [![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 JS utility functions to E-Com Plus (not only) related apps
 
-[Changelog](https://github.com/ecomclub/ecomplus-utils/blob/master/CHANGELOG.md)
+[CHANGELOG](https://github.com/ecomplus/utils/blob/master/CHANGELOG.md)
 
 ## Usage
 
 The `@ecomplus/utils` package provides a
-[list of methods](https://developers.e-com.plus/ecomplus-utils/ecomUtils.html),
+[list of methods](https://developers.e-com.plus/utils/ecomUtils.html),
 each one is a utility function related to e-commerce apps
 and E-Com Plus APIs and schemas.
 
 It's available for both Node.js and browser environments, and can also be
 imported entirely or partially with ES modules.
 
-- [Get started](https://developers.e-com.plus/ecomplus-utils/module-@ecomplus_utils.html)
-- [Methods](https://developers.e-com.plus/ecomplus-utils/ecomUtils.html)
+- [Get started](https://developers.e-com.plus/utils/module-@ecomplus_utils.html)
+- [Methods](https://developers.e-com.plus/utils/ecomUtils.html)
 
 ```js
 import {
@@ -71,7 +71,7 @@ npm run serve
 7. Commit changes following
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/);
 
-8. Create a new [PR](https://github.com/ecomclub/ecomplus-utils/pulls)
+8. Create a new [PR](https://github.com/ecomplus/utils/pulls)
 describing your proposal :)
 
 ### Deploy
