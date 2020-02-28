@@ -1,9 +1,5 @@
 # Contribution guidelines
 
-We're using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), all commit messages must follow these conventions.
-
-For documentation, we're using [jsdoc](https://jsdoc.app/), all methods should be well documented.
-
 1. Create a new branch with the name of your proposal:
     - If you're already a collaborator, prefer to create a `fix/*`, `feat/*` or `docs/*` branch on official repository;
     - If you're not a collaborator yet, fork the repository and create the branch;
@@ -24,8 +20,10 @@ npm run serve
 
 5. Ensure you're respecting [JavaScript Standard Style](https://standardjs.com/);
 
-6. Open a new [PR](https://github.com/ecomplus/utils/pulls) to _master_ (latest version) or _v*-dev_ branch;
+6. We're using [jsdoc](https://jsdoc.app/) for documentation, when creating or updating a method, please try to make it well documented if possible;
 
-7. Congrats! Just wait a little for our review and merge.
+7. Open a new [PR](https://github.com/ecomplus/utils/pulls) to _master_ (latest version) or _v*-dev_ branch;
+
+8. Congrats! Just wait a little for our review and merge.
 
 **Thanks in advance** :smile:
