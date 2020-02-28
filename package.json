@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/ecomplus-utils.git"
+    "url": "git+https://github.com/ecomplus/utils.git"
   },
   "keywords": [
     "ecomplus",
@@ -29,9 +29,9 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/ecomplus-utils/issues"
+    "url": "https://github.com/ecomplus/utils/issues"
   },
-  "homepage": "https://github.com/ecomclub/ecomplus-utils#readme",
+  "homepage": "https://github.com/ecomplus/utils#readme",
   "optionalDependencies": {
     "core-js": "3.x"
   },
