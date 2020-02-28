@@ -20,7 +20,7 @@ npm run serve
 
 5. Ensure you're respecting [JavaScript Standard Style](https://standardjs.com/);
 
-6. We're using [jsdoc](https://jsdoc.app/) for documentation, when creating or updating a method, please try to make it well documented if possible;
+6. We're using [jsdoc](https://jsdoc.app/), when creating or updating a method, please try to make it well documented if possible;
 
 7. Open a new [PR](https://github.com/ecomplus/utils/pulls) to _master_ (latest version) or _v*-dev_ branch;
 
