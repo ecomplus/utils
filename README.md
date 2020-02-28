@@ -1,6 +1,6 @@
 # E-Com Plus Utils
 
-[![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/utils/badge)](https://www.codefactor.io/repository/github/ecomplus/utils) [![npm version](https://img.shields.io/npm/v/@ecomplus/utils.svg)](https://www.npmjs.org/@ecomplus/utils) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Publish](https://github.com/ecomplus/utils/workflows/Publish/badge.svg)](https://github.com/ecomplus/utils/actions?workflow=Publish) [![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/utils/badge)](https://www.codefactor.io/repository/github/ecomplus/utils) [![npm version](https://img.shields.io/npm/v/@ecomplus/utils.svg)](https://www.npmjs.org/@ecomplus/utils) [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 JS utility functions to E-Com Plus (not only) related apps
 
