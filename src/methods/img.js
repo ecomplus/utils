@@ -23,16 +23,32 @@ const img = (product, pictureId, size = 'normal') => {
     if (typeof picture === 'object' && picture !== null) {
       img = picture[size]
       if (!img) {
-        // try with any size
-        let sizes = [ 'big', 'normal', 'zoom', 'small' ]
+        // try predefined any size
+        let sizes
+        switch (img) {
+          case 'small':
+            sizes = ['normal', 'big']
+            break
+          case 'normal':
+            sizes = ['big', 'zoom', 'small']
+            break
+          case 'big':
+            sizes = ['zoom', 'normal']
+            break
+          case 'zoom':
+            sizes = ['big']
+            break
+          default:
+            sizes = ['big', 'zoom', 'normal', 'small']
+        }
         for (let i = 0; i < sizes.length; i++) {
-          let size = sizes[i]
+          const size = sizes[i]
           if (picture[size]) {
             return picture[size]
           }
         }
         // last try with custom sizes
-        for (let size in picture) {
+        for (const size in picture) {
           if (picture[size] && picture[size].url) {
             return picture[size]
           }
