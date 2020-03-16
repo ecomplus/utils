@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.3](https://github.com/ecomplus/utils/compare/v1.3.2...v1.3.3) (2020-03-16)
+
+
+### Bug Fixes
+
+* **img:** fix handling predefined image sizes ([77bd1b4](https://github.com/ecomplus/utils/commit/77bd1b4510fb5b622c1fec9ebf43906b3fa56180))
+
 ### [1.3.2](https://github.com/ecomplus/utils/compare/v1.3.1...v1.3.2) (2020-02-28)
 
 ### [1.3.1](https://github.com/ecomclub/ecomplus-utils/compare/v1.3.0...v1.3.1) (2020-02-28)
