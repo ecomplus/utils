@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/ecomplus/utils#readme",
   "optionalDependencies": {
-    "core-js": "3.x"
+    "core-js": "^3.6.4"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
