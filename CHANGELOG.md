@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.4](https://github.com/ecomplus/utils/compare/v1.3.3...v1.3.4) (2020-03-17)
+
+
+### Bug Fixes
+
+* **img:** fix checking original first tried size ([b9431cf](https://github.com/ecomplus/utils/commit/b9431cf6c523c40b7e4f13a4b08e01a105d16a2c))
+
 ### [1.3.3](https://github.com/ecomplus/utils/compare/v1.3.2...v1.3.3) (2020-03-16)
 
 
