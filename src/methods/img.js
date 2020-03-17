@@ -25,7 +25,7 @@ const img = (product, pictureId, size = 'normal') => {
       if (!img) {
         // try predefined any size
         let sizes
-        switch (img) {
+        switch (size) {
           case 'small':
             sizes = ['normal', 'big']
             break
