@@ -1,4 +1,9 @@
-const img = (product, pictureId, size = 'normal') => {
+import _config from './../lib/config'
+
+const img = (product, pictureId, size) => {
+  if (!size) {
+    size = _config.get('default_img_size') || 'normal'
+  }
   if (product) {
     // product object has 'pictures'
     // cart item object has 'picture'
@@ -67,7 +72,8 @@ const img = (product, pictureId, size = 'normal') => {
  * @description Returns img object (with url and alt) from product body or pictures list.
  * @param {object|array} product - Product body object or list of picture objects
  * @param {string} [pictureId] - ObjectID of preferred picture to find in the list
- * @param {string} [size='normal'] - Preferred image size to find on picture object
+ * @param {string} [size=($ecomConfig.get('default_img_size') || 'normal')] - Preferred image size
+ * to find on picture object
  * @returns {object|undefined}
  *
  * @example
