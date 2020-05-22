@@ -55,7 +55,9 @@ const webpackConfigList = []
     config.externals = /^(@babel\/runtime|core-js)/i
     // copy source to output
     config.plugins = webpackPlugins.concat([
-      new CopyPlugin([{ from: srcPath, to: outputPath }])
+      new CopyPlugin({
+        patterns: [{ from: srcPath, to: outputPath }]
+      })
     ])
   } else if (outputType === '.node') {
     config.target = 'node'
