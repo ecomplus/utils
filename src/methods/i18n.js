@@ -9,7 +9,7 @@ const i18n = (dictionary, lang = _config.get('lang')) => {
       return dictionary[lang] || dictionary[DEFAULT_LANG] || dictionary[prop]
     } else {
       // recursive
-      const localDictionary = {}
+      const localDictionary = Array.isArray(dictionary) ? [] : {}
       for (const prop in dictionary) {
         if (dictionary[prop] !== undefined) {
           localDictionary[prop] = i18n(dictionary[prop], lang)
