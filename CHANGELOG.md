@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/ecomplus/utils/compare/v1.4.0...v1.4.1) (2020-05-24)
+
+
+### Bug Fixes
+
+* **i18n:** check if dictionary object is array (and keep array) ([8ba81e7](https://github.com/ecomplus/utils/commit/8ba81e73197f298f61b118d42cfd874268716efc))
+
 ## [1.4.0](https://github.com/ecomplus/utils/compare/v1.3.4...v1.4.0) (2020-05-22)
 
 
