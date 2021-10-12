@@ -33,16 +33,16 @@
   },
   "homepage": "https://github.com/ecomplus/utils#readme",
   "optionalDependencies": {
-    "core-js": "^3.18.2"
+    "core-js": "^3.18.3"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
-    "@commitlint/cli": "^13.2.0",
+    "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^6.4.1",
-    "core-js": "^3.18.2",
+    "core-js": "^3.18.3",
     "docdash": "^1.2.0",
     "husky": "^4.3.8",
     "jsdoc": "^3.6.7",
