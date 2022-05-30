@@ -41,7 +41,7 @@
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
     "babel-loader": "^8.2.5",
-    "copy-webpack-plugin": "^6.4.1",
+    "copy-webpack-plugin": "^11.0.0",
     "core-js": "^3.22.6",
     "docdash": "^1.2.0",
     "husky": "^4.3.8",
