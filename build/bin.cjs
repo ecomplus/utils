@@ -12,7 +12,7 @@ const fs = require('fs')
 const babel = require('@babel/core')
 // build bundle with Webpack
 const webpack = require('webpack')
-const webpackConfig = require(path.join(process.cwd(), 'webpack.config'))
+const webpackConfig = require(path.join(process.cwd(), 'webpack.config.cjs'))
 // handle Webpack output object and plugins
 const webpackOutput = { ...webpackConfig.output }
 const webpackPlugins = (webpackConfig.plugins && webpackConfig.plugins.concat()) || []

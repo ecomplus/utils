@@ -3,6 +3,11 @@
   "version": "1.4.1",
   "description": "JS utility functions to E-Com Plus (not only) related apps",
   "main": "dist/ecom-utils.node.min.js",
+  "exports": {
+    "import": "./src/index.js",
+    "require": "./dist/ecom-utils.node.min.js"
+  },
+  "type": "module",
   "module": "src/index.js",
   "browser": "dist/ecom-utils.min.js",
   "jsdelivr": "dist/ecom-utils.polyfill.min.js",
@@ -10,9 +15,9 @@
   "sideEffects": false,
   "scripts": {
     "serve": "webpack-dev-server",
-    "build": "node ./build/bin.js",
+    "build": "node ./build/bin.cjs",
     "doc": "rm -rf ./docs/*; jsdoc ./src -r ./README.md -d ./docs -t ./node_modules/docdash",
-    "release": "rm -rf ./dist; npm ddp && standard-version && node ./build/bin.js"
+    "release": "rm -rf ./dist; npm ddp && standard-version --prerelease rc && node ./build/bin.cjs"
   },
   "repository": {
     "type": "git",
