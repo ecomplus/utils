@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0-rc.0](https://github.com/ecomplus/utils/compare/v1.4.1...v1.5.0-rc.0) (2022-11-09)
+
+
+### Features
+
+* **ts:** building type declarations [[#241](https://github.com/ecomplus/utils/issues/241)] ([500dd95](https://github.com/ecomplus/utils/commit/500dd95fe16a43cfc773cc7cfaeb7ece3c2f6c95))
+
+
+### Bug Fixes
+
+* **esm:** add pkg conditional `exports` and type module [[#242](https://github.com/ecomplus/utils/issues/242)] ([b0f836c](https://github.com/ecomplus/utils/commit/b0f836c1e167d011fc1cefe30005ee214f834000))
+
 ### [1.4.1](https://github.com/ecomplus/utils/compare/v1.4.0...v1.4.1) (2020-05-24)
 
 
