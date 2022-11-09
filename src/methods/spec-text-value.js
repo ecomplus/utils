@@ -1,19 +1,5 @@
 import specValues from './spec-values'
 
-const specTextValue = (product, gridId, grids, delimiter = ', ') => {
-  // using text property of each spec object
-  let values = specValues(product, gridId, grids)
-  if (values.length) {
-    let valuesString = values[0].text
-    for (let i = 1; i < values.length; i++) {
-      valuesString += delimiter + values[i].text
-    }
-    return valuesString
-  }
-  // specification not found
-  return null
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -36,5 +22,18 @@ const specTextValue = (product, gridId, grids, delimiter = ', ') => {
  * ecomUtils.specValues(product, gridId, grids, delimiter)
  * // => [{text: 'vermelho', value: '#ff0000'}, {text: 'azul', value: '#3300ff'}]
  */
+const specTextValue = (product, gridId, grids, delimiter = ', ') => {
+  // using text property of each spec object
+  let values = specValues(product, gridId, grids)
+  if (values.length) {
+    let valuesString = values[0].text
+    for (let i = 1; i < values.length; i++) {
+      valuesString += delimiter + values[i].text
+    }
+    return valuesString
+  }
+  // specification not found
+  return null
+}
 
 export default specTextValue

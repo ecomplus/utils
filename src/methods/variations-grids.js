@@ -1,5 +1,31 @@
 import specTextValue from './spec-text-value'
 
+/**
+ * @method
+ * @memberof ecomUtils
+ * @name variationsGrids
+ * @description Parse variations specifications to one object only.
+ * @param {object} product - Product body object
+ * @param {object} [filterGrids] - Filter object with grids and searched values
+ * @param {boolean} [inStockOnly] - True to consider only variations with positive stock quantity
+ * @param {string} [delimiter=', '] - Delimiter between each specification
+ * @returns {object}
+ *
+ * @example
+ * // Only param product
+ * const product = { 'name': 'Cruzeiro 2019', 'variations': [
+ * { 'name': 'Cruzeiro 2019 / P', 'quantity': 10, 'specifications': { 'size': [ { 'text': 'P', 'value': 's' } ] } },
+ * { 'name': 'Cruzeiro 2019 / M', 'quantity': 10, 'specifications': { 'size': [ { 'text': 'M', 'value': 'm' } ] } },
+ * { 'name': 'Cruzeiro 2019 / G', 'specifications': { 'size': [ { 'text': 'G', 'value': 'l' } ] }, 'quantity': 0 }
+ * ] }
+ * ecomUtils.variationsGrids(product)
+ * // => {size: [ 'P', 'M', 'G' ]}
+ * // You can also check for product stock to get only variations with available quantity
+ * // Same product above
+ * const inStockOnly = true
+ * ecomUtils.variationsGrids(product, {}, inStockOnly)
+ * // => {size: [ 'P', 'M' ]}
+ */
 const variationsGrids = (product, filterGrids, inStockOnly, delimiter) => {
   let grids = {}
   if (product && Array.isArray(product.variations)) {
@@ -45,32 +71,5 @@ const variationsGrids = (product, filterGrids, inStockOnly, delimiter) => {
   // returns parsed grid object
   return grids
 }
-
-/**
- * @method
- * @memberof ecomUtils
- * @name variationsGrids
- * @description Parse variations specifications to one object only.
- * @param {object} product - Product body object
- * @param {object} [filterGrids] - Filter object with grids and searched values
- * @param {boolean} [inStockOnly] - True to consider only variations with positive stock quantity
- * @param {string} [delimiter=', '] - Delimiter between each specification
- * @returns {object}
- *
- * @example
- * // Only param product
- * const product = { 'name': 'Cruzeiro 2019', 'variations': [
- * { 'name': 'Cruzeiro 2019 / P', 'quantity': 10, 'specifications': { 'size': [ { 'text': 'P', 'value': 's' } ] } },
- * { 'name': 'Cruzeiro 2019 / M', 'quantity': 10, 'specifications': { 'size': [ { 'text': 'M', 'value': 'm' } ] } },
- * { 'name': 'Cruzeiro 2019 / G', 'specifications': { 'size': [ { 'text': 'G', 'value': 'l' } ] }, 'quantity': 0 }
- * ] }
- * ecomUtils.variationsGrids(product)
- * // => {size: [ 'P', 'M', 'G' ]}
- * // You can also check for product stock to get only variations with available quantity
- * // Same product above
- * const inStockOnly = true
- * ecomUtils.variationsGrids(product, {}, inStockOnly)
- * // => {size: [ 'P', 'M' ]}
- */
 
 export default variationsGrids

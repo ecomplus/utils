@@ -1,15 +1,3 @@
-const filterByParentSlug = (categories, slug) => {
-  // for categories
-  // returns array of macthed category objects
-  try {
-    return categories.filter(category => category.parent && category.parent.slug === slug)
-  } catch (err) {
-    // not an array ?
-    console.error(err)
-    return []
-  }
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -28,5 +16,16 @@ const filterByParentSlug = (categories, slug) => {
  * ecomUtils.filterByParentSlug(categories, 'info')
  * // => [ { name: 'PCs', slug: 'pcs', parent: { name: 'Info', slug: 'info' } } ]
  */
+const filterByParentSlug = (categories, slug) => {
+  // for categories
+  // returns array of macthed category objects
+  try {
+    return categories.filter(category => category.parent && category.parent.slug === slug)
+  } catch (err) {
+    // not an array ?
+    console.error(err)
+    return []
+  }
+}
 
 export default filterByParentSlug

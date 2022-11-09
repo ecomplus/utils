@@ -1,25 +1,5 @@
 import _config from './../lib/config'
 
-const parsePhone = (dateStr, countryCode = _config.get('country_code')) => {
-  // parse country formatted date string to { day, month, year }
-  let day, month, year
-  if (typeof dateStr === 'string') {
-    const dateNumber = (start, ln) => parseInt(dateStr.substr(start, ln), 10)
-    // fix date string to digits only first
-    dateStr = dateStr.replace(/[\D]/g, '')
-    if (countryCode === 'BR') {
-      day = dateNumber(0, 2)
-      month = dateNumber(2, 2)
-      year = dateNumber(4, 4)
-    } else {
-      day = dateNumber(6, 2)
-      month = dateNumber(4, 2)
-      year = dateNumber(0, 4)
-    }
-  }
-  return { day, month, year }
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -43,5 +23,24 @@ const parsePhone = (dateStr, countryCode = _config.get('country_code')) => {
  * ecomUtils.parseDate('10/02/1997')
  * // => { day: 10, month: 2, year: 1997 }
  */
+const parsePhone = (dateStr, countryCode = _config.get('country_code')) => {
+  // parse country formatted date string to { day, month, year }
+  let day, month, year
+  if (typeof dateStr === 'string') {
+    const dateNumber = (start, ln) => parseInt(dateStr.substr(start, ln), 10)
+    // fix date string to digits only first
+    dateStr = dateStr.replace(/[\D]/g, '')
+    if (countryCode === 'BR') {
+      day = dateNumber(0, 2)
+      month = dateNumber(2, 2)
+      year = dateNumber(4, 4)
+    } else {
+      day = dateNumber(6, 2)
+      month = dateNumber(4, 2)
+      year = dateNumber(0, 4)
+    }
+  }
+  return { day, month, year }
+}
 
 export default parsePhone

@@ -1,18 +1,6 @@
 import _config from './../lib/config'
 import name from './name'
 
-const gridTitle = (gridId, grids, lang = _config.get('lang')) => {
-  let grid
-  if (Array.isArray(grids)) {
-    // match the grid by ID
-    grid = grids.find(grid => grid.grid_id === gridId)
-  } else {
-    console.error('`grids` must be array to get grid title')
-  }
-  // returns grid name or fallback to received grid ID by default
-  return grid ? name(grid, lang) : gridId
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -33,5 +21,16 @@ const gridTitle = (gridId, grids, lang = _config.get('lang')) => {
  * ecomUtils.gridTitle(gridId, grids, lang)
  * // => "Canais"
  */
+const gridTitle = (gridId, grids, lang = _config.get('lang')) => {
+  let grid
+  if (Array.isArray(grids)) {
+    // match the grid by ID
+    grid = grids.find(grid => grid.grid_id === gridId)
+  } else {
+    console.error('`grids` must be array to get grid title')
+  }
+  // returns grid name or fallback to received grid ID by default
+  return grid ? name(grid, lang) : gridId
+}
 
 export default gridTitle

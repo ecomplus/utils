@@ -1,17 +1,5 @@
 import onPromotion from './on-promotion'
 
-const price = product => onPromotion(product)
-  // promotional sale price
-  ? product.price
-  : product
-    // test final price for cart item object
-    ? typeof product.final_price === 'number'
-      ? product.final_price
-      // use the maximum value between sale and base price
-      : Math.max(product.base_price || 0, product.price || 0)
-    // default to zero
-    : 0
-
 /**
  * @method
  * @memberof ecomUtils
@@ -45,5 +33,16 @@ const price = product => onPromotion(product)
  * ecomUtils.price(product)
  * // => 30.9
  */
+const price = product => onPromotion(product)
+  // promotional sale price
+  ? product.price
+  : product
+    // test final price for cart item object
+    ? typeof product.final_price === 'number'
+      ? product.final_price
+      // use the maximum value between sale and base price
+      : Math.max(product.base_price || 0, product.price || 0)
+    // default to zero
+    : 0
 
 export default price

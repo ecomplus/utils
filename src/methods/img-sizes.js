@@ -1,3 +1,21 @@
+/**
+ * @method
+ * @memberof ecomUtils
+ * @name imgSizes
+ * @description Splits image size string and returns object with 'width' and 'height'.
+ * @param {object|string} img - Image object body or size string
+ * @returns {object}
+ *
+ * @example
+ * // Using a img sizes string as parameter
+ * const size = '200x50'
+ * ecomUtils.imgSizes(size)
+ * // => {width: 200, height: 50}
+ * // Using a img sizes object as parameter
+ * const sizeObj = {size: '1000x1000'}
+ * ecomUtils.imgSizes(sizeObj)
+ * // => {width: 1000, height: 1000}
+ */
 const imgSizes = img => {
   // defaul sizes object with zeros
   let sizes = { width: 0, height: 0 }
@@ -21,24 +39,5 @@ const imgSizes = img => {
   // returns object with width and height
   return sizes
 }
-
-/**
- * @method
- * @memberof ecomUtils
- * @name imgSizes
- * @description Splits image size string and returns object with 'width' and 'height'.
- * @param {object|string} img - Image object body or size string
- * @returns {object}
- *
- * @example
- * // Using a img sizes string as parameter
- * const size = '200x50'
- * ecomUtils.imgSizes(size)
- * // => {width: 200, height: 50}
- * // Using a img sizes object as parameter
- * const sizeObj = {size: '1000x1000'}
- * ecomUtils.imgSizes(sizeObj)
- * // => {width: 1000, height: 1000}
- */
 
 export default imgSizes

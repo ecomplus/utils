@@ -1,6 +1,3 @@
-// mix and return base ID with index
-const objectIdPad = (id, index) => id.substring(0, 24 - index.length) + index
-
 /**
  * @method
  * @memberof ecomUtils
@@ -16,5 +13,6 @@ const objectIdPad = (id, index) => id.substring(0, 24 - index.length) + index
  * ecomUtils.objectIdPad(id, index)
  * // => '5ce59fbf887ef430f1f6ed25'
  */
+const objectIdPad = (id, index) => id.substring(0, 24 - index.length) + index
 
 export default objectIdPad

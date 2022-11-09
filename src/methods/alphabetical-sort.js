@@ -1,3 +1,26 @@
+/**
+ * @method
+ * @memberof ecomUtils
+ * @name alphabeticalSort
+ * @description Sort list of objects alphabetically by name ot title property.
+ * @param {array|object} list - Array of objects (products, brands...) or list body with 'results'
+ * @returns {array}
+ *
+ * @example
+ * // Sample array with name or title's property
+ * ecomUtils.alphabeticalSort(['product', 'category'])
+ * // => ["category", "product"]
+ * ecomUtils.alphabeticalSort(['Matheus', 'Vitor', 'Ana', 'Clara', 'Bruna'])
+ * // => ["Ana", "Bruna", "Clara", "Matheus", "Vitor"]
+ * // Can be an array of objects like:
+ * const brand1 = {name: 'zara'}
+ * const brand2 = {name: 'Thermaltake'}
+ * const brand3 = {name: 'AeroCool'}
+ * const brand4 = {name: 'Fortrek'}
+ * const array = [brand1, brand2, brand3, brand4]
+ * ecomUtils.alphabeticalSort(array)
+ * // => [{name: "AeroCool"}, {name: "Fortrek"}, {name: "Thermaltake"}, {name: "Thermaltake"}, {name: "zara"}]
+ */
 const alphabeticalSort = list => {
   if (Array.isArray(list)) {
     // try to sort by name or title
@@ -24,29 +47,5 @@ const alphabeticalSort = list => {
   // always return an array
   return []
 }
-
-/**
- * @method
- * @memberof ecomUtils
- * @name alphabeticalSort
- * @description Sort list of objects alphabetically by name ot title property.
- * @param {array|object} list - Array of objects (products, brands...) or list body with 'results'
- * @returns {array}
- *
- * @example
- * // Sample array with name or title's property
- * ecomUtils.alphabeticalSort(['product', 'category'])
- * // => ["category", "product"]
- * ecomUtils.alphabeticalSort(['Matheus', 'Vitor', 'Ana', 'Clara', 'Bruna'])
- * // => ["Ana", "Bruna", "Clara", "Matheus", "Vitor"]
- * // Can be an array of objects like:
- * const brand1 = {name: 'zara'}
- * const brand2 = {name: 'Thermaltake'}
- * const brand3 = {name: 'AeroCool'}
- * const brand4 = {name: 'Fortrek'}
- * const array = [brand1, brand2, brand3, brand4]
- * ecomUtils.alphabeticalSort(array)
- * // => [{name: "AeroCool"}, {name: "Fortrek"}, {name: "Thermaltake"}, {name: "Thermaltake"}, {name: "zara"}]
- */
 
 export default alphabeticalSort

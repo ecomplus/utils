@@ -1,15 +1,6 @@
 import _config from './../lib/config'
 import i18n from './i18n'
 
-const name = (body, lang = _config.get('lang')) => {
-  // prefer translated item name
-  if (lang && body.i18n && body.i18n[lang]) {
-    return body.i18n[lang]
-  } else {
-    return body.name || body.title || i18n(body.i18n, lang) || ''
-  }
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -43,5 +34,13 @@ const name = (body, lang = _config.get('lang')) => {
  * ecomUtils.name({ name: 'Test', i18n: { en_us: 'Test', pt_br: 'Teste' } })
  * // => 'Teste'
  */
+const name = (body, lang = _config.get('lang')) => {
+  // prefer translated item name
+  if (lang && body.i18n && body.i18n[lang]) {
+    return body.i18n[lang]
+  } else {
+    return body.name || body.title || i18n(body.i18n, lang) || ''
+  }
+}
 
 export default name

@@ -1,25 +1,3 @@
-const recommendedIds = result => {
-  let data
-  if (typeof result === 'object' && result !== null) {
-    if (Array.isArray(result)) {
-      data = result
-    } else if (result.results && result.results[0]) {
-      // Neo4j response body
-      data = result.results[0].data
-    }
-  }
-
-  // setup ids list
-  let ids = []
-  if (Array.isArray(data)) {
-    // map ids array from Neo4j data list
-    data.forEach(({ row }) => {
-      ids.push(row[0])
-    })
-  }
-  return ids
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -42,5 +20,26 @@ ecomUtils.recommendedIds(result)
 // => [ 'a00000000000000000000001', 'a00000000000000000000002', 'a00000000000000000000006' ]
 
  */
+const recommendedIds = result => {
+  let data
+  if (typeof result === 'object' && result !== null) {
+    if (Array.isArray(result)) {
+      data = result
+    } else if (result.results && result.results[0]) {
+      // Neo4j response body
+      data = result.results[0].data
+    }
+  }
+
+  // setup ids list
+  let ids = []
+  if (Array.isArray(data)) {
+    // map ids array from Neo4j data list
+    data.forEach(({ row }) => {
+      ids.push(row[0])
+    })
+  }
+  return ids
+}
 
 export default recommendedIds

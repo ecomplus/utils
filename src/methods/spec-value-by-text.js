@@ -1,16 +1,5 @@
 import specValues from './spec-values'
 
-const specValueByText = (product, specText, gridId, grids) => {
-  const values = specValues(product, gridId, grids)
-  for (let i = 0; i < values.length; i++) {
-    if (values[i].text === specText) {
-      return values[i].value
-    }
-  }
-  // any spec found for received grid and option text
-  return undefined
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -33,5 +22,15 @@ const specValueByText = (product, specText, gridId, grids) => {
  * ecomUtils.specValueByText(product, specText, gridId , grids)
  * // => '#ff0000'
  */
+const specValueByText = (product, specText, gridId, grids) => {
+  const values = specValues(product, gridId, grids)
+  for (let i = 0; i < values.length; i++) {
+    if (values[i].text === specText) {
+      return values[i].value
+    }
+  }
+  // any spec found for received grid and option text
+  return undefined
+}
 
 export default specValueByText

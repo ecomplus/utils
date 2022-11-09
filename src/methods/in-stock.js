@@ -1,9 +1,5 @@
 import minQuantity from './min-quantity'
 
-// check inventory
-// true if no stock control or available in stock
-const inStock = product => !product.hasOwnProperty('quantity') || product.quantity >= minQuantity(product)
-
 /**
  * @method
  * @memberof ecomUtils
@@ -32,5 +28,6 @@ const inStock = product => !product.hasOwnProperty('quantity') || product.quanti
  * ecomUtils.inStock({ quantity: 1 })
  * // => true
  */
+const inStock = product => !product.hasOwnProperty('quantity') || product.quantity >= minQuantity(product)
 
 export default inStock

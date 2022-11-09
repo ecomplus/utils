@@ -1,19 +1,3 @@
-const parsePhone = phoneStr => {
-  // parse phone string to { number, country_code }
-  const phoneObj = {}
-  if (typeof phoneStr === 'string') {
-    // fix string to only digits first
-    phoneStr = phoneStr.replace(/[^\d+]/g, '')
-    if (phoneStr.charAt(0) === '+') {
-      phoneObj.country_code = parseInt(phoneStr.substr(1, 2), 10)
-      phoneObj.number = phoneStr.substr(3)
-    } else {
-      phoneObj.number = phoneStr
-    }
-  }
-  return phoneObj
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -34,5 +18,20 @@ const parsePhone = phoneStr => {
  * ecomUtils.parsePhone('+55 31992980000')
  * // => { country_code: 55, number: '31992980000' }
  */
+const parsePhone = phoneStr => {
+  // parse phone string to { number, country_code }
+  const phoneObj = {}
+  if (typeof phoneStr === 'string') {
+    // fix string to only digits first
+    phoneStr = phoneStr.replace(/[^\d+]/g, '')
+    if (phoneStr.charAt(0) === '+') {
+      phoneObj.country_code = parseInt(phoneStr.substr(1, 2), 10)
+      phoneObj.number = phoneStr.substr(3)
+    } else {
+      phoneObj.number = phoneStr
+    }
+  }
+  return phoneObj
+}
 
 export default parsePhone

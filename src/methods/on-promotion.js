@@ -1,30 +1,3 @@
-const onPromotion = product => {
-  if (typeof product !== 'object' || product === null) {
-    // prevent fatal error
-    console.error(new Error('`product` must be an object'))
-    return false
-  }
-
-  let promoDates = product.price_effective_date
-  if (promoDates) {
-    let now = new Date()
-    if (promoDates.start) {
-      // start date and time in ISO 8601
-      if (new Date(promoDates.start) > now) {
-        return false
-      }
-    }
-    if (promoDates.end) {
-      // promotion end date and time in ISO 8601
-      if (new Date(promoDates.end) < now) {
-        return false
-      }
-    }
-  }
-  // default to no promotion
-  return !!(product.base_price > product.price)
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -59,5 +32,31 @@ const onPromotion = product => {
  * ecomUtils.onPromotion(product)
  * // => false
  */
+const onPromotion = product => {
+  if (typeof product !== 'object' || product === null) {
+    // prevent fatal error
+    console.error(new Error('`product` must be an object'))
+    return false
+  }
+
+  let promoDates = product.price_effective_date
+  if (promoDates) {
+    let now = new Date()
+    if (promoDates.start) {
+      // start date and time in ISO 8601
+      if (new Date(promoDates.start) > now) {
+        return false
+      }
+    }
+    if (promoDates.end) {
+      // promotion end date and time in ISO 8601
+      if (new Date(promoDates.end) < now) {
+        return false
+      }
+    }
+  }
+  // default to no promotion
+  return !!(product.base_price > product.price)
+}
 
 export default onPromotion

@@ -1,3 +1,22 @@
+/**
+ * @method
+ * @memberof ecomUtils
+ * @name categoriesList
+ * @description Parse category tree string to list of categories names.
+ * @param {object|string} product - Product object body or category tree string
+ * @returns {array}
+ *
+ * @example
+ * // Can be a category tree, like:
+ * const categoryTree = 'Quarto > Cama > Travesseiros'
+ * // So use categoryTree is parameter of function categoriesList, like:
+ * ecomUtils.categoriesList(categoryTree)
+ * // => ["Quarto", "Cama", "Travesseiros"]
+ * // Or can be a product body object like:
+ * const product = { name: 'Ultimate', categories: [{name: 'Cadeira Gamer'},{name: 'Periféricos'}]}
+ * ecomUtils.categoriesList(product)
+ * => ["Cadeira Gamer"]
+ */
 const categoriesList = product => {
   let categoryTree
   if (typeof product === 'object' && product !== null) {
@@ -25,25 +44,5 @@ const categoriesList = product => {
   // fallback returning empty array
   return []
 }
-
-/**
- * @method
- * @memberof ecomUtils
- * @name categoriesList
- * @description Parse category tree string to list of categories names.
- * @param {object|string} product - Product object body or category tree string
- * @returns {array}
- *
- * @example
- * // Can be a category tree, like:
- * const categoryTree = 'Quarto > Cama > Travesseiros'
- * // So use categoryTree is parameter of function categoriesList, like:
- * ecomUtils.categoriesList(categoryTree)
- * // => ["Quarto", "Cama", "Travesseiros"]
- * // Or can be a product body object like:
- * const product = { name: 'Ultimate', categories: [{name: 'Cadeira Gamer'},{name: 'Periféricos'}]}
- * ecomUtils.categoriesList(product)
- * => ["Cadeira Gamer"]
- */
 
 export default categoriesList

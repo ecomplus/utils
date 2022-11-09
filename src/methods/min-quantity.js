@@ -1,5 +1,3 @@
-const minQuantity = product => (product && product.min_quantity) || 1
-
 /**
  * @method
  * @memberof ecomUtils
@@ -25,5 +23,6 @@ const minQuantity = product => (product && product.min_quantity) || 1
  * ecomUtils.minQuantity({})
  * // => 1
  */
+const minQuantity = product => (product && product.min_quantity) || 1
 
 export default minQuantity

@@ -1,26 +1,6 @@
 import { DEFAULT_LANG } from './../lib/constants'
 import _config from './../lib/config'
 
-const i18n = (dictionary, lang = _config.get('lang')) => {
-  if (typeof dictionary === 'object' && dictionary !== null) {
-    const prop = Object.keys(dictionary)[0]
-    if (/^[a-z]{2}(_[a-z]{2})?$/.test(prop)) {
-      // supposed to be object of languages options
-      return dictionary[lang] || dictionary[DEFAULT_LANG] || dictionary[prop]
-    } else {
-      // recursive
-      const localDictionary = Array.isArray(dictionary) ? [] : {}
-      for (const prop in dictionary) {
-        if (dictionary[prop] !== undefined) {
-          localDictionary[prop] = i18n(dictionary[prop], lang)
-        }
-      }
-      return localDictionary
-    }
-  }
-  return dictionary
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -53,5 +33,24 @@ const i18n = (dictionary, lang = _config.get('lang')) => {
  * ecomUtils.i18n({ en_us: 'Hello', pt_br: 'Olá' })
  * // => Olá
  */
+const i18n = (dictionary, lang = _config.get('lang')) => {
+  if (typeof dictionary === 'object' && dictionary !== null) {
+    const prop = Object.keys(dictionary)[0]
+    if (/^[a-z]{2}(_[a-z]{2})?$/.test(prop)) {
+      // supposed to be object of languages options
+      return dictionary[lang] || dictionary[DEFAULT_LANG] || dictionary[prop]
+    } else {
+      // recursive
+      const localDictionary = Array.isArray(dictionary) ? [] : {}
+      for (const prop in dictionary) {
+        if (dictionary[prop] !== undefined) {
+          localDictionary[prop] = i18n(dictionary[prop], lang)
+        }
+      }
+      return localDictionary
+    }
+  }
+  return dictionary
+}
 
 export default i18n

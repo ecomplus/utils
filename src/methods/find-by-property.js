@@ -1,3 +1,22 @@
+/**
+ * @method
+ * @memberof ecomUtils
+ * @name findByProperty
+ * @description Find object from list by some property value.
+ * @param {array} list - List of nested objects
+ * @param {string} prop - Property name
+ * @param {number|string} value - Property value to be matched
+ * @returns {object|undefined}
+ *
+ * @example
+ * // Find on list of generic objects
+ * ecomUtils.findByProperty([ { a: 1, b: 1 }, { a: 2 } ], 'a', 1)
+ * // => { a: 1, b: 1 }
+ * ecomUtils.findByProperty([ { a: 1 }, { a: 1, b: 1 }, { a: 0 } ], 'a', 1)
+ * // => { a: 1 }
+ * ecomUtils.findByProperty([ { a: 0, b: 0 }, { a: 1 } ], 'a', 3)
+ * // => undefined
+ */
 const findByProperty = (list, prop, value) => {
   // must be an array
   if (Array.isArray(list)) {
@@ -11,25 +30,5 @@ const findByProperty = (list, prop, value) => {
   }
   return undefined
 }
-
-/**
- * @method
- * @memberof ecomUtils
- * @name findByProperty
- * @description Find object from list by some property value.
- * @param {array} list - List of nested objects
- * @param {string} prop - Property name
- * @param {mixed} value - Property value to be matched
- * @returns {object|undefined}
- *
- * @example
- * // Find on list of generic objects
- * ecomUtils.findByProperty([ { a: 1, b: 1 }, { a: 2 } ], 'a', 1)
- * // => { a: 1, b: 1 }
- * ecomUtils.findByProperty([ { a: 1 }, { a: 1, b: 1 }, { a: 0 } ], 'a', 1)
- * // => { a: 1 }
- * ecomUtils.findByProperty([ { a: 0, b: 0 }, { a: 1 } ], 'a', 3)
- * // => undefined
- */
 
 export default findByProperty

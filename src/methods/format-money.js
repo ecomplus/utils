@@ -1,31 +1,6 @@
 import _config from './../lib/config'
 import price from './price'
 
-const formatMoney = (value, currency = _config.get('currency'), lang = _config.get('lang')) => {
-  // price to number
-  if (typeof value === 'object') {
-    if (value !== null) {
-      // suppose to be product object
-      value = price(value)
-    }
-  } else if (typeof value === 'string') {
-    value = parseFloat(value)
-  }
-
-  if (currency) {
-    try {
-      // format price string
-      // lang code format: pt-br, en-us...
-      return value.toLocaleString(lang.replace('_', '-'), { style: 'currency', currency })
-    } catch (err) {
-      console.error(err)
-    }
-  }
-  // fallback using configured currency symbol
-  const moneyPrefix = (currency || _config.get('currency_symbol')) + ' '
-  return typeof value === 'number' ? moneyPrefix + value : ''
-}
-
 /**
  * @method
  * @memberof ecomUtils
@@ -60,5 +35,29 @@ const formatMoney = (value, currency = _config.get('currency'), lang = _config.g
  * ecomUtils.formatMoney(10.6)
  * // => R$ 10,60
  */
+const formatMoney = (value, currency = _config.get('currency'), lang = _config.get('lang')) => {
+  // price to number
+  if (typeof value === 'object') {
+    if (value !== null) {
+      // suppose to be product object
+      value = price(value)
+    }
+  } else if (typeof value === 'string') {
+    value = parseFloat(value)
+  }
+
+  if (currency) {
+    try {
+      // format price string
+      // lang code format: pt-br, en-us...
+      return value.toLocaleString(lang.replace('_', '-'), { style: 'currency', currency })
+    } catch (err) {
+      console.error(err)
+    }
+  }
+  // fallback using configured currency symbol
+  const moneyPrefix = (currency || _config.get('currency_symbol')) + ' '
+  return typeof value === 'number' ? moneyPrefix + value : ''
+}
 
 export default formatMoney

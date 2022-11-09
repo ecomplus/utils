@@ -1,5 +1,20 @@
 import _config from './../lib/config'
 
+/**
+ * @method
+ * @memberof ecomUtils
+ * @name formatDate
+ * @description Parse date to locale formatted string.
+ * @param {string|object} date - Date object or ISO string, or body object (order, product...)
+ * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @param {object} [options] - Options object for `toLocaleDateString` function
+ * @returns {string}
+ *
+ * @example
+ * const notification = { datetime: '2019-06-19T03:35:52.811Z', content: {api_event: {resource: 'orders'}}}
+ * ecomUtils.formatDate(notification, 'pt-br')
+ * // => "19/06/2019"
+ */
 const formatDate = (date, lang = _config.get('lang'), options) => {
   if (typeof date === 'object' && date !== null) {
     if (typeof date.getTime !== 'function') {
@@ -23,21 +38,5 @@ const formatDate = (date, lang = _config.get('lang'), options) => {
   // fallback returning empty string by default
   return ''
 }
-
-/**
- * @method
- * @memberof ecomUtils
- * @name formatDate
- * @description Parse date to locale formatted string.
- * @param {string|object} date - Date object or ISO string, or body object (order, product...)
- * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
- * @param {object} [options] - Options object for `toLocaleDateString` function
- * @returns {string}
- *
- * @example
- * const notification = { datetime: '2019-06-19T03:35:52.811Z', content: {api_event: {resource: 'orders'}}}
- * ecomUtils.formatDate(notification, 'pt-br')
- * // => "19/06/2019"
- */
 
 export default formatDate

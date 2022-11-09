@@ -1,5 +1,21 @@
 import _config from './../lib/config'
 
+/**
+ * @method
+ * @memberof ecomUtils
+ * @name lineAddress
+ * @description Returns full address string from customer object.
+ * @param {object} address - Address object or customer body object
+ * @param {string} [noNumberString] - String to show when address has no number
+ * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
+ * @returns {string}
+ *
+ * @example
+ * const address = { 'zip': '35800-999', 'name': 'Jonh Lock', 'street': 'Rua Europa', 'number': 900, 'borough': 'Santa Lucia', 'city': 'Bom Despacho', 'province_code': 'MG'}
+ * const lang = 'pt_br'
+ * ecomUtils.lineAddress(address, lang)
+ * // => 'Rua Europa, 900, Santa Lucia | Bom Despacho | MG'
+ */
 const lineAddress = (address, noNumberString, lang = _config.get('lang')) => {
   // parse to full address string
   if (address) {
@@ -45,22 +61,5 @@ const lineAddress = (address, noNumberString, lang = _config.get('lang')) => {
   // fallback returning empty string
   return ''
 }
-
-/**
- * @method
- * @memberof ecomUtils
- * @name lineAddress
- * @description Returns full address string from customer object.
- * @param {object} address - Address object or customer body object
- * @param {string} [noNumberString] - String to show when address has no number
- * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
- * @returns {string}
- *
- * @example
- * const address = { 'zip': '35800-999', 'name': 'Jonh Lock', 'street': 'Rua Europa', 'number': 900, 'borough': 'Santa Lucia', 'city': 'Bom Despacho', 'province_code': 'MG'}
- * const lang = 'pt_br'
- * ecomUtils.lineAddress(address, lang)
- * // => 'Rua Europa, 900, Santa Lucia | Bom Despacho | MG'
- */
 
 export default lineAddress

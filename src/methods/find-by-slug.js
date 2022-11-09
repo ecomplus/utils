@@ -1,8 +1,5 @@
 import findByProperty from './find-by-property'
 
-// just filter a list of documents by 'slug' property
-const findBySlug = (list, slug) => findByProperty(list, 'slug', slug)
-
 /**
  * @method
  * @memberof ecomUtils
@@ -21,5 +18,6 @@ const findBySlug = (list, slug) => findByProperty(list, 'slug', slug)
  * ecomUtils.findBySlug([ { slug: 'a' }, { slug: 'b' } ], 'c')
  * // => undefined
  */
+const findBySlug = (list, slug) => findByProperty(list, 'slug', slug)
 
 export default findBySlug
