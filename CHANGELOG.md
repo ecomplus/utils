@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0-rc.2](https://github.com/ecomplus/utils/compare/v1.5.0-rc.1...v1.5.0-rc.2) (2022-11-10)
+
+
+### Bug Fixes
+
+* **ts:** fix notation for object/array typedefs [[#241](https://github.com/ecomplus/utils/issues/241)] ([f6ca5cc](https://github.com/ecomplus/utils/commit/f6ca5cc6fb00cfd023873505844658a9e65eb4c7))
+
 ## [1.5.0-rc.1](https://github.com/ecomplus/utils/compare/v1.5.0-rc.0...v1.5.0-rc.1) (2022-11-10)
 
 
