@@ -1,4 +1,5 @@
-import { name, version } from './../../package.json'
+const name = '@ecomplus/utils'
+const version = '1.5.0'
 
 // exports info about the package
 export default name + '@' + version
