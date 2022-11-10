@@ -6,9 +6,9 @@ import findByProperty from './find-by-property'
  * @memberof ecomUtils
  * @name findByName
  * @description Find object from list by name or title value.
- * @param {array} list - List of nested objects
+ * @param {Array} list - List of nested objects
  * @param {string} title - Object (category, brand, product...) name or title value
- * @returns {object|undefined}
+ * @returns {Object.<string, *>|undefined}
  *
  * @example
  * const listOfNested = [{"name": "Ultimate Blaster", "sku": "MHP4824"}, {"name": "Xiaomi","sku": "smtp-xomi-9746"}]

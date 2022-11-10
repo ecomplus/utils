@@ -3,8 +3,8 @@
  * @memberof ecomUtils
  * @name categoriesList
  * @description Parse category tree string to list of categories names.
- * @param {object|string} product - Product object body or category tree string
- * @returns {array}
+ * @param {Object.<string, *>|string} product - Product object body or category tree string
+ * @returns {Array}
  *
  * @example
  * // Can be a category tree, like:

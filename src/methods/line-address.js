@@ -5,7 +5,7 @@ import _config from './../lib/config'
  * @memberof ecomUtils
  * @name lineAddress
  * @description Returns full address string from customer object.
- * @param {object} address - Address object or customer body object
+ * @param {Object.<string, *>} address - Address object or customer body object
  * @param {string} [noNumberString] - String to show when address has no number
  * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string}

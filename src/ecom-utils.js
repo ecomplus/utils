@@ -43,7 +43,7 @@ import randomObjectId from './methods/random-object-id'
  * Global config values for E-Com Plus apps.
  * @name ecomUtils#$ecomConfig
  * @see $ecomConfig
- * @type {object}
+ * @type {Object.<string, *>}
  * @example
  * ecomUtils.$ecomConfig.get('store_id')
  * // => 1011

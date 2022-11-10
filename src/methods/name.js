@@ -6,7 +6,7 @@ import i18n from './i18n'
  * @memberof ecomUtils
  * @name name
  * @description Returns object name by lang.
- * @param {object} body - Object (product, category, brand, grid...) body
+ * @param {Object.<string, *>} body - Object (product, category, brand, grid...) body
  * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string}
  *

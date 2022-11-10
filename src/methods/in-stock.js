@@ -5,7 +5,7 @@ import minQuantity from './min-quantity'
  * @memberof ecomUtils
  * @name inStock
  * @description Check if item has stock equal or greater than minimum quantity.
- * @param {object} product - Body object (product or variation)
+ * @param {Object.<string, *>} product - Body object (product or variation)
  * @returns {boolean}
  *
  * @example

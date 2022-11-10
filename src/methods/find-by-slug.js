@@ -5,9 +5,9 @@ import findByProperty from './find-by-property'
  * @memberof ecomUtils
  * @name findBySlug
  * @description Find object from list by slug value.
- * @param {array} list - List of nested objects
+ * @param {Array} list - List of nested objects
  * @param {string} slug - Object (category, brand, product...) slug value
- * @returns {object|undefined}
+ * @returns {Object.<string, *>|undefined}
  *
  * @example
  * // Find on list of brands, categories, products, any...

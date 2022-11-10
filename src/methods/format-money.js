@@ -6,7 +6,7 @@ import price from './price'
  * @memberof ecomUtils
  * @name formatMoney
  * @description Parse price number to formatted currency string.
- * @param {number|object} value - Price number or body object (product or variation)
+ * @param {number|Object.<string, *>} value - Price number or body object (product or variation)
  * @param {string|null} [currency=$ecomConfig.get('currency')] - Currency code such as 'BRL'
  * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
  * @returns {string}

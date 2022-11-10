@@ -3,7 +3,7 @@
  * @memberof ecomUtils
  * @name fullName
  * @description Returns user full name from customer object.
- * @param {object} customer - Customer body object
+ * @param {Object.<string, *>} customer - Customer body object
  * @returns {string}
  *
  * @example

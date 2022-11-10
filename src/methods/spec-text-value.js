@@ -5,11 +5,11 @@ import specValues from './spec-values'
  * @memberof ecomUtils
  * @name specTextValue
  * @description Parse specifications array of nested objects to string.
- * @param {object|array} product - Product body or array of variation objects
+ * @param {Object.<string, *>|Array} product - Product body or array of variation objects
  * @param {string} gridId - Grid ID string such as 'color'
- * @param {array} [grids] - List of grid objects
+ * @param {Array} [grids] - List of grid objects
  * @param {string} [delimiter=', '] - Delimiter between each specification
- * @returns {array|null}
+ * @returns {Array|null}
  *
  * @example
  * const product = { 'name': 'Cruzeiro 2019', 'variations': [ { 'name': 'Cruzeiro 2019 / P / azul', 'specifications': { 'colors': [ { 'text': 'azul', 'value': '#3300ff' }, { 'text': 'vermelho', 'value': '#ff0000' } ] } } ] }

@@ -3,8 +3,8 @@
  * @memberof ecomUtils
  * @name searchedItems
  * @description Returns array of items (products) from Search API response.
- * @param {object|array} result - Search response body or ELS hits array
- * @returns {array}
+ * @param {Object.<string, *>|Array} result - Search response body or ELS hits array
+ * @returns {Array}
  *
  * @example
  * // Full Search API response samples:
@@ -31,7 +31,7 @@ const searchedItems = result => {
 
   // setup items list
   // array of nested objects
-  let items = []
+  const items = []
   if (Array.isArray(hits)) {
     // map items array from ELS hits list
     hits.forEach(({ _id, _source }) => {

@@ -6,9 +6,9 @@ import _config from './../lib/config'
  * @memberof ecomUtils
  * @name i18n
  * @description Get translated string by lang code from dictionary object.
- * @param {object} dictionary - Dictionary object containing string in multiple langs
+ * @param {Object.<string, *>} dictionary - Dictionary object containing string in multiple langs
  * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
- * @returns {string|object}
+ * @returns {string|Object.<string, *>}
  *
  * @example
  * // With simple dictionary objects

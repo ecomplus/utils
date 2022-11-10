@@ -3,7 +3,7 @@
  * @memberof ecomUtils
  * @name onPromotion
  * @description Check if item has promotional price.
- * @param {object} product - Item (product or variation) body object
+ * @param {Object.<string, *>} product - Item (product or variation) body object
  * @returns {boolean}
  *
  * @example

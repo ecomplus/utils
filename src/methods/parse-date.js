@@ -7,7 +7,7 @@ import _config from './../lib/config'
  * @description Returns customer birth date object from string.
  * @param {string} dateStr - Formatted date string
  * @param {string} [countryCode=$ecomConfig.get('country_code')] - Country ISO 3166-1 alpha-2 code
- * @returns {object}
+ * @returns {Object.<string, *>}
  *
  * @example
  * // Date string is fixed to digits only and parsed to E-Com Plus APIs date object

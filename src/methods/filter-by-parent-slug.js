@@ -3,9 +3,9 @@
  * @memberof ecomUtils
  * @name filterByParentSlug
  * @description Filter categories list by parent category slug.
- * @param {array} categories - List of category objects
+ * @param {Array} categories - List of category objects
  * @param {string} slug - Parent category slug value
- * @returns {array}
+ * @returns {Array}
  *
  * @example
  * // Full object ref.: https://developers.e-com.plus/docs/api/#/store/categories/

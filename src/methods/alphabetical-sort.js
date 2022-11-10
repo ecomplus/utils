@@ -3,8 +3,8 @@
  * @memberof ecomUtils
  * @name alphabeticalSort
  * @description Sort list of objects alphabetically by name ot title property.
- * @param {array|object} list - Array of objects (products, brands...) or list body with 'results'
- * @returns {array}
+ * @param {Array|Object.<string, *>} list - Array of objects (products, brands...) or list body with 'results'
+ * @returns {Array}
  *
  * @example
  * // Sample array with name or title's property

@@ -3,7 +3,7 @@
  * @memberof ecomUtils
  * @name phone
  * @description Returns phone string from customer body or phone object.
- * @param {object} customer - Customer body object or phone object with number property
+ * @param {Object.<string, *>} customer - Customer body object or phone object with number property
  * @returns {string}
  *
  * @example

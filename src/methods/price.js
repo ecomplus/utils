@@ -5,7 +5,7 @@ import onPromotion from './on-promotion'
  * @memberof ecomUtils
  * @name price
  * @description Returns current price from item object.
- * @param {object} product - Item (product or variation) body object
+ * @param {Object.<string, *>} product - Item (product or variation) body object
  * @returns {number}
  *
  * @example

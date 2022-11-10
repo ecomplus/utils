@@ -3,10 +3,10 @@
  * @memberof ecomUtils
  * @name specValues
  * @description Returns array of spec objects for specified grid.
- * @param {object|array} product - Product body or array of variation objects
+ * @param {Object.<string, *>|Array} product - Product body or array of variation objects
  * @param {string} gridId - Grid ID string such as 'color'
- * @param {array} [grids] - List of grid objects
- * @returns {array}
+ * @param {Array} [grids] - List of grid objects
+ * @returns {Array}
  *
  * @example
  * const product = { 'name': 'Cruzeiro 2019', 'variations': [ { 'name': 'Cruzeiro 2019 / P / azul', 'specifications': { 'colors': [ { 'text': 'azul', 'value': '#3300ff' } ] } } ] }

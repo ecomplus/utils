@@ -4,7 +4,7 @@
  * @name parsePhone
  * @description Returns customer phone object from string.
  * @param {string} phoneStr - Phone string
- * @returns {object}
+ * @returns {Object.<string, *>}
  *
  * @example
  * // Phone string is fixed and parsed to object with `number`

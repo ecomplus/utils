@@ -3,7 +3,7 @@
  * @memberof ecomUtils
  * @name minQuantity
  * @description Returns the minimum quantity to add to cart.
- * @param {object} product - Body object (product or variation)
+ * @param {Object.<string, *>} product - Body object (product or variation)
  * @returns {number}
  *
  * @example

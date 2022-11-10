@@ -5,7 +5,7 @@ import formatDate from './format-date'
  * @memberof ecomUtils
  * @name birthDate
  * @description Returns birth date formatted string from customer body object.
- * @param {object} customer - Customer body object or birth date object with day, month and year
+ * @param {Object.<string, *>} customer - Customer body object or birth date object with day, month and year
  * @returns {string}
  *
  * @example

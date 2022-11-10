@@ -5,10 +5,10 @@ import specValues from './spec-values'
  * @memberof ecomUtils
  * @name specValueByText
  * @description Get value property of spec object based on respective text.
- * @param {object|array} product - Product body or array of variation objects
+ * @param {Object.<string, *>|Array} product - Product body or array of variation objects
  * @param {string} specText - Spec object text property such as 'Blue'
  * @param {string} gridId - Grid ID string such as 'color'
- * @param {array} [grids] - List of grid objects
+ * @param {Array} [grids] - List of grid objects
  * @returns {string|undefined}
  *
  * @example

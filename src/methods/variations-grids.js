@@ -5,11 +5,11 @@ import specTextValue from './spec-text-value'
  * @memberof ecomUtils
  * @name variationsGrids
  * @description Parse variations specifications to one object only.
- * @param {object} product - Product body object
- * @param {object} [filterGrids] - Filter object with grids and searched values
+ * @param {Object.<string, *>} product - Product body object
+ * @param {Object.<string, *>} [filterGrids] - Filter object with grids and searched values
  * @param {boolean} [inStockOnly] - True to consider only variations with positive stock quantity
  * @param {string} [delimiter=', '] - Delimiter between each specification
- * @returns {object}
+ * @returns {Object.<string, *>}
  *
  * @example
  * // Only param product

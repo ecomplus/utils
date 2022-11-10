@@ -5,11 +5,11 @@ import _config from './../lib/config'
  * @memberof ecomUtils
  * @name img
  * @description Returns img object (with url and alt) from product body or pictures list.
- * @param {object|array} product - Product body object or list of picture objects
+ * @param {Object.<string, *>|Array} product - Product body object or list of picture objects
  * @param {string} [pictureId] - ObjectID of preferred picture to find in the list
  * @param {string} [size=$ecomConfig.get('default_img_size')] - Preferred image size
  * (generally `normal`) to find on picture object
- * @returns {object|undefined}
+ * @returns {Object.<string, *>|undefined}
  *
  * @example
  * const product = { 'pictures': [ { 'small': { 'url': 'https://ecom.com/imgs/100px/64gb.jpg'}, 'big': { 'url': 'https://ecom.com/imgs/700px/64gb.jpg' }, '_id': '694890155127368133600000' }, { 'small': { 'url': 'https://ecom.com/imgs/100px/e-5-64gb.jpg' }, 'big': { 'url': 'https://ecom.com/imgs/700px/e-5-64gb.jpg' }, '_id': '694890155127368133600001' }, { 'small': { 'url': 'https://ecom.com/imgs/100px/5-64gb.jpg' }, 'big': { 'url': 'https://ecom.com/imgs/700px/5-64gb.jpg' }, '_id': '694890155127368133600002' } ], 'name': 'Smartphone Xiaomi' }

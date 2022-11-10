@@ -5,9 +5,9 @@ import _config from './../lib/config'
  * @memberof ecomUtils
  * @name formatDate
  * @description Parse date to locale formatted string.
- * @param {string|object} date - Date object or ISO string, or body object (order, product...)
+ * @param {string|Object.<string, *>} date - Date object or ISO string, or body object (order, product...)
  * @param {string} [lang=$ecomConfig.get('lang')] - Snake case language code, eg.: 'en_us', 'pt_br'
- * @param {object} [options] - Options object for `toLocaleDateString` function
+ * @param {Object.<string, *>} [options] - Options object for `toLocaleDateString` function
  * @returns {string}
  *
  * @example

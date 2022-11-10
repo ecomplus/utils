@@ -3,8 +3,8 @@
  * @memberof ecomUtils
  * @name recommendedIds
  * @description Returns array of product IDs from Graphs API response.
- * @param {object|array} result - Recommend/related products response body
- * @returns {array}
+ * @param {Object.<string, *>|Array} result - Recommend/related products response body
+ * @returns {Array}
  *
  * @example
 

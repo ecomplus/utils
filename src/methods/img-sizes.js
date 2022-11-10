@@ -3,8 +3,8 @@
  * @memberof ecomUtils
  * @name imgSizes
  * @description Splits image size string and returns object with 'width' and 'height'.
- * @param {object|string} img - Image object body or size string
- * @returns {object}
+ * @param {Object.<string, *>|string} img - Image object body or size string
+ * @returns {Object.<string, *>}
  *
  * @example
  * // Using a img sizes string as parameter

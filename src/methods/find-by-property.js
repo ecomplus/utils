@@ -3,10 +3,10 @@
  * @memberof ecomUtils
  * @name findByProperty
  * @description Find object from list by some property value.
- * @param {array} list - List of nested objects
+ * @param {Array} list - List of nested objects
  * @param {string} prop - Property name
  * @param {number|string} value - Property value to be matched
- * @returns {object|undefined}
+ * @returns {Object.<string, *>|undefined}
  *
  * @example
  * // Find on list of generic objects
