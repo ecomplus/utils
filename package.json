@@ -2,12 +2,11 @@
   "name": "@ecomplus/utils",
   "version": "1.5.0-rc.0",
   "description": "JS utility functions to E-Com Plus (not only) related apps",
-  "main": "dist/ecom-utils.node.min.js",
   "exports": {
-    "import": "./src/index.js",
+    "import": "./dist/esm/index.mjs",
     "require": "./dist/ecom-utils.node.min.js"
   },
-  "type": "module",
+  "main": "dist/ecom-utils.node.min.js",
   "types": "./dist/index.d.ts",
   "module": "src/index.js",
   "browser": "dist/ecom-utils.min.js",
@@ -16,9 +15,9 @@
   "sideEffects": false,
   "scripts": {
     "serve": "webpack-dev-server",
-    "build": "node ./build/bin.cjs && npx -p typescript tsc",
+    "build": "rm -rf ./dist; node ./build/bin.cjs && bash ./build/esm.sh && npx -p typescript tsc",
     "doc": "rm -rf ./docs/*; jsdoc ./src -r ./README.md -d ./docs -t ./node_modules/docdash",
-    "release": "rm -rf ./dist; npm ddp && npm run build && npx standard-version --prerelease rc"
+    "release": "npm ddp && npm run build && npx standard-version --prerelease rc"
   },
   "repository": {
     "type": "git",
