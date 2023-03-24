@@ -31,7 +31,7 @@ const lineAddress = (address, noNumberString, lang = _config.get('lang')) => {
       }
 
       // concat address object properties
-      let { street, number, complement, borough, city } = address
+      let { street, number, complement, near_to, borough, city } = address
       let province = address.province_code || address.province
       let lineAddress
       if (street) {
@@ -40,6 +40,9 @@ const lineAddress = (address, noNumberString, lang = _config.get('lang')) => {
           noNumberString || (lang === 'pt_br' ? 'S/N' : '-')
         if (complement) {
           lineAddress += ' - ' + complement
+        }
+        if (near_to) {
+          lineAddress += ' - ' + near_to
         }
         if (borough) {
           lineAddress += ', ' + borough
