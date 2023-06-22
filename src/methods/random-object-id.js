@@ -3,7 +3,7 @@
  * @memberof ecomUtils
  * @name randomObjectId
  * @description Generate a random object id with 24 chars hexadecimal string.
- * @returns {string}
+ * @returns {string & { length: 24 }}
  *
  * @example
  * ecomUtils.randomObjectId()

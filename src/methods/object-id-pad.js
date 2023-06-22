@@ -5,7 +5,7 @@
  * @description Merge received ObjectID string with new index.
  * @param {string} id - Base ID string, 24 digits hexadecimal
  * @param {string} index - The index to be inserted on the end of base ID, creating new ObjectID
- * @returns {string}
+ * @returns {string & { length: 24 }}
  *
  * @example
  * const id = '5ce59fbf887ef430f1f6ed29'
