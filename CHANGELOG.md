@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0-rc.4](https://github.com/ecomplus/utils/compare/v1.5.0-rc.3...v1.5.0-rc.4) (2023-06-22)
+
+
+### Bug Fixes
+
+* **ts:** improving ObjectID methods return type ([b40648d](https://github.com/ecomplus/utils/commit/b40648da17a3ca8d7962fc30dab06abaa749d5cd))
+
 ## [1.5.0-rc.3](https://github.com/ecomplus/utils/compare/v1.5.0-rc.2...v1.5.0-rc.3) (2022-11-10)
 
 ## [1.5.0-rc.2](https://github.com/ecomplus/utils/compare/v1.5.0-rc.1...v1.5.0-rc.2) (2022-11-10)
