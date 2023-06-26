@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0-rc.5](https://github.com/ecomplus/utils/compare/v1.5.0-rc.4...v1.5.0-rc.5) (2023-06-26)
+
+
+### Bug Fixes
+
+* **img:** always check `.url` prop ([f46c30b](https://github.com/ecomplus/utils/commit/f46c30be21255fe832b17eb2f409ed336f5686ed))
+
 ## [1.5.0-rc.4](https://github.com/ecomplus/utils/compare/v1.5.0-rc.3...v1.5.0-rc.4) (2023-06-22)
 
 
