@@ -3,7 +3,10 @@
   "version": "1.5.0-rc.5",
   "description": "JS utility functions to E-Com Plus (not only) related apps",
   "exports": {
-    "import": "./dist/esm/index.mjs",
+    "import": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/esm/index.mjs"
+    },
     "require": "./dist/ecom-utils.node.min.js"
   },
   "main": "dist/ecom-utils.node.min.js",
