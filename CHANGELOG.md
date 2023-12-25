@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0-rc.6](https://github.com/ecomplus/utils/compare/v1.5.0-rc.5...v1.5.0-rc.6) (2023-12-25)
+
 ## [1.5.0-rc.5](https://github.com/ecomplus/utils/compare/v1.5.0-rc.4...v1.5.0-rc.5) (2023-06-26)
 
 
