@@ -20,7 +20,7 @@
     "serve": "webpack-dev-server",
     "build": "rm -rf ./dist; node ./build/bin.cjs && bash ./build/esm.sh && npx -p typescript tsc",
     "doc": "rm -rf ./docs/*; jsdoc ./src -r ./README.md -d ./docs -t ./node_modules/docdash",
-    "release": "npm ddp && npm run build && npx standard-version --prerelease rc"
+    "release": "npm ddp && npm run build && npx commit-and-tag-version --prerelease rc"
   },
   "repository": {
     "type": "git",
@@ -55,7 +55,7 @@
     "husky": "^4.3.8",
     "jsdoc": "^4.0.3",
     "standard": "^17.1.0",
-    "standard-version": "^9.3.2",
+    "commit-and-tag-version": "^9.5.0",
     "webpack": "^4.47.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.3"
